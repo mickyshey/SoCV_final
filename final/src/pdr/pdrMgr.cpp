@@ -291,38 +291,33 @@ TCube PDRMgr::generalize(TCube s) {
 	// TODO
 
 
-	vector<V3NetId> states = s._cube -> getStates();
-	for( unsigned i = 0; i < states.size(); ++i ) {
-		vector<V3NetId> currStates = s._cube -> getStates();
+	//vector<V3NetId> states = s._cube -> getStates();
+	//for( unsigned i = 0; i < states.size(); ++i ) {
+	for( unsigned i = 0; i < L; ++i ) {
+		//vector<V3NetId> currStates = s._cube -> getStates();
 		//s._cube -> show();
 		//s._cube -> showStates();
-		unsigned idx = states[i].id - _ntk -> getLatch(0).id;
-		if( s._cube -> _latchValues[idx]._dontCare ) continue;
+		//unsigned idx = states[i].id - _ntk -> getLatch(0).id;
+		if( s._cube -> _latchValues[i]._dontCare ) continue;
+		//if( s._cube -> _latchValues[idx]._dontCare ) continue;
 		
 		//std::cout << "checking idx: " << idx << std::endl;
-		// create a new state  for solveRelative
-		//vector<V3NetId> tmpStates; tmpStates.clear();
-		//vector<V3NetId> oriStates; oriStates.clear();
 
-		//for( unsigned j = 0; j < i; ++j ) if( !s._cube -> _latchValues[states[j].id - _ntk -> getLatch(0).id]._dontCare ) { tmpStates.push_back(states[j]); oriStates.push_back(states[j]); }
-		//if( !s._cube -> _latchValues[idx]._dontCare ) oriStates.push_back(states[i]);
-		//oriStates.push_back(states[i]);
-		//for( unsigned j = i + 1; j < states.size(); ++j ) if( !s._cube -> _latchValues[states[j].id - _ntk -> getLatch(0).id]._dontCare ) { tmpStates.push_back(states[j]); oriStates.push_back(states[j]); }
-		//assert(tmpStates.size() + 1 == oriStates.size());
-		//std::cout << "tmpStates.size(): " << tmpStates.size() << std::endl;
-
-		s._cube -> _latchValues[idx]._dontCare = 1;
+		s._cube -> _latchValues[i]._dontCare = 1;
+		//s._cube -> _latchValues[idx]._dontCare = 1;
 		//std::cout << "after assign X at idx: ";
 		//s._cube -> show();
-		if( (Z -> isInitial(s._cube)) ) { s._cube -> _latchValues[idx]._dontCare = 0; continue; }
+		if( (Z -> isInitial(s._cube)) ) { s._cube -> _latchValues[i]._dontCare = 0; continue; }
+		//if( (Z -> isInitial(s._cube)) ) { s._cube -> _latchValues[idx]._dontCare = 0; continue; }
+/*
 		for( unsigned j = 0; j < currStates.size(); ++j ) {
 			if( currStates[j].id == states[i].id ) {
 				currStates[j] = currStates.back(); currStates.pop_back();
 				break;
 			}
 		}
-		s._cube -> setStates(currStates);
-		//s._cube -> setStates(tmpStates);
+*/
+		//s._cube -> setStates(currStates);
 		//std::cout << "going into solveRelative, idx: " << idx << std::endl;
 		TCube t = Z -> solveRelative(TCube(s._cube, s._frame), 1);
 		//std::cout << "frame of t: " << t._frame << std::endl;
@@ -339,24 +334,25 @@ TCube PDRMgr::generalize(TCube s) {
 		// recover 
 		else {
 			//std::cout << "bad result, recover ..." << std::endl;
-			s._cube -> _latchValues[idx]._dontCare = 0;
-			currStates.push_back(V3NetId::makeNetId(states[i].id, s._cube -> _latchValues[idx]._bit == 1));
-			s._cube -> setStates(currStates);
+			s._cube -> _latchValues[i]._dontCare = 0;
+			//s._cube -> _latchValues[idx]._dontCare = 0;
+			//currStates.push_back(V3NetId::makeNetId(states[i].id, s._cube -> _latchValues[idx]._bit == 1));
+			//s._cube -> setStates(currStates);
 			//s._cube -> setStates(oriStates);
 			//std::cout << "after recover: " << std::endl;
 			//s._cube -> show();
 			//s._cube -> showStates();
 		}
 	}
-	states = s._cube -> getStates();
-	std::sort(states.begin(), states.end(), NetIdCmp());
-	s._cube -> setStates(states);
+	//states = s._cube -> getStates();
+	//std::sort(states.begin(), states.end(), NetIdCmp());
+	//s._cube -> setStates(states);
 
-/*
+
 	//std::cout << "before generalize: " << std::endl;
 	//s._cube -> show();
 	//s._cube -> showStates();
-
+/*
   for (unsigned i = 0; i < L; ++i) {
     Cube* tc = new Cube(s._cube);
     if (tc->_latchValues[i]._dontCare == 1) continue;
@@ -399,16 +395,6 @@ TCube PDRMgr::generalize(TCube s) {
     }
 	 else delete tc;
   }
-*/
-	// you should update states before return 
-	// TODO
-/*
-	vector<V3NetId> tmpStates; tmpStates.clear();
-	for( unsigned i = 0; i < L; ++i ) {
-		if( s._cube -> _latchValues[i]._dontCare ) continue;
-		tmpStates.push_back(V3NetId::makeNetId(_ntk -> getLatch(i).id, s._cube -> _latchValues[i]._bit == 1));
-	}
-	s._cube -> setStates(tmpStates);
 */
   return s;
 }

@@ -506,15 +506,15 @@ void V3SvrPDRSat::dfs(V3NetVec& orderedNets, bool b, Cube* s) {
 	if( b ) {
 		// no need to traverse all _latchValues, but only _states
 		// TODO
-
+/*
 		vector<V3NetId> states = s -> getStates();
 		for( unsigned i = 0; i < states.size(); ++i ) {
     		const V3NetId& nId = _ntk -> getInputNetId(states[i], 0);
 			_ntk -> dfsOrder(nId, orderedNets);
 			//_ntk -> dfsOrder(states[i], orderedNets);
 		}
+*/
 
-/*
   		for (unsigned i = 0, n = _L; i < n; ++i) {
 			if( s -> _latchValues[i]._dontCare ) continue;
 			const V3NetId& tmp = _ntk -> getLatch(i);
@@ -522,7 +522,7 @@ void V3SvrPDRSat::dfs(V3NetVec& orderedNets, bool b, Cube* s) {
     		_ntk->dfsOrder(nId,orderedNets);
 			_ntk->dfsOrder(tmp,orderedNets);
   		}
-*/
+
 	}
 	// dfs from monitor
 	else {
@@ -676,7 +676,7 @@ bool V3SvrPDRSat::Value3Changed(bool b, Cube* s)
 	if(b) {
 		// no need to traverse all _L, but only for states
 		// TODO
-
+/*
 		const vector<V3NetId>& states = s -> getStates();
 		for( unsigned i = 0; i < states.size(); ++i ) {
 			nId = _ntk -> getInputNetId(states[i], 0);
@@ -685,14 +685,14 @@ bool V3SvrPDRSat::Value3Changed(bool b, Cube* s)
 			//if( _Value3List[nId.id]._bit != values[i]._bit ) return true;
 			//if( states[i].cp ^ nId.cp != _Value3List[nId.id]._bit ) return true;
 		}
+*/
 
-/*
 		for( unsigned i = 0; i < _L; ++i ) {
 			if( s -> _latchValues[i]._dontCare ) continue;
 			V3NetId nId = _ntk -> getInputNetId(_ntk -> getLatch(i), 0);
 			if( _Value3List[nId.id]._dontCare ) return true;
 		}
-*/
+
 	}
 
 	// getBadCube, look at PO(just monitor)
@@ -825,15 +825,15 @@ void V3SvrPDRSat::blockCubeInSolver(TCube s) {
 	// no need to traverse all _L
 	// TODO
 
-
+/*
 	vector<V3NetId> states = s._cube -> getStates();
 	for( unsigned i = 0; i < states.size(); ++i ) {
 		//std::cout << states[i].id << ", cp: " << states[i].cp << std::endl;
 		l = states[i].cp ? mkLit(getVerifyData(states[i], 0), true) : mkLit(getVerifyData(states[i], 0), false);
 		lits.push(l);
 	}
+*/
 
-/*
 	//std::cout << "_latchValues: " << std::endl;
   for (unsigned i = 0; i < _L; ++i) {
     if (!(s._cube->_latchValues[i]._dontCare)) {
@@ -844,7 +844,7 @@ void V3SvrPDRSat::blockCubeInSolver(TCube s) {
       lits.push(l);
     }
   }
-*/
+
   if (s._frame != INT_MAX) {
     assert((unsigned)s._frame < _actVars.size());
     lits.push(mkLit(_actVars[s._frame], true));
@@ -865,7 +865,7 @@ Var V3SvrPDRSat::addNotSToSolver(Cube* c) {
 	// TODO
 
 	//std::cout << "_states: " << std::endl;
-
+/*
 	vector<V3NetId> states = c -> getStates();
 	for( unsigned i = 0; i < states.size(); ++i ) {
 		//std::cout << states[i].id << "[" << states[i].cp << "] " << std::endl;
@@ -873,8 +873,8 @@ Var V3SvrPDRSat::addNotSToSolver(Cube* c) {
 		l = states[i].cp ? mkLit(getVerifyData(states[i], 0), true) : mkLit(getVerifyData(states[i], 0), false);
 		lits.push(l);
 	}
+*/
 
-/*
 	//std::cout << "_latchValues: " << std::endl;
   for (unsigned i = 0; i < _L; ++i) {
     if (!(c->_latchValues[i]._dontCare)) {
@@ -886,7 +886,7 @@ Var V3SvrPDRSat::addNotSToSolver(Cube* c) {
       lits.push(l);
     }
   }
-*/
+
   lits.push(mkLit(tmpActVar, true));
   _Solver->addClause(lits);
   if (debug) {
@@ -965,7 +965,7 @@ Cube* V3SvrPDRSat::UNSATGeneralizationWithUNSATCore(Cube* c, vector<Lit>& Lit_ve
 
 	unsigned idx = 0;
   Cube* tmpCube = new Cube(c);
-	assert(tmpCube -> getStates().size() == c -> getStates().size());
+	//assert(tmpCube -> getStates().size() == c -> getStates().size());
   for (unsigned i = 0; i < _L; ++i) {
     	if (Lit_vec_new[i] == Lit(0)) {
       	tmpCube->_latchValues[i]._dontCare = 1;
@@ -990,16 +990,15 @@ Cube* V3SvrPDRSat::UNSATGeneralizationWithUNSATCore(Cube* c, vector<Lit>& Lit_ve
 	tmpCube -> _latchValues[idx]._dontCare = 0;
   }
 	// update states
-
+/*
 	vector<V3NetId> states = tmpCube -> getStates();
-
 	states.clear();
 	for( unsigned i = 0; i < _L; ++i ) {
 		if( tmpCube -> _latchValues[i]._dontCare ) continue;
 		states.push_back(V3NetId::makeNetId(_ntk -> getLatch(i).id, (tmpCube -> _latchValues[i]._bit == 1)));
 	}
 	tmpCube -> setStates(states);
-
+*/
   return tmpCube;
 }
 void V3SvrPDRSat::assertCubeUNSAT(Cube*c, uint d) {

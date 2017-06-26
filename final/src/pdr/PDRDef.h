@@ -101,8 +101,8 @@ class Cube {
       _latchValues[i]._dontCare = 0;
     }
 	// modified by r04943179
-	_states.clear();
-	_signature = 0;
+	//_states.clear();
+	//_signature = 0;
 	// end of modification
   }
   Cube(bool* b) {
@@ -128,7 +128,7 @@ class Cube {
       _latchValues = NULL;
     }
 	// modified by r04943179
-	setStates(c -> getStates());
+	//setStates(c -> getStates());
 	// end of modification
   }
   Cube(const Cube& c) {
@@ -141,7 +141,7 @@ class Cube {
       _latchValues = NULL;
     }
 	// modified by r04943179
-	setStates(c.getStates());
+	//setStates(c.getStates());
 	// end of modification
   }
   ~Cube() {
@@ -161,7 +161,7 @@ class Cube {
 	//s -> showStates();
 	//std::cout << "sig: " << std::bitset<64>(s -> getSignature()) << std::endl;
 
-
+/*
 	vector<V3NetId> cubeStates = s -> getStates();
 	unsigned cubeSignature = s -> getSignature();
 	if( _states.size() > cubeStates.size() ) { return false; }//std::cout << "subsume false 1" << std::endl; return false; }
@@ -180,8 +180,8 @@ class Cube {
 	return i == _states.size();
 	//if( i == _states.size() ) { std::cout << "subsume true" << std::endl; return true; }
 	//else { std::cout << "subsume false 5 " << std::endl; return false; }
+*/
 
-/*
     for (unsigned i = 0; i < _L; ++i) {
       if (!_latchValues[i]._dontCare) {
         if (s->_latchValues[i]._dontCare) return false;
@@ -189,7 +189,7 @@ class Cube {
       }
     }
     return true;
-*/
+
   }
   void show() {
     // debug fuction
@@ -203,17 +203,17 @@ class Cube {
   }
 
 	// modified by r04943179
-	const vector<V3NetId>& getStates() const { return _states; }
-	const size_t& getSignature() const { return _signature; }
-	void setStates(const vector<V3NetId>& v);
-	void showStates() const;
-	vector<V3NetId>		_states;
-	size_t					_signature;
+	//const vector<V3NetId>& getStates() const { return _states; }
+	//const size_t& getSignature() const { return _signature; }
+	//void setStates(const vector<V3NetId>& v);
+	//void showStates() const;
+	//vector<V3NetId>		_states;
+	//size_t					_signature;
 	// end of modification
   static unsigned _L;               // latch size
   Value3*         _latchValues;     // latch values
 };
-
+/*
 inline void Cube::showStates() const {
 
 	for( unsigned i = 0; i < _states.size(); ++i ) {
@@ -234,7 +234,7 @@ inline void Cube::setStates(const vector<V3NetId>& v) {
 	}
 
 }
-
+*/
 class TCube
 {
  public:
