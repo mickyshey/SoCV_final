@@ -1,0 +1,571 @@
+/****************************************************************************
+  FileName     [ pdrMgr.cpp ]
+  PackageName  [ pdr ]
+  Synopsis     [ Define PDR main functions ]
+  Author       [ SillyDuck ]
+  Copyright    [ Copyright(c) 2016 DVLab, GIEE, NTU, Taiwan ]
+ ****************************************************************************/
+#define showinfo 0
+
+#include <fstream>
+#include <iostream>
+#include <iomanip>
+#include <string>
+#include <cstdio>
+#include <stdlib.h>
+#include <cassert>
+#include <climits>
+#include <cmath>
+#include <unistd.h>
+#include <queue>
+#include <vector>
+#include <algorithm>
+#include <iterator>
+
+#include "v3Msg.h"
+#include "v3NtkUtil.h"
+#include "v3SvrPDRSat.h"
+#include "v3NtkHandler.h" // MODIFICATION FOR SoCV BDD
+#include "v3Ntk.h"
+#include "PDRDef.h"
+#include "reader.h"
+#include "pdrMgr.h"
+
+using namespace std;
+
+unsigned Cube::_L = 0;
+
+// Compare class for priority_queue
+class TCubeCmp {
+ public:
+  bool operator() (const TCube lhs, const TCube rhs) const {
+    return lhs._frame > rhs._frame;
+  }
+};
+
+class NetIdCmp {
+	public:
+	bool operator() (const V3NetId& a, const V3NetId& b) const {
+		return a.id < b.id;
+	}
+};
+
+// Main verification starts here
+void PDRMgr::verifyProperty(const string& name, const V3NetId& monitor) {
+  _ntk = new V3Ntk();
+  *_ntk = *(v3Handler.getCurHandler()->getNtk());
+  SatProofRes pRes;
+
+  V3SvrPDRSat* satSolver = new V3SvrPDRSat(_ntk, false, false);
+
+  // monitor is a V3NetId,
+  // Please figure out how V3 present a circuit
+  // by V3Ntk and V3NetId in src/ntk/V3Ntk.h and V3Type.h
+  satSolver->setMonitor(monitor);
+
+  pRes.setMaxDepth(100);
+  pRes.setSatSolver(satSolver);
+  double runTime = 0;
+  double ctime = (double)clock() / CLOCKS_PER_SEC;
+
+  PDR(monitor, pRes);
+
+  runTime += (((double)clock() / CLOCKS_PER_SEC) - ctime);
+  pRes.reportResult(name);
+  cerr << "runtime: " << runTime << endl;
+  delete satSolver; delete _ntk;
+  reset();
+}
+
+void PDRMgr::reset() {
+  _ntk = NULL;
+}
+
+void PDRMgr::buildAllNtkVerifyData(const V3NetId& monitor) {
+  // Added all circuit constraint to SAT solver here.
+
+  for (uint32_t i = 0; i < _ntk->getLatchSize(); ++i)
+     Z->addBoundedVerifyData(_ntk->getLatch(i), 0);
+  for (uint32_t i = 0; i < _ntk->getLatchSize(); ++i)
+     Z->addBoundedVerifyData(_ntk->getLatch(i), 1);
+  Z->addBoundedVerifyData(monitor, 0);
+  Z->initValue3Data();
+}
+
+bool PDRMgr::PDR(const V3NetId& monitor, SatProofRes& pRes) {
+  // assume no inout
+  if (_ntk->getInoutSize()) { assert(0); }
+  Z = pRes.getSatSolver();
+  L = _ntk->getLatchSize();
+  Cube::_L = L;
+
+  F = new vector<vector<Cube*>*>();
+	//_FNew = new vector<set<Cube*, CubeCmp>*>();
+  Z->setFrame(F);
+	//Z -> setFrame(_FNew);
+  buildAllNtkVerifyData(monitor);
+  // this is F_inf
+  // which means the cube that will never be reached
+  // in any time frame
+  // watch out that _frame of cube in this Frame will be INT_MAX
+  F->push_back(new vector<Cube*>());
+	//_FNew -> push_back(new set<Cube*, CubeCmp>());
+
+  depth = 0;
+  newFrame(); // F[0]
+
+  Z->addInitiateState();
+  Z->setMonitor(monitor);
+
+  // PDR Main function
+  while (true) {
+    // find bad cube, check SAT? (!P & R_k)
+    Cube* cube = Z->getBadCube(depth);
+
+	//if( cube -> _latchValues.size() ) {
+	//if( cube -> _latchValues != NULL ) {
+	//std::cout << "after getBadCube: " << std::endl;
+	//cube -> show();
+	//cube -> showStates();
+	//}
+
+    if (debug) {
+      //if (cube->_latchValues) { 
+      if (cube) {
+        cerr<<"bad cube in frame:" << depth << endl;
+        cube->show();
+      } else {
+        cerr << "bad cube is NULL\n";
+      }
+    }
+	//std::cout << "size: " << cube -> _latchValues.size() << std::endl;
+    if ( cube ) {
+		//std::cout << "valid bad cube" << std::endl;
+    //if (cube->_latchValues != NULL) {
+      TCube t(cube, depth);
+      // Counter example found
+      if (!recursiveBlockCube(t)) {
+        pRes.setFired(0);
+        if (showinfo) {
+          system("clear");
+          cerr << "Number of Cubes:" << endl;
+          for (unsigned i = 0; i < F->size() - 1; ++i)
+            cerr << "Frame "<< i << " : " << (*F)[i]->size() << endl;
+          cerr << "Frame INF :" << (*F)[F->size()-1]->size() << endl;
+        }
+        return true;
+      }
+    } else {
+		//std::cout << "no bad cube, inc depth ..." << std::endl;
+      // depth will only be increased here
+      depth++;
+      newFrame();
+      // Fixed point
+      if (propagateBlockedCubes(pRes)) {
+        if (showinfo) {
+          system("clear");
+          cerr << "Number of Cubes:" << endl;
+          for (unsigned i = 0; i < F->size() - 1; ++i)
+            cerr << "Frame "<< i << " : " << (*F)[i]->size() << endl;
+          cerr << "Frame INF :" << (*F)[F->size()-1]->size() << endl;
+        }
+        return false;
+      }
+    }
+  }
+}
+
+bool PDRMgr::recursiveBlockCube(TCube s0){
+	//std::cout << "in recursiveBlockCube: " << std::endl;
+	//s0._cube -> show();
+	//s0._cube -> showStates();
+  if (debug) cerr << "recursiveBlockCube" << endl;
+  priority_queue<TCube, vector<TCube>, TCubeCmp> Q;
+  Q.push(s0);
+  if (debug) {
+    cerr << "pushed : " << s0._cube << ", ";
+    s0._cube->show();
+  }
+  while (!Q.empty()) {
+    TCube s = Q.top();
+    Q.pop();
+	//std::cout << "pop from queue: " << std::endl;
+	//s._cube -> show();
+	//s._cube -> showStates();
+    if (debug) {
+      cerr << "poped : " << s._cube << ", ";
+      s._cube->show();
+    }
+    // reach R0, counter example found
+    if (s._frame == 0) return false;
+    // block s
+    if (!isBlocked(s)) {
+		//std::cout << "before assert !isInitial: " << std::endl;
+		//s._cube -> show();
+      assert(!(Z->isInitial(s._cube)));
+		//std::cout << "in recursiveBlockCube, before solveRelative 183: " << std::endl;
+		//s._cube -> show();
+		//s._cube -> showStates();
+      TCube z = Z->solveRelative(s, 1);
+		//std::cout << "in recursiveBlockCube, after solveRelative 183: " << std::endl;
+		//z._cube -> show();
+		//z._cube -> showStates();
+		//std::cout << "frame: " << z._frame << std::endl;
+
+      if (z._frame != -1) {
+        // UNSAT, s is blocked
+			//std::cout << "before going into generalize: " << std::endl;
+			//z._cube -> show();
+			//z._cube -> showStates();
+        z = generalize(z);  // UNSAT generalization
+			//std::cout << "in recursiveBlockCube, after generalize: " << std::endl;
+			//z._cube -> show();
+			//z._cube -> showStates();
+        if (debug) {
+          cerr << "cube after generalized :";
+          z._cube->show();
+          cerr << " frame : " << z._frame << endl;
+        }
+        // push to higher frame
+        while (z._frame < (int)(depth - 1)) {
+          // condAssign
+          TCube t = Z->solveRelative(next(z), 1);
+			//std::cout << "in recursiveBlockCube, after solveRelative 202: " << std::endl;
+			//t._cube -> show();
+			//t._cube -> showStates();
+          if (t._frame != -1) z = t;
+          else break;
+        }
+        addBlockedCube(z);
+			//std::cout << "finish addBlockedCube ..." << std::endl;
+        if((s._frame < (int)depth) && (z._frame != INT_MAX)) {
+          TCube a = next(s);
+          Q.push(a);
+          if (debug) {
+            cerr << "pushed : " << s._cube << ", ";
+            s._cube->show();
+          }
+        }
+      } else {
+        // SAT, s is not blocked
+        // TODO: to generate counterexample trace for unsafe property,
+        //       you need to record the SAT pattern here
+			//std::cout << "push z to queue: " << std::endl;
+			//z._cube -> show();
+			//z._cube -> showStates();
+			//std::cout << "push s to queue: " << std::endl;
+			//s._cube -> show();
+			//s._cube -> showStates();
+        z._frame = s._frame - 1;
+        Q.push(z);
+        if (debug) {
+          cerr << "pushed : " << z._cube << ", ";
+          z._cube->show();
+        }
+        Q.push(s); // put it in queue again
+        if (debug) {
+          cerr << "pushed : " << s._cube << ", ";
+          s._cube->show();
+        }
+      }
+    }
+  }
+  return true;
+}
+
+bool PDRMgr::isBlocked(TCube s) {
+  // check if a cube is already blocked in solver
+  // first check if it is subsumes by that frame
+  // then check by solver (more time-consuming)
+
+  for (unsigned d = s._frame; d < F->size(); ++d) {
+    for (unsigned i = 0; i < (*F)[d]->size(); ++i) {
+		// better way to check subsume, check V3 Qsignature
+      if ((*((*F)[d]))[i]->subsumes(s._cube)) {
+        if (debug) {
+          cerr << "F->size():" << F->size() << endl;
+          cerr << "already blocked in frame:" << d << endl;
+          (*((*F)[d]))[i]->show();
+        }
+        return true;
+      }
+    }
+  }
+  return Z->isBlocked(s);
+
+/*
+	//std::cout << "checking: " << std::endl;
+	//s._cube -> showStates();
+	vector<V3NetId> cubeStates = s._cube -> getStates();
+	assert(cubeStates.size());
+	set<Cube*, CubeCmp>::iterator it;
+  for (unsigned d = s._frame; d < _FNew->size(); ++d) {
+	// perform early return
+	// TODO
+	//std::cout << "in frame: " << d << std::endl;
+	it = (*_FNew)[d] -> lower_bound(s._cube);
+	//std::cout << "size of frame: " << (*_FNew)[d] -> size() << std::endl;
+	for( ; it != (*_FNew)[d] -> end(); ++it ) {
+		vector<V3NetId> states = (*it) -> getStates();
+		//std::cout << "(*it): ";
+		//(*it) -> showStates();
+		if( cubeStates.back().id < states[0].id ) break;
+		if( (*it) -> subsumes(s._cube) ) return true;// {
+			//std::cout << "subsumes ..." << std::endl;
+		//}
+		//else std::cout << "not subsumed ..." << std::endl;
+	}
+  }
+  return Z->isBlocked(s);
+*/
+}
+
+TCube PDRMgr::generalize(TCube s) {
+	//std::cout << "in generalize: " << std::endl;
+	//s._cube -> show();
+	//s._cube -> showStates();
+  // UNSAT generalization
+  if (debug) cerr << "UNSAT generalization" << endl;
+	// no need to traverse all _L, but only states
+	// TODO
+
+	vector<V3NetId> states = s._cube -> getStates();
+	for( unsigned i = 0; i < states.size(); ++i ) {
+		vector<V3NetId> currStates = s._cube -> getStates();
+		//s._cube -> show();
+		//s._cube -> showStates();
+		unsigned idx = states[i].id - _ntk -> getLatch(0).id;
+		//if( 'X' == s._cube -> _latchValues[idx].ternaryValue() ) continue;
+		if( s._cube -> _latchValues[idx]._dontCare ) continue;
+		
+		//std::cout << "checking idx: " << idx << std::endl;
+
+		//Value3 record = s._cube -> _latchValues[idx];
+		//s._cube -> _latchValues[idx].setX();
+		s._cube -> _latchValues[idx]._dontCare = 1;
+		//std::cout << "after assign X at idx: ";
+		//s._cube -> show();
+		//if( (Z -> isInitial(s._cube)) ) { s._cube -> _latchValues[idx] = record; continue; }
+		if( (Z -> isInitial(s._cube)) ) { s._cube -> _latchValues[idx]._dontCare = 0; continue; }
+		for( unsigned j = 0; j < currStates.size(); ++j ) {
+			if( currStates[j].id == states[i].id ) {
+				currStates[j] = currStates.back(); currStates.pop_back();
+				break;
+			}
+		}
+		s._cube -> setStates(currStates);
+		//std::cout << "going into solveRelative, idx: " << idx << std::endl;
+		TCube t = Z -> solveRelative(TCube(s._cube, s._frame), 1);
+		//std::cout << "frame of t: " << t._frame << std::endl;
+		if( t._frame != -1 ) {
+			//std::cout << "good result, keep the X ..." << std::endl;
+			//std::cout << "changing from: " << std::endl;
+			//s._cube -> show();
+			//s._cube -> showStates();
+			s = t;
+			//std::cout << "to : " << std::endl;
+			//s._cube -> show();
+			//s._cube -> showStates();
+		}
+		// recover 
+		else {
+			//std::cout << "bad result, recover ..." << std::endl;
+			//s._cube -> _latchValues[idx] = record;
+			s._cube -> _latchValues[idx]._dontCare = 0;
+			//currStates.push_back(V3NetId::makeNetId(states[i].id, s._cube -> _latchValues[idx]._data0 == 0));
+			currStates.push_back(V3NetId::makeNetId(states[i].id, s._cube -> _latchValues[idx]._bit == 1));
+			s._cube -> setStates(currStates);
+			//std::cout << "after recover: " << std::endl;
+			//s._cube -> show();
+			//s._cube -> showStates();
+		}
+	}
+	states = s._cube -> getStates();
+	std::sort(states.begin(), states.end(), NetIdCmp());
+	s._cube -> setStates(states);
+
+  return s;
+}
+
+bool PDRMgr::propagateBlockedCubes(SatProofRes& pRes) {
+  if (debug) cerr << "propagateBlockedCubes" << endl;
+
+  for (unsigned k = 1; k < depth; ++k) {
+    for (unsigned i = 0; i < (*F)[k]->size(); ++i) {
+      TCube s = Z->solveRelative(TCube((*((*F)[k]))[i], k+1), 2);
+      if (s._frame != -1) addBlockedCube(s);
+    }
+    if ((*F)[k]->size() == 0){
+      pRes.setProved(k);
+      return true;
+    }
+  }
+  return false;
+
+
+/*
+	set<Cube*, CubeCmp>::iterator it;
+  for (unsigned k = 1; k < depth; ++k) {
+	//std::cout << "in k: " << k << ", size: " << (*_FNew)[k] -> size() << std::endl;
+	for( it = (*_FNew)[k] -> begin(); it != (*_FNew)[k] -> end(); ) {
+	//for( it = (*_FNew)[k] -> begin(); it != (*_FNew)[k] -> end(); ++it ) {
+		unsigned currSize = (*_FNew)[k] -> size();
+		unsigned distanceIt = distance((*_FNew)[k] -> begin(),it );
+		//std::cout << "curr size: " << (*_FNew)[k] -> size() << std::endl;
+		//std::cout << "it: " << distance((*_FNew)[k] -> begin(), it) << std::endl;
+    //for (unsigned i = 0; i < (*_F)[k]->size(); ++i) {
+		//std::cout << "in propogateBlockedCubes, before solveRelative ..." << std::endl;
+		//(*it) -> showStates();
+      TCube s = Z->solveRelative(TCube((*it), k+1), 2);
+      //TCube s = Z->solveRelative(TCube((*((*F)[k]))[i], k+1), 2);
+      if (s._frame != -1) addBlockedCube(s);
+
+// may cause some problem !!??
+		if( currSize == (*_FNew)[k] -> size() ) ++it;
+		else { it = (*_FNew)[k] -> begin(); advance(it, distanceIt); }
+
+		//std::cout << "now size: " << (*_FNew)[k] -> size() << std::endl;
+    }
+    if ((*_FNew)[k]->size() == 0){
+      pRes.setProved(k);
+      return true;
+    }
+  }
+  return false;
+*/
+}
+
+void PDRMgr::newFrame(bool force) {
+
+  if (force || depth >= F->size() - 1) {
+    unsigned n = F -> size();
+    F->push_back(new vector<Cube*>());
+    (*F)[n]->swap(*((*F)[n-1]));
+    Z->newActVar();
+    assert(Z->_actVars.size() == F->size() - 1); // Frame_inf doesn't need ActVar
+    if (debug) {
+      cerr << endl;
+      cerr << "Newed frame:" << F->size() << endl;
+      cerr << "actVar:" << Z->_actVars[Z->_actVars.size() - 1] << endl;
+    }
+  }
+  assert ( depth <= F->size()-2 ) ;
+
+/*
+	// modified by r04943179
+  if (force || depth >= _FNew->size() - 1) {
+    unsigned n = _FNew -> size();
+    _FNew->push_back(new set<Cube*, CubeCmp>());
+    (*_FNew)[n]->swap(*((*_FNew)[n-1]));
+    Z->newActVar();
+    assert(Z->_actVars.size() == _FNew->size() - 1); // Frame_inf doesn't need ActVar
+    if (debug) {
+      cerr << endl;
+      cerr << "Newed frame:" << _FNew->size() << endl;
+      cerr << "actVar:" << Z->_actVars[Z->_actVars.size() - 1] << endl;
+    }
+  }
+  assert ( depth <= _FNew->size()-2 ) ;
+*/
+}
+
+void PDRMgr::addBlockedCube(TCube s) {
+  assert(s._frame != -1);
+  //addBlockedCube (To Frame Structure)
+  if (debug) {
+    cerr << "addBlockCube in frame : " << s._frame << ", cube is : ";
+    s._cube->show();
+    cerr << "frame size now is " << F->size() << endl;
+  }
+
+  if((unsigned)s._frame == F->size() - 1){
+    newFrame(true);
+  }
+  int l = s._frame;
+  int r = F->size()-1;
+  unsigned k = (unsigned)(l > r ? r : l);
+  for (unsigned d = 1; d <= k; ++d) {
+    for (unsigned i = 0; i < (*F)[d]->size(); ) {
+      if (s._cube->subsumes((*((*F)[d]))[i])) {
+        (*((*F)[d]))[i] = (*F)[d]->back();
+        (*F)[d] -> pop_back();
+      } else {
+        i++;
+      }
+    }
+  }
+  (*F)[k]->push_back(s._cube);
+	//std::cout << "before blockCubeInSolver: " << std::endl;
+	//s._cube -> show();
+	//s._cube -> showStates();
+  Z->blockCubeInSolver(s);
+
+
+	//std::cout << "in addBlocked cube ..." << std::endl;
+	//std::cout << "checking s._cube: ";
+	//s._cube -> showStates();
+/*
+  if((unsigned)s._frame == _FNew->size() - 1){
+    newFrame(true);
+  }
+  int l = s._frame;
+  int r = _FNew->size()-1;
+  unsigned k = (unsigned)(l > r ? r : l);
+	const vector<V3NetId>& cubeStates = s._cube -> getStates();
+	set<Cube*, CubeCmp>::iterator it, tmpIt;
+  for (unsigned d = 1; d <= k; ++d) {
+	// perform early return
+	// TODO
+	//std::cout << "in addB, frame: " << d << std::endl;
+	it = (*_FNew)[d] -> begin();
+	//std::cout << "size of frame: " << (*_FNew)[d] -> size() << std::endl;
+	while( it != (*_FNew)[d] -> end() ) {
+		const vector<V3NetId>& states = (*it) -> getStates();	
+		//std::cout << "(*it): ";
+		//(*it) -> showStates();
+		if( cubeStates[0].id < states[0].id ) break;
+		if( s._cube -> subsumes((*it)) ) {
+			//std::cout << "subsumes and erase ..." << std::endl;
+			delete *it;
+			(*_FNew)[d] -> erase(it++);
+			//std::cout << "after erase, size: " << (*_FNew)[d] -> size() << std::endl;
+			//for( tmpIt = (*_FNew)[d] -> begin(); tmpIt != (*_FNew)[d] -> end(); ++tmpIt )
+			//	(*tmpIt) -> showStates();
+		}
+		else ++it;
+	}
+*/
+/*
+    for (unsigned i = 0; i < (*F)[d]->size(); ) {
+      if (s._cube->subsumes((*((*F)[d]))[i])) {
+        (*((*F)[d]))[i] = (*F)[d]->back();
+        (*F)[d] -> pop_back();
+      } else {
+        i++;
+      }
+    }
+*/
+/*
+  }
+
+	(*_FNew)[k] -> insert(s._cube);
+	//set<Cube*, CubeCmp>::iterator it;
+	//std::cout << "in " << k << std::endl;
+	//for( it = (*_FNew)[k] -> begin(); it != (*_FNew)[k] -> end(); ++it ) {
+	//	(*it) -> showStates();
+	//}
+	//std::cout << std::endl;
+
+	//std::cout << "before blockCubeInSolver: " << std::endl;
+	//s._cube -> show();
+	//s._cube -> showStates();
+
+
+  Z->blockCubeInSolver(s);
+	//std::cout << "blockCubeInSolver done .." << std::endl;
+*/
+}
+
+TCube PDRMgr::next(const TCube& s){
+  return TCube(s._cube, s._frame + 1);
+}

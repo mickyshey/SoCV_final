@@ -1,0 +1,566 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+BUF_SIZE	reader.h	17;"	d
+CC_MINIMIZATION	SolverV.cpp	25;"	d	file:
+Clause	SolverTypesV.h	/^    Clause(bool learnt, const vec<Lit>& ps, ClauseId id_ = ClauseId_NULL) {$/;"	f	class:Clause
+Clause	SolverTypesV.h	/^class Clause {$/;"	c
+ClauseId	SolverTypesV.h	/^typedef int ClauseId;     \/\/ (might have to use uint64 one day...)$/;"	t
+ClauseId_NULL	SolverTypesV.h	/^const   int ClauseId_NULL = INT_MIN;$/;"	v
+Clause_new	SolverTypesV.h	/^inline Clause* Clause_new(bool learnt, const vec<Lit>& ps, ClauseId id = ClauseId_NULL) {$/;"	f
+Cube	PDRDef.h	/^  Cube(){$/;"	f	class:Cube
+Cube	PDRDef.h	/^  Cube(Cube* c) {$/;"	f	class:Cube
+Cube	PDRDef.h	/^  Cube(bool* b) {$/;"	f	class:Cube
+Cube	PDRDef.h	/^  Cube(bool* b, bool* d) {$/;"	f	class:Cube
+Cube	PDRDef.h	/^  Cube(const Cube& c) {$/;"	f	class:Cube
+Cube	PDRDef.h	/^class Cube {$/;"	c
+Current_Pos	reader.h	/^	unsigned int Current_Pos()	{ return overall_pos; }$/;"	f	class:Reader
+DEFAULTS	FileV.h	40;"	d
+DEFAULTS	FileV.h	48;"	d
+Datum	GlobalV.h	/^    typedef T   Datum;$/;"	t	class:vec
+Exception_EOF	FileV.h	/^class Exception_EOF {};$/;"	c
+F	pdrMgr.h	/^    vector<vector<Cube*>*>*   F;         \/\/ be careful of the type of this data member$/;"	m	class:PDRMgr
+File	FileV.h	/^    File(cchar* name, cchar* mode) : DEFAULTS {$/;"	f	class:File
+File	FileV.h	/^    File(int fd, FileMode mode, bool own_fd = true) : DEFAULTS  {$/;"	f	class:File
+File	FileV.h	/^    File(void) : DEFAULTS {}$/;"	f	class:File
+File	FileV.h	/^class File {$/;"	c
+FileMode	FileV.h	/^enum FileMode { READ, WRITE };$/;"	g
+File_BufSize	FileV.h	22;"	d
+File_h	FileV.h	2;"	d
+GClause	SolverTypesV.h	/^    GClause(void* d) : data(d) {}$/;"	f	class:GClause
+GClause	SolverTypesV.h	/^class GClause {$/;"	c
+GClause_NULL	SolverTypesV.h	143;"	d
+GClause_new	SolverTypesV.h	/^inline GClause GClause_new(Clause* c) { assert(((uintp)c & 1) == 0); return GClause((void*)c); }$/;"	f
+GClause_new	SolverTypesV.h	/^inline GClause GClause_new(Lit p)     { return GClause((void*)(((intp)index(p) << 1) + 1)); }$/;"	f
+Global_h	GlobalV.h	21;"	d
+Heap	HeapV.h	/^    Heap(C c) : comp(c) { heap.push(-1); }$/;"	f	class:Heap
+Heap	HeapV.h	/^class Heap {$/;"	c
+Heap_h	HeapV.h	21;"	d
+I64_fmt	GlobalV.h	41;"	d
+I64_fmt	GlobalV.h	47;"	d
+Key	GlobalV.h	/^    typedef int Key;$/;"	t	class:vec
+L	pdrMgr.h	/^    unsigned                  L;         \/\/ latch size$/;"	m	class:PDRMgr
+L_LIT	SolverV.h	224;"	d
+L_lit	SolverV.h	225;"	d
+LessThan_default	SortV.h	/^struct LessThan_default {$/;"	s
+Lit	SolverTypesV.h	/^    Lit() : x(2*var_Undef) {}   \/\/ (lit_Undef)$/;"	f	class:Lit
+Lit	SolverTypesV.h	/^    explicit Lit(Var var, bool sgn = false) : x((var+var) + (int)sgn) {}$/;"	f	class:Lit
+Lit	SolverTypesV.h	/^class Lit {$/;"	c
+NetIdCmp	pdrMgr.cpp	/^class NetIdCmp {$/;"	c	file:
+PDR	pdrMgr.cpp	/^bool PDRMgr::PDR(const V3NetId& monitor, SatProofRes& pRes) {$/;"	f	class:PDRMgr
+PDRDEF_H	PDRDef.h	17;"	d
+PDRMgr	pdrMgr.h	/^    PDRMgr(): _ntk(NULL) { reset(); }$/;"	f	class:PDRMgr
+PDRMgr	pdrMgr.h	/^class PDRMgr {$/;"	c
+PDR_CMD_H_	pdrCmd.h	10;"	d
+PDR_MGR_H_	pdrMgr.h	10;"	d
+Proof	ProofV.cpp	/^Proof::Proof()$/;"	f	class:Proof
+Proof	ProofV.cpp	/^Proof::Proof(ProofTraverser& t)$/;"	f	class:Proof
+Proof	ProofV.h	/^class Proof {$/;"	c
+ProofTraverser	ProofV.h	/^struct ProofTraverser {$/;"	s
+Proof_h	ProofV.h	21;"	d
+RDR_EOF	reader.h	18;"	d
+READ	FileV.h	/^enum FileMode { READ, WRITE };$/;"	e	enum:FileMode
+Reader	reader.h	/^	Reader():fd(-1)				{};$/;"	f	class:Reader
+Reader	reader.h	/^class Reader{$/;"	c
+STATIC_ASSERTION_FAILURE	GlobalV.h	/^template <> struct STATIC_ASSERTION_FAILURE<true>{};$/;"	s
+SatProofRes	pdrMgr.h	/^    SatProofRes(V3SvrPDRSat* s = 0):$/;"	f	class:SatProofRes
+SatProofRes	pdrMgr.h	/^class SatProofRes {$/;"	c
+SearchParams	SolverV.h	/^    SearchParams(double v = 1, double c = 1, double r = 0) : var_decay(v), clause_decay(c), random_var_freq(r) { }$/;"	f	struct:SearchParams
+SearchParams	SolverV.h	/^struct SearchParams {$/;"	s
+SolverStats	SolverV.h	/^    SolverStats() : starts(0), decisions(0), propagations(0), conflicts(0)$/;"	f	struct:SolverStats
+SolverStats	SolverV.h	/^struct SolverStats {$/;"	s
+SolverTypes_h	SolverTypesV.h	22;"	d
+SolverV	SolverV.h	/^    SolverV() : ok               (true)$/;"	f	class:SolverV
+SolverV	SolverV.h	/^class SolverV {$/;"	c
+Solver_h	SolverV.h	21;"	d
+Sort_h	SortV.h	21;"	d
+TCube	PDRDef.h	/^  TCube(): _cube(NULL), _frame(-1) {$/;"	f	class:TCube
+TCube	PDRDef.h	/^  TCube(Cube* c, unsigned d): _cube(c), _frame((int)d) {$/;"	f	class:TCube
+TCube	PDRDef.h	/^  TCube(const TCube& t) {$/;"	f	class:TCube
+TCube	PDRDef.h	/^class TCube$/;"	c
+TCubeCmp	pdrMgr.cpp	/^class TCubeCmp {$/;"	c	file:
+TEMPLATE_FAIL	GlobalV.h	58;"	d
+TempFiles	ProofV.cpp	/^class TempFiles {$/;"	c	file:
+UNSATGeneralizationWithUNSATCore	v3SvrPDRSat.cpp	/^Cube* V3SvrPDRSat::UNSATGeneralizationWithUNSATCore(Cube* c, vector<Lit>& Lit_vec_origin) {$/;"	f	class:V3SvrPDRSat
+V3SvrDataVec	v3SvrPDRSat.h	/^typedef V3Vec<size_t>::Vec      V3SvrDataVec;$/;"	t
+V3SvrMLitData	v3SvrPDRSat.h	/^typedef V3Vec<Lit>::Vec         V3SvrMLitData;$/;"	t
+V3SvrMVarData	v3SvrPDRSat.h	/^typedef V3Vec<Var>::Vec         V3SvrMVarData;$/;"	t
+V3SvrPDRSat	v3SvrPDRSat.cpp	/^V3SvrPDRSat::V3SvrPDRSat(V3Ntk* ntk, const bool& freeBound, const bool& proofLog) $/;"	f	class:V3SvrPDRSat
+V3SvrPDRSat	v3SvrPDRSat.h	/^class V3SvrPDRSat$/;"	c
+V3_SVR_MSAT_H	v3SvrPDRSat.h	12;"	d
+V3_SVR_PDRSAT_C	v3SvrPDRSat.cpp	10;"	d	file:
+Value3	PDRDef.h	/^  Value3() : _bit(0), _dontCare(1) {}$/;"	f	class:Value3
+Value3	PDRDef.h	/^  Value3(bool b, bool d): _bit(b), _dontCare(d) {}$/;"	f	class:Value3
+Value3	PDRDef.h	/^  Value3(const Value3& a) {$/;"	f	class:Value3
+Value3	PDRDef.h	/^class Value3 {$/;"	c
+Value3Changed	v3SvrPDRSat.cpp	/^bool V3SvrPDRSat::Value3Changed(bool b, Cube* s) {$/;"	f	class:V3SvrPDRSat
+Var	SolverTypesV.h	/^typedef int Var;$/;"	t
+VarOrder	VarOrderV.h	/^    VarOrder(const vec<char>& ass, const vec<double>& act) :$/;"	f	class:VarOrder
+VarOrder	VarOrderV.h	/^class VarOrder {$/;"	c
+VarOrder_h	VarOrderV.h	21;"	d
+VarOrder_lt	VarOrderV.h	/^    VarOrder_lt(const vec<double>&  act) : activity(act) { }$/;"	f	struct:VarOrder_lt
+VarOrder_lt	VarOrderV.h	/^struct VarOrder_lt {$/;"	s
+WRITE	FileV.h	/^enum FileMode { READ, WRITE };$/;"	e	enum:FileMode
+Z	pdrMgr.h	/^    V3SvrPDRSat*              Z;         \/\/ PDR Sat interface$/;"	m	class:PDRMgr
+_F	v3SvrPDRSat.h	/^      vector<vector<Cube*>*>*   _F;         \/\/ PDR Frames$/;"	m	class:V3SvrPDRSat
+_I	v3SvrPDRSat.h	/^      const size_t              _I;         \/\/ Input size$/;"	m	class:V3SvrPDRSat
+_L	PDRDef.h	/^  static unsigned _L;               \/\/ latch size$/;"	m	class:Cube
+_L	pdrMgr.cpp	/^unsigned Cube::_L = 0;$/;"	m	class:Cube	file:
+_L	v3SvrPDRSat.h	/^      const size_t              _L;         \/\/ Latch size$/;"	m	class:V3SvrPDRSat
+_READER_H_	reader.h	10;"	d
+_Solver	v3SvrPDRSat.h	/^      SolverV*                  _Solver;    \/\/ Pointer to a Minisat solver$/;"	m	class:V3SvrPDRSat
+_Value3List	v3SvrPDRSat.h	/^      V3Vec<Value3>::Vec        _Value3List;\/\/ Mapping between V3NetId and Value3, used for simulation$/;"	m	class:V3SvrPDRSat
+__SGI_STL_INTERNAL_RELOPS	GlobalV.h	276;"	d
+_aborted	SolverV.h	/^   bool     _aborted;$/;"	m	class:SolverV
+_actVars	v3SvrPDRSat.h	/^      vector<Var>               _actVars;   \/\/ Activation Vars$/;"	m	class:V3SvrPDRSat
+_assump	v3SvrPDRSat.h	/^      vec<Lit>                  _assump;    \/\/ Assumption List for assumption solve$/;"	m	class:V3SvrPDRSat
+_bit	PDRDef.h	/^  bool _bit;$/;"	m	class:Value3
+_conflictNum	SolverV.h	/^   int      _conflictNum;$/;"	m	class:SolverV
+_cube	PDRDef.h	/^  Cube* _cube;$/;"	m	class:TCube
+_curVar	v3SvrPDRSat.h	/^      Var                       _curVar;    \/\/ Latest Fresh Variable$/;"	m	class:V3SvrPDRSat
+_dontCare	PDRDef.h	/^  bool _dontCare;$/;"	m	class:Value3
+_fired	pdrMgr.h	/^    uint32_t      _fired;$/;"	m	class:SatProofRes
+_frame	PDRDef.h	/^  int   _frame; \/\/ -1 = frame_null, INT_MAX = INF$/;"	m	class:TCube
+_freeBound	v3SvrPDRSat.h	/^      const bool                _freeBound; \/\/ Set FF Bounds Free$/;"	m	class:V3SvrPDRSat
+_init	v3SvrPDRSat.h	/^      V3SvrMLitData             _init;      \/\/ Initial state Var storage$/;"	m	class:V3SvrPDRSat
+_latchValues	PDRDef.h	/^  Value3*         _latchValues;     \/\/ latch values$/;"	m	class:Cube
+_maxDepth	pdrMgr.h	/^    uint32_t      _maxDepth;  \/\/ maximum proof depth$/;"	m	class:SatProofRes
+_monitor	v3SvrPDRSat.h	/^      V3NetId                   _monitor;   \/\/ The Bad Output$/;"	m	class:V3SvrPDRSat
+_ntk	pdrMgr.h	/^    V3Ntk*                    _ntk;$/;"	m	class:PDRMgr
+_ntk	v3SvrPDRSat.h	/^      V3Ntk*                    _ntk;       \/\/ Network Under Verification$/;"	m	class:V3SvrPDRSat
+_ntkData	v3SvrPDRSat.h	/^      V3SvrMVarData*            _ntkData;   \/\/ Mapping between V3NetId and Solver Data (Vars)$/;"	m	class:V3SvrPDRSat
+_proved	pdrMgr.h	/^    uint32_t      _proved;$/;"	m	class:SatProofRes
+_runTime	v3SvrPDRSat.h	/^      double                    _runTime;   \/\/ Total Runtime in Solving$/;"	m	class:V3SvrPDRSat
+_satSolver	pdrMgr.h	/^    V3SvrPDRSat*  _satSolver;$/;"	m	class:SatProofRes
+_signature	PDRDef.h	/^	size_t					_signature;$/;"	m	class:Cube
+_solves	v3SvrPDRSat.h	/^      uint32_t                  _solves;    \/\/ Number of Solve Called$/;"	m	class:V3SvrPDRSat
+_states	PDRDef.h	/^	vector<V3NetId>		_states;$/;"	m	class:Cube
+activity	SolverTypesV.h	/^    float&    activity    ()      const { return *((float*)&data[size()]); }$/;"	f	class:Clause
+activity	SolverV.h	/^    vec<double>         activity;         \/\/ A heuristic measurement of the activity of a variable.$/;"	m	class:SolverV
+activity	VarOrderV.h	/^    const vec<double>&  activity;    \/\/ var->act. Pointer to external activity table.$/;"	m	class:VarOrder
+activity	VarOrderV.h	/^    const vec<double>&  activity;$/;"	m	struct:VarOrder_lt
+addBinary	SolverV.h	/^    void    addBinary (Lit p, Lit q)        { addBinary_tmp [0] = p; addBinary_tmp [1] = q; addClause(addBinary_tmp); }$/;"	f	class:SolverV
+addBinary_tmp	SolverV.h	/^    vec<Lit>            addBinary_tmp;$/;"	m	class:SolverV
+addBlockedCube	pdrMgr.cpp	/^void PDRMgr::addBlockedCube(TCube s) {$/;"	f	class:PDRMgr
+addBoundedVerifyData	v3SvrPDRSat.cpp	/^V3SvrPDRSat::addBoundedVerifyData(const V3NetId& id, const uint32_t& depth) {$/;"	f	class:V3SvrPDRSat
+addBoundedVerifyDataRecursively	v3SvrPDRSat.cpp	/^V3SvrPDRSat::addBoundedVerifyDataRecursively(const V3NetId& id, uint32_t& depth)$/;"	f	class:V3SvrPDRSat
+addClause	SolverV.h	/^    void    addClause (const vec<Lit>& ps )  { if (okay()) newClause(ps); }  \/\/ (used to be a difference between internal and external method...)$/;"	f	class:SolverV
+addInitiateState	v3SvrPDRSat.cpp	/^void V3SvrPDRSat::addInitiateState() {$/;"	f	class:V3SvrPDRSat
+addNextStateSToSolver	v3SvrPDRSat.cpp	/^void V3SvrPDRSat::addNextStateSToSolver(Cube* c, vector<Lit>& Lit_vec_origin) {$/;"	f	class:V3SvrPDRSat
+addNotSToSolver	v3SvrPDRSat.cpp	/^Var V3SvrPDRSat::addNotSToSolver(Cube* c) {$/;"	f	class:V3SvrPDRSat
+addRoot	ProofV.cpp	/^ClauseId Proof::addRoot(vec<Lit>& cl)$/;"	f	class:Proof
+addTernary	SolverV.h	/^    void    addTernary(Lit p, Lit q, Lit r) { addTernary_tmp[0] = p; addTernary_tmp[1] = q; addTernary_tmp[2] = r; addClause(addTernary_tmp); }$/;"	f	class:SolverV
+addTernary_tmp	SolverV.h	/^    vec<Lit>            addTernary_tmp;$/;"	m	class:SolverV
+addUnit	SolverV.h	/^    void    addUnit   (Lit p)               { addUnit_tmp   [0] = p; addClause(addUnit_tmp); }$/;"	f	class:SolverV
+addUnit_tmp	SolverV.h	/^    vec<Lit>            addUnit_tmp;$/;"	m	class:SolverV
+addVerifyData	v3SvrPDRSat.cpp	/^V3SvrPDRSat::addVerifyData(const V3NetId& id, const uint32_t& depth) {$/;"	f	class:V3SvrPDRSat
+add_AND_Formula	v3SvrPDRSat.cpp	/^V3SvrPDRSat::add_AND_Formula(const V3NetId& out, const uint32_t& depth) {$/;"	f	class:V3SvrPDRSat
+add_FALSE_Formula	v3SvrPDRSat.cpp	/^V3SvrPDRSat::add_FALSE_Formula(const V3NetId& out, const uint32_t& depth) {$/;"	f	class:V3SvrPDRSat
+add_FF_Formula	v3SvrPDRSat.cpp	/^V3SvrPDRSat::add_FF_Formula(const V3NetId& out, const uint32_t& depth) {$/;"	f	class:V3SvrPDRSat
+add_PI_Formula	v3SvrPDRSat.cpp	/^V3SvrPDRSat::add_PI_Formula(const V3NetId& out, const uint32_t& depth) {$/;"	f	class:V3SvrPDRSat
+analyze	SolverV.cpp	/^void SolverV::analyze(Clause* confl, vec<Lit>& out_learnt, int& out_btlevel)$/;"	f	class:SolverV
+analyzeFinal	SolverV.cpp	/^void SolverV::analyzeFinal(Clause* confl, bool skip_first)$/;"	f	class:SolverV
+analyze_removable	SolverV.cpp	/^bool SolverV::analyze_removable(Lit p, uint min_level)$/;"	f	class:SolverV
+analyze_seen	SolverV.h	/^    vec<char>           analyze_seen;$/;"	m	class:SolverV
+analyze_stack	SolverV.h	/^    vec<Lit>            analyze_stack;$/;"	m	class:SolverV
+analyze_tmpbin	SolverV.h	/^    Clause*             analyze_tmpbin;$/;"	m	class:SolverV
+analyze_toclear	SolverV.h	/^    vec<Lit>            analyze_toclear;$/;"	m	class:SolverV
+and_2	v3SvrPDRSat.cpp	/^inline void and_2(SolverV* SS, const Lit& y, const Lit& a, const Lit& b)$/;"	f
+assertCubeUNSAT	v3SvrPDRSat.cpp	/^void V3SvrPDRSat::assertCubeUNSAT(Cube*c, uint d) {$/;"	f	class:V3SvrPDRSat
+assertImplyUnion	v3SvrPDRSat.cpp	/^V3SvrPDRSat::assertImplyUnion(const V3SvrDataVec& vars) {$/;"	f	class:V3SvrPDRSat
+assertInit	v3SvrPDRSat.cpp	/^V3SvrPDRSat::assertInit() {$/;"	f	class:V3SvrPDRSat
+assertProperty	v3SvrPDRSat.cpp	/^V3SvrPDRSat::assertProperty(const V3NetId& id, const bool& invert, const uint32_t& depth) {$/;"	f	class:V3SvrPDRSat
+assertProperty	v3SvrPDRSat.cpp	/^V3SvrPDRSat::assertProperty(const size_t& var, const bool& invert) {$/;"	f	class:V3SvrPDRSat
+assigns	SolverV.h	/^    vec<char>           assigns;          \/\/ The current assignments (lbool:s stored as char:s).$/;"	m	class:SolverV
+assigns	VarOrderV.h	/^    const vec<char>&    assigns;     \/\/ var->val. Pointer to external assignment table.$/;"	m	class:VarOrder
+assume	SolverV.cpp	/^bool SolverV::assume(Lit p) {$/;"	f	class:SolverV
+assumeInit	v3SvrPDRSat.cpp	/^V3SvrPDRSat::assumeInit() {$/;"	f	class:V3SvrPDRSat
+assumeProperty	v3SvrPDRSat.cpp	/^V3SvrPDRSat::assumeProperty(const V3NetId& id, const bool& invert, const uint32_t& depth) {$/;"	f	class:V3SvrPDRSat
+assumeProperty	v3SvrPDRSat.cpp	/^V3SvrPDRSat::assumeProperty(const size_t& var, const bool& invert) {$/;"	f	class:V3SvrPDRSat
+assumeRelease	v3SvrPDRSat.cpp	/^V3SvrPDRSat::assumeRelease() { _assump.clear(); }$/;"	f	class:V3SvrPDRSat
+assump_solve	v3SvrPDRSat.cpp	/^V3SvrPDRSat::assump_solve() {$/;"	f	class:V3SvrPDRSat
+beginChain	ProofV.cpp	/^void Proof::beginChain(ClauseId start)$/;"	f	class:Proof
+blockCubeInSolver	v3SvrPDRSat.cpp	/^void V3SvrPDRSat::blockCubeInSolver(TCube s) {$/;"	f	class:V3SvrPDRSat
+buf	FileV.h	/^    uchar*      buf;        \/\/ Read or write buffer.$/;"	m	class:File
+buf	reader.h	/^	unsigned char* 	buf;$/;"	m	class:Reader
+buf	v3SvrPDRSat.cpp	/^inline void buf(SolverV* SS, const Lit& a, const Lit& b)$/;"	f
+buildAllNtkVerifyData	pdrMgr.cpp	/^void PDRMgr::buildAllNtkVerifyData(const V3NetId& monitor) {$/;"	f	class:PDRMgr
+cancelUntil	SolverV.cpp	/^void SolverV::cancelUntil(int level) {$/;"	f	class:SolverV
+cap	GlobalV.h	/^    int cap;$/;"	m	class:vec
+capacity	GlobalV.h	/^    void     capacity (int size) { grow(size); }$/;"	f	class:vec
+cchar	GlobalV.h	/^typedef const char    cchar;$/;"	t
+chain	ProofV.h	/^    virtual void chain  (const vec<ClauseId>& cs, const vec<Var>& xs) {}$/;"	f	struct:ProofTraverser
+chain_id	ProofV.h	/^    vec<ClauseId>   chain_id;$/;"	m	class:Proof
+chain_var	ProofV.h	/^    vec<Var>        chain_var;$/;"	m	class:Proof
+check	SolverV.h	/^inline void check(bool expr) { assert(expr); }$/;"	f
+claBumpActivity	SolverV.h	/^    void     claBumpActivity (Clause* c) { if ( (c->activity() += cla_inc) > 1e20 ) claRescaleActivity(); }$/;"	f	class:SolverV
+claDecayActivity	SolverV.h	/^    void     claDecayActivity  () { cla_inc *= cla_decay; }$/;"	f	class:SolverV
+claRescaleActivity	SolverV.cpp	/^void SolverV::claRescaleActivity()$/;"	f	class:SolverV
+cla_decay	SolverV.h	/^    double              cla_decay;        \/\/ INVERSE decay factor for clause activity: stores 1\/decay.$/;"	m	class:SolverV
+cla_inc	SolverV.h	/^    double              cla_inc;          \/\/ Amount to bump next clause with.$/;"	m	class:SolverV
+clause	ProofV.h	/^    vec<Lit>        clause;$/;"	m	class:Proof
+clause	SolverTypesV.h	/^    Clause*     clause   () const { return (Clause*)data; }$/;"	f	class:GClause
+clause_decay	SolverV.h	/^    double  var_decay, clause_decay, random_var_freq;    \/\/ (reasonable values are: 0.95, 0.999, 0.02)    $/;"	m	struct:SearchParams
+clauses	SolverV.h	/^    vec<Clause*>        clauses;          \/\/ List of problem clauses.$/;"	m	class:SolverV
+clauses_literals	SolverV.h	/^    int64   clauses_literals, learnts_literals, max_literals, tot_literals;$/;"	m	struct:SolverStats
+clear	GlobalV.h	/^void vec<T>::clear(bool dealloc) {$/;"	f	class:vec
+close	FileV.cpp	/^void File::close(void)$/;"	f	class:File
+close	reader.cpp	/^void Reader::close(){$/;"	f	class:Reader
+comp	HeapV.h	/^    C        comp;$/;"	m	class:Heap
+compress	ProofV.cpp	/^void Proof::compress(Proof& dst, ClauseId goal)$/;"	f	class:Proof
+conflict	SolverV.h	/^    vec<Lit>    conflict;           \/\/ If problem is unsatisfiable under assumptions, this vector represent the conflict clause expressed in the assumptions.$/;"	m	class:SolverV
+conflict_id	SolverV.h	/^    ClauseId    conflict_id;        \/\/ (In proof logging mode only.) ID for the clause 'conflict' (for proof traverseral). NOTE! The empty clause is always the last clause derived, but for conflicts under assumption, this is not necessarly true.$/;"	m	class:SolverV
+conflicts	SolverV.h	/^    int64   starts, decisions, propagations, conflicts;$/;"	m	struct:SolverStats
+copyTo	GlobalV.h	/^    void copyTo(vec<T>& copy) const { copy.clear(); copy.growTo(sz); for (int i = 0; i < sz; i++) new (&copy[i]) T(data[i]); }$/;"	f	class:vec
+cpuTime	GlobalV.h	/^static inline double cpuTime(void) {$/;"	f
+data	GlobalV.h	/^    T*  data;$/;"	m	class:vec
+data	SolverTypesV.h	/^    Lit     data[1];$/;"	m	class:Clause
+data	SolverTypesV.h	/^    void*   data;$/;"	m	class:GClause
+debug	v3SvrPDRSat.h	9;"	d
+decisionLevel	SolverV.h	/^    int      decisionLevel() const { return trail_lim.size(); }$/;"	f	class:SolverV
+decisions	SolverV.h	/^    int64   starts, decisions, propagations, conflicts;$/;"	m	struct:SolverStats
+decode64	FileV.h	/^static inline int64  decode64(uint64 val)           { return ((val & 1) == 0) ? (int64)(val >> 1) : ~(int64)(val >> 1); }$/;"	f
+default_params	SolverV.h	/^    SearchParams    default_params;     \/\/ Restart frequency etc.$/;"	m	class:SolverV
+deleted	ProofV.cpp	/^void Proof::deleted(ClauseId gone)$/;"	f	class:Proof
+deleted	ProofV.h	/^    virtual void deleted(ClauseId c) {}$/;"	f	struct:ProofTraverser
+depth	pdrMgr.h	/^    unsigned                  depth;$/;"	m	class:PDRMgr
+dfs	v3SvrPDRSat.cpp	/^void V3SvrPDRSat::dfs(V3NetVec& orderedNets) {$/;"	f	class:V3SvrPDRSat
+dfs	v3SvrPDRSat.cpp	/^void V3SvrPDRSat::dfs(V3NetVec& orderedNets, bool b, Cube* s) {$/;"	f	class:V3SvrPDRSat
+done	ProofV.h	/^    virtual void done   () {}$/;"	f	struct:ProofTraverser
+drand	GlobalV.h	/^static inline double drand(double& seed) {$/;"	f
+empty	HeapV.h	/^    bool empty     ()         { return heap.size() == 1; }$/;"	f	class:Heap
+encode64	FileV.h	/^static inline uint64 encode64(int64  val)           { return (val >= 0) ? (uint64)val << 1 : (((uint64)(~val) << 1) | 1); }$/;"	f
+endChain	ProofV.cpp	/^ClauseId Proof::endChain()$/;"	f	class:Proof
+enqueue	SolverV.cpp	/^bool SolverV::enqueue(Lit p, Clause* from)$/;"	f	class:SolverV
+eof	FileV.h	/^    bool eof(void) {$/;"	f	class:File
+eof	reader.cpp	/^bool Reader::eof() {$/;"	f	class:Reader
+exec	pdrCmd.cpp	/^SATVerifyCmd::exec(const string& option)$/;"	f	class:SATVerifyCmd
+existVerifyData	v3SvrPDRSat.cpp	/^V3SvrPDRSat::existVerifyData(const V3NetId& id, const uint32_t& depth) {$/;"	f	class:V3SvrPDRSat
+expensive_ccmin	SolverV.h	/^    bool            expensive_ccmin;    \/\/ Controls conflict clause minimization. TRUE by default.$/;"	m	class:SolverV
+fd	FileV.h	/^    int         fd;         \/\/ Underlying file descriptor.$/;"	m	class:File
+fd	reader.h	/^	int 			fd;$/;"	m	class:Reader
+files	ProofV.cpp	/^    vec<cchar*> files;      \/\/ For clean-up purposed on abnormal exit.$/;"	m	class:TempFiles	file:
+flush	FileV.h	/^    void flush(void) {$/;"	f	class:File
+fp	ProofV.h	/^    File            fp;$/;"	m	class:Proof
+fp_name	ProofV.h	/^    cchar*          fp_name;$/;"	m	class:Proof
+generalize	pdrMgr.cpp	/^TCube PDRMgr::generalize(TCube s) {$/;"	f	class:PDRMgr
+get64	reader.cpp	/^unsigned long long Reader::get64(){$/;"	f	class:Reader
+getBadCube	v3SvrPDRSat.cpp	/^Cube* V3SvrPDRSat::getBadCube(unsigned depth) {$/;"	f	class:V3SvrPDRSat
+getChar	FileV.h	/^    int getChar(void) {$/;"	f	class:File
+getChar	reader.cpp	/^unsigned int Reader::getChar(){$/;"	f	class:Reader
+getCharQ	FileV.h	/^    int getCharQ(void) {            \/\/ Quick version with minimal overhead -- don't call this in the wrong mode!$/;"	f	class:File
+getDataConflict	v3SvrPDRSat.cpp	/^V3SvrPDRSat::getDataConflict(V3SvrDataVec& vars) const {$/;"	f	class:V3SvrPDRSat
+getDataValue	v3SvrPDRSat.cpp	/^V3SvrPDRSat::getDataValue(const V3NetId& id, const uint32_t& depth) const {$/;"	f	class:V3SvrPDRSat
+getDataValue	v3SvrPDRSat.cpp	/^V3SvrPDRSat::getDataValue(const size_t& var) const {$/;"	f	class:V3SvrPDRSat
+getFormula	v3SvrPDRSat.cpp	/^V3SvrPDRSat::getFormula(const V3NetId& id, const uint32_t& bit, const uint32_t& depth) {$/;"	f	class:V3SvrPDRSat
+getFormula	v3SvrPDRSat.cpp	/^V3SvrPDRSat::getFormula(const V3NetId& id, const uint32_t& depth) {$/;"	f	class:V3SvrPDRSat
+getInt	FileV.h	/^static inline uint64 getInt  (File& in)             { return decode64(getUInt(in)); }$/;"	f
+getMaxDepth	pdrMgr.h	/^    uint32_t getMaxDepth() const { return _maxDepth; }$/;"	f	class:SatProofRes
+getMode	FileV.h	/^    FileMode getMode(void) {$/;"	f	class:File
+getNegFormula	v3SvrPDRSat.h	/^      inline const size_t getNegFormula(const size_t& v) const { return (v ^ 1ul); }$/;"	f	class:V3SvrPDRSat
+getNegVar	v3SvrPDRSat.h	/^      inline const size_t getNegVar(const Var& v) const { return ((getPosVar(v)) | 1ul); }$/;"	f	class:V3SvrPDRSat
+getOriVar	v3SvrPDRSat.h	/^      inline const Var getOriVar(const size_t& v) const { return (Var)(v >> 1ul); }$/;"	f	class:V3SvrPDRSat
+getPosVar	v3SvrPDRSat.h	/^      inline const size_t getPosVar(const Var& v) const { return (((size_t)v) << 1ul); }$/;"	f	class:V3SvrPDRSat
+getSATAssignmentToCube	v3SvrPDRSat.cpp	/^void V3SvrPDRSat::getSATAssignmentToCube(Cube* cube) {$/;"	f	class:V3SvrPDRSat
+getSatSolver	pdrMgr.h	/^    V3SvrPDRSat* getSatSolver() const { return _satSolver; }$/;"	f	class:SatProofRes
+getSignature	PDRDef.h	/^	const size_t getSignature() const { return _signature; }$/;"	f	class:Cube
+getStates	PDRDef.h	/^	const vector<V3NetId>& getStates() const { return _states; }$/;"	f	class:Cube
+getUInt	FileV.cpp	/^uint64 getUInt(File& in)$/;"	f
+getValue	v3SvrPDRSat.cpp	/^int V3SvrPDRSat::getValue(Var v) const {$/;"	f	class:V3SvrPDRSat
+getVerifyData	v3SvrPDRSat.cpp	/^V3SvrPDRSat::getVerifyData(const V3NetId& id, const uint32_t& depth) const {$/;"	f	class:V3SvrPDRSat
+getmin	HeapV.h	/^    int  getmin() {$/;"	f	class:Heap
+grow	GlobalV.h	/^void vec<T>::grow(int min_cap) {$/;"	f	class:vec
+growTo	GlobalV.h	/^void vec<T>::growTo(int size) {$/;"	f	class:vec
+growTo	GlobalV.h	/^void vec<T>::growTo(int size, const T& pad) {$/;"	f	class:vec
+hash	SolverTypesV.h	/^    inline uint hash() const { return (uint)x; }$/;"	f	class:Lit
+heap	HeapV.h	/^    vec<int> heap;     \/\/ heap of ints$/;"	m	class:Heap
+heap	VarOrderV.h	/^    Heap<VarOrder_lt>   heap;$/;"	m	class:VarOrder
+heapProperty	HeapV.h	/^    bool heapProperty() {$/;"	f	class:Heap
+heapProperty	HeapV.h	/^    bool heapProperty(int i) {$/;"	f	class:Heap
+help	pdrCmd.cpp	/^SATVerifyCmd::help() const$/;"	f	class:SATVerifyCmd
+id	SolverTypesV.h	/^    ClauseId& id          ()      const { return *((ClauseId*)&data[size() + (int)learnt()]); }$/;"	f	class:Clause
+id	SolverTypesV.h	/^inline Lit  id    (Lit p, bool sgn) { Lit q; q.x = p.x ^ (int)sgn; return q; }$/;"	f
+id_counter	ProofV.h	/^    ClauseId        id_counter;$/;"	m	class:Proof
+inHeap	HeapV.h	/^    bool inHeap    (int n)    { assert(ok(n)); return indices[n] != 0; }$/;"	f	class:Heap
+increase	HeapV.h	/^    void increase  (int n)    { assert(ok(n)); assert(inHeap(n)); percolateUp(indices[n]); }$/;"	f	class:Heap
+index	SolverTypesV.h	/^inline int  index (Lit p) { return p.x; }                \/\/ A "toInt" method that guarantees small, positive integers suitable for array indexing.$/;"	f
+indices	HeapV.h	/^    vec<int> indices;  \/\/ int -> index in heap$/;"	m	class:Heap
+initPdrCmd	pdrCmd.cpp	/^initPdrCmd() {$/;"	f
+initRelease	v3SvrPDRSat.cpp	/^V3SvrPDRSat::initRelease() { _init.clear(); }$/;"	f	class:V3SvrPDRSat
+initValue3Data	v3SvrPDRSat.cpp	/^void V3SvrPDRSat::initValue3Data() {$/;"	f	class:V3SvrPDRSat
+insert	HeapV.h	/^    void insert(int n) {$/;"	f	class:Heap
+int64	GlobalV.h	/^typedef INT64              int64;$/;"	t
+int64	GlobalV.h	/^typedef long long          int64;$/;"	t
+intp	GlobalV.h	/^typedef INT_PTR            intp;$/;"	t
+intp	GlobalV.h	/^typedef __PTRDIFF_TYPE__   intp;$/;"	t
+irand	GlobalV.h	/^static inline int irand(double& seed, int size) {$/;"	f
+isBlocked	pdrMgr.cpp	/^bool PDRMgr::isBlocked(TCube s) {$/;"	f	class:PDRMgr
+isBlocked	v3SvrPDRSat.cpp	/^bool V3SvrPDRSat::isBlocked(TCube c) {$/;"	f	class:V3SvrPDRSat
+isFired	pdrMgr.h	/^    bool isFired() const { return (_fired != V3NtkUD); }$/;"	f	class:SatProofRes
+isInitial	v3SvrPDRSat.cpp	/^bool V3SvrPDRSat::isInitial(Cube* c) {$/;"	f	class:V3SvrPDRSat
+isLit	SolverTypesV.h	/^    bool        isLit    () const { return ((uintp)data & 1) == 1; }$/;"	f	class:GClause
+isNegFormula	v3SvrPDRSat.h	/^      inline const bool isNegFormula(const size_t& v) const { return (v & 1ul); }$/;"	f	class:V3SvrPDRSat
+isProved	pdrMgr.h	/^    bool isProved() const { return (_proved != V3NtkUD); }$/;"	f	class:SatProofRes
+l_False	GlobalV.h	/^const lbool l_False = toLbool(-1);$/;"	v
+l_True	GlobalV.h	/^const lbool l_True  = toLbool( 1);$/;"	v
+l_Undef	GlobalV.h	/^const lbool l_Undef = toLbool( 0);$/;"	v
+last	GlobalV.h	/^    T&       last  (void)              { return data[sz-1]; }$/;"	f	class:vec
+last	GlobalV.h	/^    const T& last  (void) const        { return data[sz-1]; }$/;"	f	class:vec
+last	ProofV.h	/^    ClauseId last      () { assert(id_counter != ClauseId_NULL); return id_counter - 1; }$/;"	f	class:Proof
+lastToFirst_lt	SolverV.cpp	/^    lastToFirst_lt(const vec<int>& t) : trail_pos(t) {}$/;"	f	class:lastToFirst_lt
+lastToFirst_lt	SolverV.cpp	/^class lastToFirst_lt {  \/\/ Helper class to 'analyze' -- order literals from last to first occurance in 'trail[]'.$/;"	c	file:
+lbool	GlobalV.h	/^    explicit lbool(int v) : value(v) { }$/;"	f	class:lbool
+lbool	GlobalV.h	/^    lbool()       : value(0) { }$/;"	f	class:lbool
+lbool	GlobalV.h	/^    lbool(bool x) : value((int)x*2-1) { }$/;"	f	class:lbool
+lbool	GlobalV.h	/^class lbool {$/;"	c
+learnt	SolverTypesV.h	/^    bool      learnt      ()      const { return size_learnt & 1; }$/;"	f	class:Clause
+learnts	SolverV.h	/^    vec<Clause*>        learnts;          \/\/ List of learnt clauses.$/;"	m	class:SolverV
+learnts_literals	SolverV.h	/^    int64   clauses_literals, learnts_literals, max_literals, tot_literals;$/;"	m	struct:SolverStats
+left	HeapV.h	/^static inline int left  (int i) { return i+i; }$/;"	f
+level	SolverV.h	/^    vec<int>            level;            \/\/ 'level[var]' is the decision level at which assignment was made.$/;"	m	class:SolverV
+lit	SolverTypesV.h	/^    Lit         lit      () const { return toLit(((intp)data) >> 1); }$/;"	f	class:GClause
+locked	SolverV.h	/^    bool     locked          (const Clause* c) const { return reason[var((*c)[0])] == c; }$/;"	f	class:SolverV
+lseek64	FileV.h	13;"	d
+max	GlobalV.h	/^template<class T> static inline T max(T x, T y) { return (x > y) ? x : y; }$/;"	f
+max_literals	SolverV.h	/^    int64   clauses_literals, learnts_literals, max_literals, tot_literals;$/;"	m	struct:SolverStats
+memReadStat	GlobalV.h	/^static inline int memReadStat(int field)$/;"	f
+memUsed	GlobalV.h	/^static inline int64 memUsed() { return (int64)memReadStat(0) * (int64)getpagesize(); }$/;"	f
+memUsed	GlobalV.h	/^static inline int64 memUsed() {$/;"	f
+min	GlobalV.h	/^template<class T> static inline T min(T x, T y) { return (x < y) ? x : y; }$/;"	f
+mkLit	SolverTypesV.h	/^inline  Lit  mkLit     (Var var, bool sign) { Lit p; p.x = var + var + (int)sign; return p; }$/;"	f
+mode	FileV.h	/^    FileMode    mode;       \/\/ Reading or writing.$/;"	m	class:File
+model	SolverV.h	/^    vec<lbool>  model;              \/\/ If problem is satisfiable, this vector contains the model (if any).$/;"	m	class:SolverV
+moveTo	GlobalV.h	/^    void moveTo(vec<T>& dest) { dest.clear(true); dest.data = data; dest.sz = sz; dest.cap = cap; data = NULL; sz = 0; cap = 0; }$/;"	f	class:vec
+mySolve	SolverV.cpp	/^bool SolverV::mySolve(const vec<Lit>& assumps, int conflictThreshold, bool& result)$/;"	f	class:SolverV
+nAssigns	SolverV.h	/^    int     nAssigns() { return trail.size(); }$/;"	f	class:SolverV
+nClauses	SolverV.h	/^    int     nClauses() { return clauses.size(); }$/;"	f	class:SolverV
+nLearnts	SolverV.h	/^    int     nLearnts() { return learnts.size(); }$/;"	f	class:SolverV
+nRootCla	SolverV.h	/^    int     nRootCla() { return root_cla_count; } \/\/ MODIFICATION FOR SoCV$/;"	f	class:SolverV
+nVars	SolverV.h	/^    int     nVars     ()                    { return assigns.size(); }$/;"	f	class:SolverV
+neg	SolverTypesV.h	/^	inline void neg() { x ^= 0x1; }$/;"	f	class:Lit
+newActVar	v3SvrPDRSat.cpp	/^void V3SvrPDRSat::newActVar() {$/;"	f	class:V3SvrPDRSat
+newClause	SolverV.cpp	/^void SolverV::newClause(const vec<Lit>& ps_, bool learnt, ClauseId id )$/;"	f	class:SolverV
+newFrame	pdrMgr.cpp	/^void PDRMgr::newFrame(bool force) {$/;"	f	class:PDRMgr
+newVar	SolverV.cpp	/^Var SolverV::newVar() {$/;"	f	class:SolverV
+newVar	VarOrderV.h	/^void VarOrder::newVar(void)$/;"	f	class:VarOrder
+newVar	v3SvrPDRSat.cpp	/^V3SvrPDRSat::newVar(const uint32_t& width) {$/;"	f	class:V3SvrPDRSat
+next	pdrMgr.cpp	/^TCube PDRMgr::next(const TCube& s){$/;"	f	class:PDRMgr
+null	FileV.h	/^    bool null(void) {               \/\/ TRUE if no file is opened.$/;"	f	class:File
+null	reader.h	/^	bool null()					{ return fd == -1; }$/;"	f	class:Reader
+ok	HeapV.h	/^    bool ok(int n) { return n >= 0 && n < (int)indices.size(); }$/;"	f	class:Heap
+ok	SolverV.h	/^    bool                ok;               \/\/ If FALSE, the constraints are already unsatisfiable. No part of the solver state may be used!$/;"	m	class:SolverV
+okay	SolverV.h	/^    bool    okay() { return ok; }       \/\/ FALSE means solver is in an conflicting state (must never be used again!)$/;"	f	class:SolverV
+open	FileV.cpp	/^void File::open(cchar* name, cchar* mode_)$/;"	f	class:File
+open	FileV.cpp	/^void File::open(int file_descr, FileMode m, bool own)$/;"	f	class:File
+open	ProofV.cpp	/^    char* open(File& fp)$/;"	f	class:TempFiles
+open	reader.cpp	/^void Reader::open( const char* file_name ){$/;"	f	class:Reader
+open	reader.cpp	/^void Reader::open(int filedesc)$/;"	f	class:Reader
+open64	FileV.h	14;"	d
+operator !=	GlobalV.h	/^    bool  operator != (const lbool& other) const { return value != other.value; }$/;"	f	class:lbool
+operator !=	GlobalV.h	/^template <class T> static inline bool operator != (const T& x, const T& y) { return !(x == y); }$/;"	f
+operator !=	PDRDef.h	/^  bool operator != (const Value3& a) const {$/;"	f	class:Value3
+operator !=	SolverTypesV.h	/^    bool        operator != (GClause c) const { return data != c.data; }$/;"	f	class:GClause
+operator &	PDRDef.h	/^  Value3 operator & (Value3 a) const {$/;"	f	class:Value3
+operator &	PDRDef.h	/^  Value3 operator & (bool a) const {$/;"	f	class:Value3
+operator ()	SolverV.cpp	/^    bool operator () (Lit p, Lit q) { return trail_pos[var(p)] > trail_pos[var(q)]; }$/;"	f	class:lastToFirst_lt
+operator ()	SolverV.cpp	/^struct reduceDB_lt { bool operator () (Clause* x, Clause* y) { return x->size() > 2 && (y->size() == 2 || x->activity() < y->activity()); } };$/;"	f	struct:reduceDB_lt
+operator ()	SortV.h	/^    bool operator () (T x, T y) { return x < y; }$/;"	f	struct:LessThan_default
+operator ()	VarOrderV.h	/^    bool operator () (Var x, Var y) { return activity[x] > activity[y]; }$/;"	f	struct:VarOrder_lt
+operator ()	pdrMgr.cpp	/^	bool operator() (const V3NetId& a, const V3NetId& b) const {$/;"	f	class:NetIdCmp
+operator ()	pdrMgr.cpp	/^  bool operator() (const TCube lhs, const TCube rhs) const {$/;"	f	class:TCubeCmp
+operator <	SolverTypesV.h	/^inline bool operator <  (Lit p, Lit q) { return index(p)  < index(q); }  \/\/ '<' guarantees that p, ~p are adjacent in the ordering.$/;"	f
+operator <=	GlobalV.h	/^template <class T> static inline bool operator <= (const T& x, const T& y) { return !(y < x);  }$/;"	f
+operator =	GlobalV.h	/^vec<T>& vec<T>::operator = (const vec<T>& other){$/;"	f	class:vec
+operator =	PDRDef.h	/^  TCube& operator = (const TCube& t){$/;"	f	class:TCube
+operator =	SolverTypesV.h	/^	inline void operator = (int n) { x = n; }$/;"	f	class:Lit
+operator ==	GlobalV.h	/^    bool  operator == (const lbool& other) const { return value == other.value; }$/;"	f	class:lbool
+operator ==	PDRDef.h	/^  bool operator == (const Value3& a) const {$/;"	f	class:Value3
+operator ==	SolverTypesV.h	/^    bool        operator == (GClause c) const { return data == c.data; }$/;"	f	class:GClause
+operator ==	SolverTypesV.h	/^inline bool operator == (Lit p, Lit q) { return index(p) == index(q); }$/;"	f
+operator >	GlobalV.h	/^template <class T> static inline bool operator >  (const T& x, const T& y) { return y < x;     }$/;"	f
+operator >	PDRDef.h	/^  friend bool operator > (const TCube& l, const TCube& r) { return l._frame > r._frame; }$/;"	f	class:TCube
+operator >=	GlobalV.h	/^template <class T> static inline bool operator >= (const T& x, const T& y) { return !(x < y);  }$/;"	f
+operator T*	GlobalV.h	/^    operator T*       (void)           { return data; }     \/\/ (unsafe but convenient)$/;"	f	class:vec
+operator []	GlobalV.h	/^    T&       operator [] (int index)        { return data[index]; }$/;"	f	class:vec
+operator []	GlobalV.h	/^    const T& operator [] (int index) const  { return data[index]; }$/;"	f	class:vec
+operator []	SolverTypesV.h	/^    Lit       operator [] (int i) const { return data[i]; }$/;"	f	class:Clause
+operator []	SolverTypesV.h	/^    Lit&      operator [] (int i)       { return data[i]; }$/;"	f	class:Clause
+operator const T*	GlobalV.h	/^    operator const T* (void) const     { return data; }$/;"	f	class:vec
+operator |	PDRDef.h	/^  Value3 operator | (Value3 a) const {$/;"	f	class:Value3
+operator |	PDRDef.h	/^  Value3 operator | (bool a) const {$/;"	f	class:Value3
+operator ~	GlobalV.h	/^    lbool operator ~  (void)               const { return lbool(-value); }$/;"	f	class:lbool
+operator ~	PDRDef.h	/^  Value3 operator ~ () const {$/;"	f	class:Value3
+operator ~	SolverTypesV.h	/^inline Lit operator ~ (Lit p) { Lit q; q.x = p.x ^ 1; return q; }$/;"	f
+order	SolverV.h	/^    VarOrder            order;            \/\/ Keeps track of the decision variable order.$/;"	m	class:SolverV
+overall_pos	reader.h	/^	unsigned int	overall_pos;$/;"	m	class:Reader
+own_fd	FileV.h	/^    bool        own_fd;     \/\/ Do we own the file descriptor? If so, will close file in destructor.$/;"	m	class:File
+parent	HeapV.h	/^static inline int parent(int i) { return i >> 1; }$/;"	f
+pdrMgr	pdrCmd.cpp	/^static PDRMgr* pdrMgr = new PDRMgr();$/;"	v	file:
+percolateDown	HeapV.h	/^    inline void percolateDown(int i)$/;"	f	class:Heap
+percolateUp	HeapV.h	/^    inline void percolateUp(int i)$/;"	f	class:Heap
+pop	GlobalV.h	/^    void     pop    (void)             { sz--, data[sz].~T(); }$/;"	f	class:vec
+pos	FileV.h	/^    int         pos;        \/\/ Current position in buffer$/;"	m	class:File
+pos	reader.h	/^	unsigned int	pos;$/;"	m	class:Reader
+printInfo	v3SvrPDRSat.cpp	/^V3SvrPDRSat::printInfo() const {$/;"	f	class:V3SvrPDRSat
+progressEstimate	SolverV.cpp	/^double SolverV::progressEstimate()$/;"	f	class:SolverV
+progress_estimate	SolverV.h	/^    double      progress_estimate;  \/\/ Set by 'search()'.$/;"	m	class:SolverV
+proof	SolverV.h	/^    Proof*          proof;              \/\/ Set this directly after constructing 'Solver' to enable proof logging. Initialized to NULL.$/;"	m	class:SolverV
+proof_logged	SolverV.h	/^    bool    proof_logged() { return false; }$/;"	f	class:SolverV
+propagate	SolverV.cpp	/^Clause* SolverV::propagate()$/;"	f	class:SolverV
+propagateBlockedCubes	pdrMgr.cpp	/^bool PDRMgr::propagateBlockedCubes(SatProofRes& pRes) {$/;"	f	class:PDRMgr
+propagate_tmpbin	SolverV.h	/^    Clause*             propagate_tmpbin;$/;"	m	class:SolverV
+propagations	SolverV.h	/^    int64   starts, decisions, propagations, conflicts;$/;"	m	struct:SolverStats
+push	GlobalV.h	/^    void     push  (const T& elem)     { if (sz == cap) grow(sz+1); new (&data[sz]) T(elem); sz++; }$/;"	f	class:vec
+push	GlobalV.h	/^    void     push  (void)              { if (sz == cap) grow(sz+1); new (&data[sz]) T()    ; sz++; }$/;"	f	class:vec
+putChar	FileV.h	/^    int putChar(int chr) {$/;"	f	class:File
+putCharQ	FileV.h	/^    int putCharQ(int chr) {         \/\/ Quick version with minimal overhead -- don't call this in the wrong mode!$/;"	f	class:File
+putInt	FileV.h	/^static inline void   putInt  (File& out, int64 val) { putUInt(out, encode64(val)); }$/;"	f
+putUInt	FileV.cpp	/^void putUInt(File& out, uint64 val)$/;"	f
+qhead	SolverV.h	/^    int                 qhead;            \/\/ Head of queue (as index into the trail -- no more explicit propagation queue in MiniSat).$/;"	m	class:SolverV
+random_seed	VarOrderV.h	/^    double              random_seed; \/\/ For the internal random number generator$/;"	m	class:VarOrder
+random_var_freq	SolverV.h	/^    double  var_decay, clause_decay, random_var_freq;    \/\/ (reasonable values are: 0.95, 0.999, 0.02)    $/;"	m	struct:SearchParams
+reason	SolverV.h	/^    vec<Clause*>        reason;           \/\/ 'reason[var]' is the clause that implied the variables current value, or 'NULL' if none.$/;"	m	class:SolverV
+recursiveBlockCube	pdrMgr.cpp	/^bool PDRMgr::recursiveBlockCube(TCube s0){$/;"	f	class:PDRMgr
+reduceDB	SolverV.cpp	/^void SolverV::reduceDB()$/;"	f	class:SolverV
+reduceDB_lt	SolverV.cpp	/^struct reduceDB_lt { bool operator () (Clause* x, Clause* y) { return x->size() > 2 && (y->size() == 2 || x->activity() < y->activity()); } };$/;"	s	file:
+release	GlobalV.h	/^    T*       release  (void)           { T* ret = data; data = NULL; sz = 0; cap = 0; return ret; }$/;"	f	class:vec
+releaseDescriptor	FileV.h	/^    int releaseDescriptor(void) {   \/\/ Don't run UNIX function 'close()' on descriptor in 'File's 'close()'.$/;"	f	class:File
+remove	SolverV.cpp	/^void SolverV::remove(Clause* c, bool just_dealloc)$/;"	f	class:SolverV
+removeWatch	SolverV.cpp	/^void removeWatch(vec<Clause*>& ws, Clause* elem)$/;"	f
+reportf	SolverV.h	28;"	d
+reserveFormula	v3SvrPDRSat.h	/^      inline const size_t reserveFormula() { return getPosVar(newVar(1)); }$/;"	f	class:V3SvrPDRSat
+reset	pdrMgr.cpp	/^void PDRMgr::reset() {$/;"	f	class:PDRMgr
+reset	v3SvrPDRSat.cpp	/^V3SvrPDRSat::reset() {$/;"	f	class:V3SvrPDRSat
+resizeNtkData	v3SvrPDRSat.cpp	/^void V3SvrPDRSat::resizeNtkData(const uint32_t& num) {$/;"	f	class:V3SvrPDRSat
+resolve	ProofV.cpp	/^void Proof::resolve(ClauseId next, Var x)$/;"	f	class:Proof
+right	HeapV.h	/^static inline int right (int i) { return i+i + 1; }$/;"	f
+root	ProofV.h	/^    virtual void root   (const vec<Lit>& c) {}$/;"	f	struct:ProofTraverser
+root_cla_count	SolverV.h	/^   int      root_cla_count;$/;"	m	class:SolverV
+root_level	SolverV.h	/^    int                 root_level;       \/\/ Level of first proper decision.$/;"	m	class:SolverV
+save	ProofV.cpp	/^bool Proof::save(cchar* filename)$/;"	f	class:Proof
+search	SolverV.cpp	/^lbool SolverV::search(int nof_conflicts, int nof_learnts, const SearchParams& params)$/;"	f	class:SolverV
+seek	FileV.cpp	/^void File::seek(int64 file_pos, int whence)$/;"	f	class:File
+seek	reader.cpp	/^void Reader::seek( const unsigned int to ){$/;"	f	class:Reader
+select	VarOrderV.h	/^Var VarOrder::select(double random_var_freq)$/;"	f	class:VarOrder
+selectionSort	SortV.h	/^template <class T> static inline void selectionSort(T* array, int size) {$/;"	f
+selectionSort	SortV.h	/^void selectionSort(T* array, int size, LessThan lt)$/;"	f
+setBounds	HeapV.h	/^    void setBounds (int size) { assert(size >= 0); indices.growTo(size,0); }$/;"	f	class:Heap
+setFired	pdrMgr.h	/^    void setFired(uint32_t i) { _fired = i; }$/;"	f	class:SatProofRes
+setFrame	v3SvrPDRSat.cpp	/^void V3SvrPDRSat::setFrame(vector<vector<Cube*>*>* f) {$/;"	f	class:V3SvrPDRSat
+setImplyInit	v3SvrPDRSat.cpp	/^V3SvrPDRSat::setImplyInit() {$/;"	f	class:V3SvrPDRSat
+setImplyIntersection	v3SvrPDRSat.cpp	/^V3SvrPDRSat::setImplyIntersection(const V3SvrDataVec& vars) {$/;"	f	class:V3SvrPDRSat
+setImplyUnion	v3SvrPDRSat.cpp	/^V3SvrPDRSat::setImplyUnion(const V3SvrDataVec& vars) {$/;"	f	class:V3SvrPDRSat
+setMaxDepth	pdrMgr.h	/^    void setMaxDepth(uint32_t d) { _maxDepth = d; }$/;"	f	class:SatProofRes
+setMode	FileV.h	/^    void setMode(FileMode m) {$/;"	f	class:File
+setMonitor	v3SvrPDRSat.cpp	/^void V3SvrPDRSat::setMonitor(const V3NetId& m) {$/;"	f	class:V3SvrPDRSat
+setProved	pdrMgr.h	/^    void setProved(uint32_t i) { _proved = i; }$/;"	f	class:SatProofRes
+setSatSolver	pdrMgr.h	/^    void setSatSolver(V3SvrPDRSat* s) { _satSolver = s; }$/;"	f	class:SatProofRes
+setStates	PDRDef.h	/^inline void Cube::setStates(const vector<V3NetId>& v) {$/;"	f	class:Cube
+setTargetValue	v3SvrPDRSat.cpp	/^V3SvrPDRSat::setTargetValue(const V3NetId& id, const V3BitVecX& value, const uint32_t& depth, V3SvrDataVec& formula) {$/;"	f	class:V3SvrPDRSat
+setTargetValue	v3SvrPDRSat.cpp	/^V3SvrPDRSat::setTargetValue(const V3NetId& id, const V3BitVecX& value, const uint32_t& depth, const size_t& prev) {$/;"	f	class:V3SvrPDRSat
+show	PDRDef.h	/^  void show() {$/;"	f	class:Cube
+showStates	PDRDef.h	/^inline void Cube::showStates() const {$/;"	f	class:Cube
+show_address	PDRDef.h	9;"	d
+showinfo	pdrMgr.cpp	8;"	d	file:
+shrink	GlobalV.h	/^    void     shrink (int nelems)       { assert(nelems <= sz); for (int i = 0; i < nelems; i++) sz--, data[sz].~T(); }$/;"	f	class:vec
+sign	SolverTypesV.h	/^inline bool sign  (Lit p) { return p.x & 1; }$/;"	f
+simpDB_assigns	SolverV.h	/^    int                 simpDB_assigns;   \/\/ Number of top-level assignments since last execution of 'simplifyDB()'.$/;"	m	class:SolverV
+simpDB_props	SolverV.h	/^    int64               simpDB_props;     \/\/ Remaining number of propagations that must be made before next execution of 'simplifyDB()'.$/;"	m	class:SolverV
+simplify	SolverV.cpp	/^bool SolverV::simplify(Clause* c) const$/;"	f	class:SolverV
+simplify	v3SvrPDRSat.cpp	/^V3SvrPDRSat::simplify() { return _Solver->simplifyDB(); }$/;"	f	class:V3SvrPDRSat
+simplifyDB	SolverV.cpp	/^bool SolverV::simplifyDB()$/;"	f	class:SolverV
+size	FileV.h	/^    int         size;       \/\/ Size of buffer (at end of file, less than 'File_BufSize').$/;"	m	class:File
+size	GlobalV.h	/^    int      size   (void) const       { return sz; }$/;"	f	class:vec
+size	SolverTypesV.h	/^    int       size        ()      const { return size_learnt >> 1; }$/;"	f	class:Clause
+size	reader.h	/^	unsigned int 	size;$/;"	m	class:Reader
+size_learnt	SolverTypesV.h	/^    uint    size_learnt;$/;"	m	class:Clause
+solve	SolverV.cpp	/^bool SolverV::solve(const vec<Lit>& assumps)$/;"	f	class:SolverV
+solve	SolverV.h	/^    bool    solve() { vec<Lit> tmp; return solve(tmp); }$/;"	f	class:SolverV
+solve	v3SvrPDRSat.cpp	/^V3SvrPDRSat::solve() {$/;"	f	class:V3SvrPDRSat
+solveLimited	SolverV.cpp	/^lbool SolverV::solveLimited(const vec<Lit>& assumps, int64_t nConflicts)$/;"	f	class:SolverV
+solveLimited	SolverV.h	/^    lbool   solveLimited(int64_t nConflicts) { vec<Lit> tmp; return solveLimited(nConflicts); }$/;"	f	class:SolverV
+solveRelative	v3SvrPDRSat.cpp	/^TCube V3SvrPDRSat::solveRelative(TCube s, size_t param) {$/;"	f	class:V3SvrPDRSat
+sort	SortV.h	/^template <class T, class LessThan> void sort(T* array, int size, LessThan lt) {$/;"	f
+sort	SortV.h	/^template <class T, class LessThan> void sort(vec<T>& v, LessThan lt) {$/;"	f
+sort	SortV.h	/^template <class T> static inline void sort(T* array, int size) {$/;"	f
+sort	SortV.h	/^template <class T> void sort(vec<T>& v) {$/;"	f
+sort	SortV.h	/^void sort(T* array, int size, LessThan lt, double& seed)$/;"	f
+sortUnique	SortV.h	/^template <class T, class LessThan> void sortUnique(vec<T>& v, LessThan lt) {$/;"	f
+sortUnique	SortV.h	/^template <class T> static inline void sortUnique(T* array, int& size) {$/;"	f
+sortUnique	SortV.h	/^template <class T> void sortUnique(vec<T>& v) {$/;"	f
+sortUnique	SortV.h	/^void sortUnique(T* array, int& size, LessThan lt)$/;"	f
+start_proof_logging	SolverV.h	/^    bool    start_proof_logging() { return false; }$/;"	f	class:SolverV
+starts	SolverV.h	/^    int64   starts, decisions, propagations, conflicts;$/;"	m	struct:SolverStats
+stats	SolverV.h	/^    SolverStats     stats;$/;"	m	class:SolverV
+subsumes	PDRDef.h	/^  bool subsumes(Cube* s) const {$/;"	f	class:Cube
+sz	GlobalV.h	/^    int sz;$/;"	m	class:vec
+tell	FileV.cpp	/^int64 File::tell(void)$/;"	f	class:File
+temp_files	ProofV.cpp	/^static TempFiles temp_files;       \/\/ (should be singleton)$/;"	v	file:
+ternarySimInit	v3SvrPDRSat.cpp	/^bool* V3SvrPDRSat::ternarySimInit(Cube* c) {$/;"	f	class:V3SvrPDRSat
+ternarySimulation	v3SvrPDRSat.cpp	/^Cube* V3SvrPDRSat::ternarySimulation(Cube* c, bool b, bool* input, Cube* s) {$/;"	f	class:V3SvrPDRSat
+toDimacs	SolverTypesV.h	/^inline int toDimacs(Lit p) { return sign(p) ? -var(p) - 1 : var(p) + 1; }$/;"	f
+toInt	GlobalV.h	/^    int toInt(void) const { return value; }$/;"	f	class:lbool
+toInt	GlobalV.h	/^inline int   toInt  (lbool l) { return l.toInt(); }$/;"	f
+toLbool	GlobalV.h	/^inline lbool toLbool(int   v) { return lbool(v);  }$/;"	f
+toLit	SolverTypesV.h	/^inline Lit  toLit (int i) { Lit p; p.x = i; return p; }  \/\/ Inverse of 'index()'.$/;"	f
+tot_literals	SolverV.h	/^    int64   clauses_literals, learnts_literals, max_literals, tot_literals;$/;"	m	struct:SolverStats
+totalSolves	v3SvrPDRSat.h	/^      inline const uint32_t totalSolves() const { return _solves; }$/;"	f	class:V3SvrPDRSat
+totalTime	v3SvrPDRSat.h	/^      inline const double totalTime() const { return _runTime; }$/;"	f	class:V3SvrPDRSat
+trail	SolverV.h	/^    vec<Lit>            trail;            \/\/ Assignment stack; stores all assigments made in the order they were made.$/;"	m	class:SolverV
+trail_lim	SolverV.h	/^    vec<int>            trail_lim;        \/\/ Separator indices for different decision levels in 'trail[]'.$/;"	m	class:SolverV
+trail_pos	SolverV.cpp	/^    const vec<int>& trail_pos;$/;"	m	class:lastToFirst_lt	file:
+trail_pos	SolverV.h	/^    vec<int>            trail_pos;        \/\/ 'trail_pos[var]' is the variable's position in 'trail[]'. This supersedes 'level[]' in some sense, and 'level[]' will probably be removed in future releases.$/;"	m	class:SolverV
+trav	ProofV.h	/^    ProofTraverser* trav;$/;"	m	class:Proof
+traverse	ProofV.cpp	/^void Proof::traverse(ProofTraverser& trav, ClauseId goal)$/;"	f	class:Proof
+uchar	GlobalV.h	/^typedef unsigned char uchar;$/;"	t
+uint64	GlobalV.h	/^typedef UINT64             uint64;$/;"	t
+uint64	GlobalV.h	/^typedef unsigned long long uint64;$/;"	t
+uintp	GlobalV.h	/^typedef UINT_PTR           uintp;$/;"	t
+uintp	GlobalV.h	/^typedef unsigned __PTRDIFF_TYPE__ uintp;$/;"	t
+undo	VarOrderV.h	/^void VarOrder::undo(Var x)$/;"	f	class:VarOrder
+unit_id	SolverV.h	/^    vec<ClauseId>       unit_id;          \/\/ 'unit_id[var]' is the clause ID for the unit literal 'var' or '~var' (if set at toplevel).$/;"	m	class:SolverV
+unsign	SolverTypesV.h	/^inline Lit  unsign(Lit p) { Lit q; q.x = p.x & ~1; return q; }$/;"	f
+update	VarOrderV.h	/^void VarOrder::update(Var x)$/;"	f	class:VarOrder
+usage	pdrCmd.cpp	/^SATVerifyCmd::usage(const bool& verbose) const$/;"	f	class:SATVerifyCmd
+v3SimOneGate	v3SvrPDRSat.cpp	/^void V3SvrPDRSat::v3SimOneGate(V3NetId id) {$/;"	f	class:V3SvrPDRSat
+valid	pdrCmd.cpp	/^static bool valid()$/;"	f	file:
+validNetId	v3SvrPDRSat.h	/^      inline const bool validNetId(const V3NetId& id) const { return _ntk->getNetSize() > id.id; }$/;"	f	class:V3SvrPDRSat
+value	GlobalV.h	/^    int     value;$/;"	m	class:lbool
+value	SolverV.h	/^    lbool   value(Lit p) const { return sign(p) ? ~toLbool(assigns[var(p)]) : toLbool(assigns[var(p)]); }$/;"	f	class:SolverV
+value	SolverV.h	/^    lbool   value(Var x) const { return toLbool(assigns[x]); }$/;"	f	class:SolverV
+var	SolverTypesV.h	/^inline int  var   (Lit p) { return p.x >> 1; }$/;"	f
+varBumpActivity	SolverV.h	/^    void     varBumpActivity(Lit p) {$/;"	f	class:SolverV
+varDecayActivity	SolverV.h	/^    void     varDecayActivity  () { if (var_decay >= 0) var_inc *= var_decay; }$/;"	f	class:SolverV
+varRescaleActivity	SolverV.cpp	/^void SolverV::varRescaleActivity()$/;"	f	class:SolverV
+var_Undef	SolverTypesV.h	37;"	d
+var_decay	SolverV.h	/^    double              var_decay;        \/\/ INVERSE decay factor for variable activity: stores 1\/decay. Use negative value for static variable order.$/;"	m	class:SolverV
+var_decay	SolverV.h	/^    double  var_decay, clause_decay, random_var_freq;    \/\/ (reasonable values are: 0.95, 0.999, 0.02)    $/;"	m	struct:SearchParams
+var_inc	SolverV.h	/^    double              var_inc;          \/\/ Amount to bump next variable with.$/;"	m	class:SolverV
+vec	GlobalV.h	/^             vec        (vec<T>& other) { TEMPLATE_FAIL; }$/;"	f	class:vec
+vec	GlobalV.h	/^    vec(T* array, int size)     : data(array), sz(size), cap(size) { }      \/\/ (takes ownership of array -- will be deallocated with 'xfree()')$/;"	f	class:vec
+vec	GlobalV.h	/^    vec(int size)               : data(NULL) , sz(0)   , cap(0)    { growTo(size); }$/;"	f	class:vec
+vec	GlobalV.h	/^    vec(int size, const T& pad) : data(NULL) , sz(0)   , cap(0)    { growTo(size, pad); }$/;"	f	class:vec
+vec	GlobalV.h	/^    vec(void)                   : data(NULL) , sz(0)   , cap(0)    { }$/;"	f	class:vec
+vec	GlobalV.h	/^class vec {$/;"	c
+verbosity	SolverV.h	/^    int             verbosity;          \/\/ Verbosity level. 0=silent, 1=some progress report, 2=everything$/;"	m	class:SolverV
+verifyProperty	pdrMgr.cpp	/^void PDRMgr::verifyProperty(const string& name, const V3NetId& monitor) {$/;"	f	class:PDRMgr
+version_info	SolverV.h	/^    inline const char* version_info() const { return "MINISAT Ver. 2.2"; }$/;"	f	class:SolverV
+watches	SolverV.h	/^    vec<vec<Clause*> >  watches;          \/\/ 'watches[lit]' is a list of constraints watching 'lit' (will go there if literal becomes true).$/;"	m	class:SolverV
+x	SolverTypesV.h	/^    int     x;  \/\/ MODIFICATION FOR SoCV$/;"	m	class:Lit
+xfree	GlobalV.h	/^template<class T> static inline void xfree(T *ptr) {$/;"	f
+xmalloc	GlobalV.h	/^template<class T> static inline T* xmalloc(size_t size) {$/;"	f
+xor_2	v3SvrPDRSat.cpp	/^inline void xor_2(SolverV* SS, const Lit& y, const Lit& a, const Lit& b)$/;"	f
+xrealloc	GlobalV.h	/^template<class T> static inline T* xrealloc(T* ptr, size_t size) {$/;"	f
+~Cube	PDRDef.h	/^  ~Cube() {$/;"	f	class:Cube
+~File	FileV.h	/^   ~File(void) {$/;"	f	class:File
+~PDRMgr	pdrMgr.h	/^    ~PDRMgr() { reset(); }$/;"	f	class:PDRMgr
+~ProofTraverser	ProofV.h	/^    virtual ~ProofTraverser() {}$/;"	f	struct:ProofTraverser
+~Reader	reader.cpp	/^Reader::~Reader(){$/;"	f	class:Reader
+~SolverV	SolverV.h	/^   ~SolverV() {$/;"	f	class:SolverV
+~TCube	PDRDef.h	/^  ~TCube(){$/;"	f	class:TCube
+~TempFiles	ProofV.cpp	/^   ~TempFiles()$/;"	f	class:TempFiles
+~V3SvrPDRSat	v3SvrPDRSat.cpp	/^V3SvrPDRSat::~V3SvrPDRSat() {$/;"	f	class:V3SvrPDRSat
+~vec	GlobalV.h	/^   ~vec(void)                                                      { clear(true); }$/;"	f	class:vec

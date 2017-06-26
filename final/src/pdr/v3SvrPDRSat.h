@@ -119,9 +119,7 @@ class V3SvrPDRSat
 		// modified by r04943179
       //Cube* ternarySimulation(Cube* c, bool b, bool* input, vector<Lit>& Lit_vec_origin);
       Cube* ternarySimulation(Cube* c, bool b, bool* input, Cube* s);
-		//bool Value3Changed(bool b, vector<Lit>& Lit_vec_origin);
-		//void dfs(V3NetVec& orderedNets, bool b, vector<Lit>& Lit_vec_origin);
-		bool Value3Changed(bool b, Cube* s);
+		bool Value3Changed(bool b, Cube* s, const vector<Value3>& values);
 		void dfs(V3NetVec& orderedNets, bool b, Cube* s);
 		// end of modification
 

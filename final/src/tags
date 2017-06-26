@@ -174,9 +174,10 @@ Msg	main/main.cpp	/^V3MsgMgr Msg;$/;"	v
 MsgTypeString	util/v3Msg.h	/^      vector<string> MsgTypeString;$/;"	m	class:V3MsgMgr
 Msgs	util/v3Msg.h	/^      vector<V3Msg*> Msgs;$/;"	m	class:V3MsgMgr
 NONE	itp/satMgr.h	/^  NONE$/;"	e	enum:VAR_GROUP
+NetIdCmp	pdr/pdrMgr.cpp	/^class NetIdCmp {$/;"	c	file:
 P2CMapON	ntk/v3NtkHandler.h	/^      static inline const bool P2CMapON()  { return _extVerbosity & 8ul;  }$/;"	f	class:V3NtkHandler
 PDR	pdr/pdrMgr.cpp	/^bool PDRMgr::PDR(const V3NetId& monitor, SatProofRes& pRes) {$/;"	f	class:PDRMgr
-PDRDEF_H	pdr/PDRDef.h	16;"	d
+PDRDEF_H	pdr/PDRDef.h	17;"	d
 PDRMgr	pdr/pdrMgr.h	/^    PDRMgr(): _ntk(NULL) { reset(); }$/;"	f	class:PDRMgr
 PDRMgr	pdr/pdrMgr.h	/^class PDRMgr {$/;"	c
 PDR_CMD_H_	pdr/pdrCmd.h	10;"	d
@@ -2873,6 +2874,7 @@ operator ()	pdr/SolverV.cpp	/^    bool operator () (Lit p, Lit q) { return trail
 operator ()	pdr/SolverV.cpp	/^struct reduceDB_lt { bool operator () (Clause* x, Clause* y) { return x->size() > 2 && (y->size() == 2 || x->activity() < y->activity()); } };$/;"	f	struct:reduceDB_lt
 operator ()	pdr/SortV.h	/^    bool operator () (T x, T y) { return x < y; }$/;"	f	struct:LessThan_default
 operator ()	pdr/VarOrderV.h	/^    bool operator () (Var x, Var y) { return activity[x] > activity[y]; }$/;"	f	struct:VarOrder_lt
+operator ()	pdr/pdrMgr.cpp	/^	bool operator() (const V3NetId& a, const V3NetId& b) const {$/;"	f	class:NetIdCmp
 operator ()	pdr/pdrMgr.cpp	/^  bool operator() (const TCube lhs, const TCube rhs) const {$/;"	f	class:TCubeCmp
 operator ()	util/v3Msg.h	/^      V3Msg& operator () (const V3MsgType type) {$/;"	f	class:V3MsgMgr
 operator ()	vrf/v3VrfCITP.h	/^   const bool operator() (const V3CITPCube* const c1, const V3CITPCube* const c2) const {$/;"	f	struct:V3CITPCubeCompare

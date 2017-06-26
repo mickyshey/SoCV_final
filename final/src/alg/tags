@@ -1,0 +1,194 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+V3AigSimDataVec	v3AlgType.h	/^typedef V3Vec<V3BitVecS>::Vec             V3AigSimDataVec;$/;"	t
+V3AigSimRecord	v3AlgType.h	/^typedef pair<V3NetId, V3BitVecS>          V3AigSimRecord;$/;"	t
+V3AigSimRecordVec	v3AlgType.h	/^typedef V3Vec<V3AigSimRecord>::Vec        V3AigSimRecordVec;$/;"	t
+V3AigSimTraceVec	v3AlgType.h	/^typedef V3Vec<V3AigSimDataVec>::Vec       V3AigSimTraceVec;$/;"	t
+V3AlgAigGeneralize	v3AlgGeneralize.cpp	/^V3AlgAigGeneralize::V3AlgAigGeneralize(const V3NtkHandler* const handler) : V3AlgAigSimulate(handler), V3AlgGeneralize() {$/;"	f	class:V3AlgAigGeneralize
+V3AlgAigGeneralize	v3AlgGeneralize.h	/^class V3AlgAigGeneralize : public V3AlgAigSimulate, public V3AlgGeneralize {$/;"	c
+V3AlgAigSimulate	v3AlgSimulate.cpp	/^V3AlgAigSimulate::V3AlgAigSimulate(const V3NtkHandler* const handler) : V3AlgSimulate(handler) {$/;"	f	class:V3AlgAigSimulate
+V3AlgAigSimulate	v3AlgSimulate.h	/^class V3AlgAigSimulate : public V3AlgSimulate$/;"	c
+V3AlgBvGeneralize	v3AlgGeneralize.cpp	/^V3AlgBvGeneralize::V3AlgBvGeneralize(const V3NtkHandler* const handler) : V3AlgBvSimulate(handler), V3AlgGeneralize() {$/;"	f	class:V3AlgBvGeneralize
+V3AlgBvGeneralize	v3AlgGeneralize.h	/^class V3AlgBvGeneralize : public V3AlgBvSimulate, public V3AlgGeneralize {$/;"	c
+V3AlgBvSimulate	v3AlgSimulate.cpp	/^V3AlgBvSimulate::V3AlgBvSimulate(const V3NtkHandler* const handler) : V3AlgSimulate(handler) {$/;"	f	class:V3AlgBvSimulate
+V3AlgBvSimulate	v3AlgSimulate.h	/^class V3AlgBvSimulate : public V3AlgSimulate$/;"	c
+V3AlgGeneralize	v3AlgGeneralize.cpp	/^V3AlgGeneralize::V3AlgGeneralize() {$/;"	f	class:V3AlgGeneralize
+V3AlgGeneralize	v3AlgGeneralize.h	/^class V3AlgGeneralize {$/;"	c
+V3AlgSimulate	v3AlgSimulate.cpp	/^V3AlgSimulate::V3AlgSimulate(const V3NtkHandler* const handler) : _handler(handler) {$/;"	f	class:V3AlgSimulate
+V3AlgSimulate	v3AlgSimulate.h	/^class V3AlgSimulate$/;"	c
+V3BvSimDataVec	v3AlgType.h	/^typedef V3Vec<V3BitVecX>::Vec             V3BvSimDataVec;$/;"	t
+V3BvSimNetId	v3AlgType.h	/^typedef pair<V3NetId, uint32_t>           V3BvSimNetId;$/;"	t
+V3BvSimNetVec	v3AlgType.h	/^typedef V3Vec<V3BvSimNetId>::Vec          V3BvSimNetVec;$/;"	t
+V3BvSimRecord	v3AlgType.h	/^typedef pair<V3NetId, V3BitVecX>          V3BvSimRecord;$/;"	t
+V3BvSimRecordVec	v3AlgType.h	/^typedef V3Vec<V3BvSimRecord>::Vec         V3BvSimRecordVec;$/;"	t
+V3BvSimTraceVec	v3AlgType.h	/^typedef V3Vec<V3BvSimDataVec>::Vec        V3BvSimTraceVec;$/;"	t
+V3GenBucket	v3AlgGeneralize.cpp	/^V3GenBucket::V3GenBucket(const uint32_t& maxBucket, const uint32_t& maxData) {$/;"	f	class:V3GenBucket
+V3GenBucket	v3AlgGeneralize.h	/^class V3GenBucket {$/;"	c
+V3GenComp	v3AlgGeneralize.h	/^      struct V3GenComp {$/;"	s	class:V3GenStruct
+V3GenCubeList	v3AlgGeneralize.h	/^      typedef V3Vec<V3UI32Set>::Vec                V3GenCubeList;$/;"	t	class:V3GenStruct
+V3GenStruct	v3AlgGeneralize.cpp	/^V3GenStruct::V3GenStruct(const uint32_t& varSize, const V3NetVec& baseCube) {$/;"	f	class:V3GenStruct
+V3GenStruct	v3AlgGeneralize.h	/^class V3GenStruct {$/;"	c
+V3GenVarOrder	v3AlgGeneralize.h	/^      typedef V3Set<V3GenVarPair, V3GenComp>::Set  V3GenVarOrder;$/;"	t	class:V3GenStruct
+V3GenVarPair	v3AlgGeneralize.h	/^      typedef pair<V3NetId, uint32_t>              V3GenVarPair;$/;"	t	class:V3GenStruct
+V3NetList	v3AlgGeneralize.h	/^typedef V3List<V3NetId>::List    V3NetList;$/;"	t
+V3SimTrace	v3AlgType.h	/^typedef V3Vec<V3BitVecX>::Vec             V3SimTrace;$/;"	t
+V3SimTraceVec	v3AlgType.h	/^typedef V3Vec<V3SimTrace>::Vec            V3SimTraceVec;$/;"	t
+V3_ALG_CMD_C	v3AlgCmd.cpp	10;"	d	file:
+V3_ALG_CMD_H	v3AlgCmd.h	10;"	d
+V3_ALG_GENERALIZE_C	v3AlgGeneralize.cpp	10;"	d	file:
+V3_ALG_GENERALIZE_H	v3AlgGeneralize.h	10;"	d
+V3_ALG_SIMULATE_C	v3AlgSimulate.cpp	10;"	d	file:
+V3_ALG_SIMULATE_H	v3AlgSimulate.h	10;"	d
+V3_ALG_SIM_C	v3AlgSim.cpp	10;"	d	file:
+V3_ALG_SIM_H	v3AlgSim.h	10;"	d
+V3_ALG_TYPE_H	v3AlgType.h	10;"	d
+V3_SIM_GENERALIZATION_EARLY_QUIT	v3AlgGeneralize.cpp	17;"	d	file:
+V3_USE_NEW_SIM_GENERALIZATION	v3AlgGeneralize.cpp	16;"	d	file:
+_baseCube	v3AlgGeneralize.h	/^      V3NetVec          _baseCube;$/;"	m	class:V3GenStruct
+_bestIndex	v3AlgGeneralize.h	/^      uint32_t          _bestIndex; \/\/ The Lowest Non-empty Bucket$/;"	m	class:V3GenBucket
+_bucketIdx	v3AlgGeneralize.h	/^      V3UI32Vec         _bucketIdx; \/\/ The Index for Element Storage$/;"	m	class:V3GenBucket
+_buckets	v3AlgGeneralize.h	/^      V3UI32Vec         _buckets;   \/\/ The First Element in the Bucket$/;"	m	class:V3GenBucket
+_cube2Var	v3AlgGeneralize.h	/^      V3GenCubeList     _cube2Var;$/;"	m	class:V3GenStruct
+_cycle	v3AlgSimulate.h	/^      uint32_t                   _cycle;$/;"	m	class:V3AlgSimulate
+_dffValue	v3AlgSimulate.h	/^      V3AigSimDataVec   _dffValue;     \/\/ Next State Simulation Value$/;"	m	class:V3AlgAigSimulate
+_dffValue	v3AlgSimulate.h	/^      V3BvSimDataVec    _dffValue;     \/\/ Next State Simulation Value$/;"	m	class:V3AlgBvSimulate
+_eventList	v3AlgSimulate.h	/^      V3IncBucketList<V3NetId>   _eventList;$/;"	m	class:V3AlgSimulate
+_fanoutVec	v3AlgSimulate.h	/^      V3NetTable                 _fanoutVec;$/;"	m	class:V3AlgSimulate
+_genResult	v3AlgGeneralize.h	/^      V3NetList            _genResult; \/\/ Generalization Result$/;"	m	class:V3AlgGeneralize
+_handler	v3AlgSimulate.h	/^      const V3NtkHandler* const  _handler;$/;"	m	class:V3AlgSimulate
+_hasEvent	v3AlgSimulate.h	/^      V3BoolVec                  _hasEvent;$/;"	m	class:V3AlgSimulate
+_init	v3AlgSimulate.h	/^      uint32_t                   _init[2];$/;"	m	class:V3AlgSimulate
+_isFrozen	v3AlgGeneralize.h	/^      V3BoolVec            _isFrozen;  \/\/ Frozen Net Table$/;"	m	class:V3AlgAigGeneralize
+_level	v3AlgSimulate.h	/^      uint32_t                   _level;$/;"	m	class:V3AlgSimulate
+_levelData	v3AlgSimulate.h	/^      V3UI32Vec                  _levelData;$/;"	m	class:V3AlgSimulate
+_nextData	v3AlgGeneralize.h	/^      V3UI32Vec         _nextData;  \/\/ The Next (bwd pointer) Element$/;"	m	class:V3GenBucket
+_orderMap	v3AlgSimulate.h	/^      V3NetVec                   _orderMap;$/;"	m	class:V3AlgSimulate
+_prevData	v3AlgGeneralize.h	/^      V3UI32Vec         _prevData;  \/\/ The Prev (fwd pointer) Element$/;"	m	class:V3GenBucket
+_simRecord	v3AlgSimulate.h	/^      V3AigSimRecordVec _simRecord;    \/\/ Simulation Value Record$/;"	m	class:V3AlgAigSimulate
+_simRecord	v3AlgSimulate.h	/^      V3BvSimRecordVec  _simRecord;    \/\/ Simulation Value Record$/;"	m	class:V3AlgBvSimulate
+_simValue	v3AlgSimulate.h	/^      V3AigSimDataVec   _simValue;     \/\/ Simulation Value for Ntk$/;"	m	class:V3AlgAigSimulate
+_simValue	v3AlgSimulate.h	/^      V3BvSimDataVec    _simValue;     \/\/ Simulation Value for Ntk$/;"	m	class:V3AlgBvSimulate
+_targetId	v3AlgGeneralize.h	/^      V3NetVec             _targetId;  \/\/ Resolved Target NetId$/;"	m	class:V3AlgAigGeneralize
+_targetId	v3AlgGeneralize.h	/^      V3NetVec             _targetId;  \/\/ Resolved Target NetId$/;"	m	class:V3AlgBvGeneralize
+_targets	v3AlgSimulate.h	/^      V3NetVec                   _targets;$/;"	m	class:V3AlgSimulate
+_traceData	v3AlgSimulate.h	/^      V3AigSimTraceVec  _traceData;    \/\/ Simulation Input Sequence$/;"	m	class:V3AlgAigSimulate
+_traceData	v3AlgSimulate.h	/^      V3BvSimTraceVec   _traceData;    \/\/ Simulation Input Sequence$/;"	m	class:V3AlgBvSimulate
+_traverse	v3AlgGeneralize.h	/^      V3BoolVec            _traverse;  \/\/ Traversed Net Table$/;"	m	class:V3AlgAigGeneralize
+_traverse	v3AlgGeneralize.h	/^      V3BoolVec            _traverse;  \/\/ Traversed Net Table$/;"	m	class:V3AlgBvGeneralize
+_undecided	v3AlgGeneralize.h	/^      V3NetList            _undecided; \/\/ Extensibility Records$/;"	m	class:V3AlgGeneralize
+_var2Cube	v3AlgGeneralize.h	/^      V3UI32Table       _var2Cube;$/;"	m	class:V3GenStruct
+_varOrder	v3AlgGeneralize.h	/^      V3GenVarOrder     _varOrder;$/;"	m	class:V3GenStruct
+_varValue	v3AlgGeneralize.h	/^      V3UI32Vec         _varValue;$/;"	m	class:V3GenStruct
+clear	v3AlgGeneralize.cpp	/^V3GenStruct::clear(const V3NetVec& baseCube) {$/;"	f	class:V3GenStruct
+clearSource	v3AlgSimulate.cpp	/^V3AlgAigSimulate::clearSource(const V3NetId& id, const bool& random) {$/;"	f	class:V3AlgAigSimulate
+clearSource	v3AlgSimulate.cpp	/^V3AlgBvSimulate::clearSource(const V3NetId& id, const bool& random) {$/;"	f	class:V3AlgBvSimulate
+clearSource	v3AlgSimulate.cpp	/^V3AlgSimulate::clearSource(const V3NetId& id, const bool& random) {}$/;"	f	class:V3AlgSimulate
+exec	v3AlgCmd.cpp	/^V3PlotTraceCmd::exec(const string& option) {$/;"	f	class:V3PlotTraceCmd
+exec	v3AlgCmd.cpp	/^V3SimNtkCmd::exec(const string& option) {$/;"	f	class:V3SimNtkCmd
+generalizationValid	v3AlgGeneralize.cpp	/^V3AlgAigGeneralize::generalizationValid() {$/;"	f	class:V3AlgAigGeneralize
+generalizationValid	v3AlgGeneralize.cpp	/^V3AlgBvGeneralize::generalizationValid() {$/;"	f	class:V3AlgBvGeneralize
+getCubeSize	v3AlgGeneralize.h	/^      inline const uint32_t getCubeSize() const { return _cube2Var.size(); }$/;"	f	class:V3GenStruct
+getCycleCount	v3AlgSimulate.h	/^      inline const uint32_t getCycleCount() const { return _cycle; }$/;"	f	class:V3AlgSimulate
+getGeneralizationResult	v3AlgGeneralize.cpp	/^V3AlgGeneralize::getGeneralizationResult() const {$/;"	f	class:V3AlgGeneralize
+getNextVar	v3AlgGeneralize.cpp	/^V3GenStruct::getNextVar() {$/;"	f	class:V3GenStruct
+getNextVar	v3AlgGeneralize.cpp	/^V3GenStruct::getNextVar(uint32_t& cost) {$/;"	f	class:V3GenStruct
+getSimRecordData	v3AlgSimulate.cpp	/^V3AlgAigSimulate::getSimRecordData(uint32_t cycle, V3SimTrace& traceData) const {$/;"	f	class:V3AlgAigSimulate
+getSimRecordData	v3AlgSimulate.cpp	/^V3AlgBvSimulate::getSimRecordData(uint32_t cycle, V3SimTrace& traceData) const {$/;"	f	class:V3AlgBvSimulate
+getSimRecordData	v3AlgSimulate.cpp	/^V3AlgSimulate::getSimRecordData(uint32_t cycle, V3SimTrace& traceData) const { traceData.clear(); }$/;"	f	class:V3AlgSimulate
+getSimValue	v3AlgSimulate.cpp	/^V3AlgAigSimulate::getSimValue(const V3NetId& id) const {$/;"	f	class:V3AlgAigSimulate
+getSimValue	v3AlgSimulate.cpp	/^V3AlgBvSimulate::getSimValue(const V3NetId& id) const {$/;"	f	class:V3AlgBvSimulate
+getSimValue	v3AlgSimulate.cpp	/^V3AlgSimulate::getSimValue(const V3NetId& id) const { return V3BitVecX(); }$/;"	f	class:V3AlgSimulate
+getUndecided	v3AlgGeneralize.cpp	/^V3AlgGeneralize::getUndecided() const {$/;"	f	class:V3AlgGeneralize
+getVarSize	v3AlgGeneralize.h	/^      inline const uint32_t getVarSize() const { return _var2Cube.size(); }$/;"	f	class:V3GenStruct
+help	v3AlgCmd.cpp	/^V3PlotTraceCmd::help() const {$/;"	f	class:V3PlotTraceCmd
+help	v3AlgCmd.cpp	/^V3SimNtkCmd::help() const {$/;"	f	class:V3SimNtkCmd
+inc	v3AlgGeneralize.cpp	/^V3GenBucket::inc(const uint32_t& data, const uint32_t& amount) {$/;"	f	class:V3GenBucket
+initAlgCmd	v3AlgCmd.cpp	/^bool initAlgCmd() {$/;"	f
+initializeEventList	v3AlgSimulate.cpp	/^V3AlgSimulate::initializeEventList() {$/;"	f	class:V3AlgSimulate
+isEmpty	v3AlgGeneralize.h	/^      inline const bool isEmpty() const { return _buckets.size() <= _bestIndex; }$/;"	f	class:V3GenBucket
+isValidCube	v3AlgGeneralize.cpp	/^V3GenStruct::isValidCube(const V3NetVec& cube) const {$/;"	f	class:V3GenStruct
+noticePushComplete	v3AlgGeneralize.cpp	/^V3GenBucket::noticePushComplete() {$/;"	f	class:V3GenBucket
+operator ()	v3AlgGeneralize.h	/^         inline const bool operator () (const V3GenVarPair& p1, const V3GenVarPair& p2) const {$/;"	f	struct:V3GenStruct::V3GenComp
+performFixForControlVars	v3AlgGeneralize.cpp	/^V3AlgAigGeneralize::performFixForControlVars(const bool& parallelSim) {$/;"	f	class:V3AlgAigGeneralize
+performFixForControlVars	v3AlgGeneralize.cpp	/^V3AlgBvGeneralize::performFixForControlVars(const bool& parallelSim) {$/;"	f	class:V3AlgBvGeneralize
+performFixForControlVars	v3AlgGeneralize.cpp	/^V3AlgGeneralize::performFixForControlVars(const bool& parallelSim) {$/;"	f	class:V3AlgGeneralize
+performImplicationForTargetUpdate	v3AlgGeneralize.cpp	/^V3AlgAigGeneralize::performImplicationForTargetUpdate(V3NetVec& newSource) {$/;"	f	class:V3AlgAigGeneralize
+performImplicationForTargetUpdate	v3AlgGeneralize.cpp	/^V3AlgAigGeneralize::performImplicationForTargetUpdate(const V3NetId& id, V3NetVec& newSource, V3BoolVec& updated) {$/;"	f	class:V3AlgAigGeneralize
+performInputFileSimulation	v3AlgSim.cpp	/^const bool performInputFileSimulation(const V3NtkHandler* const handler, const string& fileName, $/;"	f
+performRandomSimulation	v3AlgSim.cpp	/^const bool performRandomSimulation(const V3NtkHandler* const handler, const uint32_t& patternCount, $/;"	f
+performSetXForNotCOIVars	v3AlgGeneralize.cpp	/^V3AlgAigGeneralize::performSetXForNotCOIVars() {$/;"	f	class:V3AlgAigGeneralize
+performSetXForNotCOIVars	v3AlgGeneralize.cpp	/^V3AlgBvGeneralize::performSetXForNotCOIVars() {$/;"	f	class:V3AlgBvGeneralize
+performSetXForNotCOIVars	v3AlgGeneralize.cpp	/^V3AlgGeneralize::performSetXForNotCOIVars() {$/;"	f	class:V3AlgGeneralize
+performSimulationForFrozenPropagation	v3AlgGeneralize.cpp	/^V3AlgAigGeneralize::performSimulationForFrozenPropagation(const V3NetVec& newSource) {$/;"	f	class:V3AlgAigGeneralize
+performXPropForExtensibleVars	v3AlgGeneralize.cpp	/^V3AlgAigGeneralize::performXPropForExtensibleVars(const V3UI32Vec& generalizeOrder) {$/;"	f	class:V3AlgAigGeneralize
+performXPropForExtensibleVars	v3AlgGeneralize.cpp	/^V3AlgBvGeneralize::performXPropForExtensibleVars(const V3UI32Vec& generalizeOrder) {$/;"	f	class:V3AlgBvGeneralize
+performXPropForExtensibleVars	v3AlgGeneralize.cpp	/^V3AlgGeneralize::performXPropForExtensibleVars(const V3UI32Vec& generalizeOrder) {$/;"	f	class:V3AlgGeneralize
+performXPropForMinimizeTransitions	v3AlgGeneralize.cpp	/^V3AlgAigGeneralize::performXPropForMinimizeTransitions(const uint32_t& frameSize, const V3NetVec& targetValue) {$/;"	f	class:V3AlgAigGeneralize
+performXPropForMinimizeTransitions	v3AlgGeneralize.cpp	/^V3AlgBvGeneralize::performXPropForMinimizeTransitions(const uint32_t& frameSize, const V3NetVec& targetValue) {$/;"	f	class:V3AlgBvGeneralize
+performXPropForMinimizeTransitions	v3AlgGeneralize.cpp	/^V3AlgGeneralize::performXPropForMinimizeTransitions(const uint32_t& frameSize, const V3NetVec& targetValue) {$/;"	f	class:V3AlgGeneralize
+pop	v3AlgGeneralize.cpp	/^V3GenBucket::pop(uint32_t& data) {$/;"	f	class:V3GenBucket
+printConfl	v3AlgGeneralize.cpp	/^V3GenStruct::printConfl(const V3UI32Set& cube) const {$/;"	f	class:V3GenStruct
+printCube	v3AlgGeneralize.cpp	/^V3GenStruct::printCube(const V3NetVec& cube) const {$/;"	f	class:V3GenStruct
+printCube2Var	v3AlgGeneralize.cpp	/^V3GenStruct::printCube2Var() const {$/;"	f	class:V3GenStruct
+printResult	v3AlgSimulate.cpp	/^V3AlgAigSimulate::printResult() const {$/;"	f	class:V3AlgAigSimulate
+printResult	v3AlgSimulate.cpp	/^V3AlgBvSimulate::printResult() const {$/;"	f	class:V3AlgBvSimulate
+printResult	v3AlgSimulate.cpp	/^V3AlgSimulate::printResult() const { }$/;"	f	class:V3AlgSimulate
+printVar2Cube	v3AlgGeneralize.cpp	/^V3GenStruct::printVar2Cube() const {$/;"	f	class:V3GenStruct
+push	v3AlgGeneralize.cpp	/^V3GenBucket::push(const uint32_t& data, const uint32_t& bucketIndex) {$/;"	f	class:V3GenBucket
+pushCube	v3AlgGeneralize.cpp	/^V3GenStruct::pushCube(const V3NetVec& cube, const bool& invert) {$/;"	f	class:V3GenStruct
+recordSimValue	v3AlgSimulate.cpp	/^V3AlgAigSimulate::recordSimValue() {$/;"	f	class:V3AlgAigSimulate
+recordSimValue	v3AlgSimulate.cpp	/^V3AlgBvSimulate::recordSimValue() {$/;"	f	class:V3AlgBvSimulate
+recordSimValue	v3AlgSimulate.cpp	/^V3AlgSimulate::recordSimValue() {}$/;"	f	class:V3AlgSimulate
+recoverForGeneralization	v3AlgGeneralize.cpp	/^V3AlgAigGeneralize::recoverForGeneralization() {$/;"	f	class:V3AlgAigGeneralize
+recoverForGeneralization	v3AlgGeneralize.cpp	/^V3AlgBvGeneralize::recoverForGeneralization() {$/;"	f	class:V3AlgBvGeneralize
+reset	v3AlgSimulate.cpp	/^V3AlgAigSimulate::reset(const V3NetVec& targetNets) {$/;"	f	class:V3AlgAigSimulate
+reset	v3AlgSimulate.cpp	/^V3AlgBvSimulate::reset(const V3NetVec& targetNets) {$/;"	f	class:V3AlgBvSimulate
+reset	v3AlgSimulate.cpp	/^V3AlgSimulate::reset(const V3NetVec& targetNets) { resetSimulator(); }$/;"	f	class:V3AlgSimulate
+resetSimulator	v3AlgSimulate.cpp	/^V3AlgSimulate::resetSimulator() {$/;"	f	class:V3AlgSimulate
+setSource	v3AlgSimulate.cpp	/^V3AlgAigSimulate::setSource(const V3NetId& id, const V3BitVecX& value) {$/;"	f	class:V3AlgAigSimulate
+setSource	v3AlgSimulate.cpp	/^V3AlgBvSimulate::setSource(const V3NetId& id, const V3BitVecX& value) {$/;"	f	class:V3AlgBvSimulate
+setSource	v3AlgSimulate.cpp	/^V3AlgSimulate::setSource(const V3NetId& id, const V3BitVecX& value) {}$/;"	f	class:V3AlgSimulate
+setSourceEvent	v3AlgSimulate.cpp	/^V3AlgAigSimulate::setSourceEvent(const V3NetId& id, const V3BitVecX& value) {$/;"	f	class:V3AlgAigSimulate
+setSourceEvent	v3AlgSimulate.cpp	/^V3AlgBvSimulate::setSourceEvent(const V3NetId& id, const V3BitVecX& value) {$/;"	f	class:V3AlgBvSimulate
+setSourceEvent	v3AlgSimulate.cpp	/^V3AlgSimulate::setSourceEvent(const V3NetId& id, const V3BitVecX& value) {}$/;"	f	class:V3AlgSimulate
+setSourceFree	v3AlgSimulate.cpp	/^V3AlgAigSimulate::setSourceFree(const V3GateType& type, const bool& random) {$/;"	f	class:V3AlgAigSimulate
+setSourceFree	v3AlgSimulate.cpp	/^V3AlgBvSimulate::setSourceFree(const V3GateType& type, const bool& random) {$/;"	f	class:V3AlgBvSimulate
+setSourceFree	v3AlgSimulate.cpp	/^V3AlgSimulate::setSourceFree(const V3GateType& type, const bool& random) {}$/;"	f	class:V3AlgSimulate
+setSourceFreeEvent	v3AlgSimulate.cpp	/^V3AlgAigSimulate::setSourceFreeEvent(const V3GateType& type, const bool& random) {$/;"	f	class:V3AlgAigSimulate
+setSourceFreeEvent	v3AlgSimulate.cpp	/^V3AlgBvSimulate::setSourceFreeEvent(const V3GateType& type, const bool& random) {$/;"	f	class:V3AlgBvSimulate
+setSourceFreeEvent	v3AlgSimulate.cpp	/^V3AlgSimulate::setSourceFreeEvent(const V3GateType& type, const bool& random) {}$/;"	f	class:V3AlgSimulate
+setTargetNets	v3AlgGeneralize.cpp	/^V3AlgAigGeneralize::setTargetNets(const V3NetVec& curTargets, const V3NetVec& nextTargets) {$/;"	f	class:V3AlgAigGeneralize
+setTargetNets	v3AlgGeneralize.cpp	/^V3AlgBvGeneralize::setTargetNets(const V3NetVec& curTargets, const V3NetVec& nextTargets) {$/;"	f	class:V3AlgBvGeneralize
+setTargetNets	v3AlgGeneralize.cpp	/^V3AlgGeneralize::setTargetNets(const V3NetVec& curTargets, const V3NetVec& nextTargets) {$/;"	f	class:V3AlgGeneralize
+simulate	v3AlgSimulate.cpp	/^V3AlgAigSimulate::simulate() {$/;"	f	class:V3AlgAigSimulate
+simulate	v3AlgSimulate.cpp	/^V3AlgBvSimulate::simulate() {$/;"	f	class:V3AlgBvSimulate
+simulate	v3AlgSimulate.cpp	/^V3AlgSimulate::simulate() {}$/;"	f	class:V3AlgSimulate
+simulateEventList	v3AlgSimulate.cpp	/^V3AlgAigSimulate::simulateEventList() {$/;"	f	class:V3AlgAigSimulate
+simulateEventList	v3AlgSimulate.cpp	/^V3AlgBvSimulate::simulateEventList() {$/;"	f	class:V3AlgBvSimulate
+simulateForGeneralization	v3AlgGeneralize.cpp	/^V3AlgAigGeneralize::simulateForGeneralization(const V3NetId& generalizeId, const V3BitVecS& generalizeValue) {$/;"	f	class:V3AlgAigGeneralize
+simulateForGeneralization	v3AlgGeneralize.cpp	/^V3AlgAigGeneralize::simulateForGeneralization(const V3NetId& generalizeId, const V3BitVecS& generalizeValue, $/;"	f	class:V3AlgAigGeneralize
+simulateForGeneralization	v3AlgGeneralize.cpp	/^V3AlgBvGeneralize::simulateForGeneralization(const V3NetId& generalizeId, const V3BitVecX& generalizeValue) {$/;"	f	class:V3AlgBvGeneralize
+simulateForGeneralization	v3AlgGeneralize.cpp	/^V3AlgBvGeneralize::simulateForGeneralization(const V3NetId& generalizeId, const V3BitVecX& generalizeValue, $/;"	f	class:V3AlgBvGeneralize
+simulateGate	v3AlgSimulate.cpp	/^V3AlgBvSimulate::simulateGate(const V3NetId& id) {$/;"	f	class:V3AlgBvSimulate
+startVarOrder	v3AlgGeneralize.cpp	/^V3GenStruct::startVarOrder(const V3NetVec& careVars) {$/;"	f	class:V3GenStruct
+updateNextStateEvent	v3AlgSimulate.cpp	/^V3AlgAigSimulate::updateNextStateEvent() {$/;"	f	class:V3AlgAigSimulate
+updateNextStateEvent	v3AlgSimulate.cpp	/^V3AlgBvSimulate::updateNextStateEvent() {$/;"	f	class:V3AlgBvSimulate
+updateNextStateEvent	v3AlgSimulate.cpp	/^V3AlgSimulate::updateNextStateEvent() {}$/;"	f	class:V3AlgSimulate
+updateNextStateValue	v3AlgSimulate.cpp	/^V3AlgAigSimulate::updateNextStateValue() {$/;"	f	class:V3AlgAigSimulate
+updateNextStateValue	v3AlgSimulate.cpp	/^V3AlgBvSimulate::updateNextStateValue() {$/;"	f	class:V3AlgBvSimulate
+updateNextStateValue	v3AlgSimulate.cpp	/^V3AlgSimulate::updateNextStateValue() {}$/;"	f	class:V3AlgSimulate
+updateVarOrder	v3AlgGeneralize.cpp	/^V3GenStruct::updateVarOrder(const bool& succeed) {$/;"	f	class:V3GenStruct
+usage	v3AlgCmd.cpp	/^V3PlotTraceCmd::usage(const bool& verbose) const {$/;"	f	class:V3PlotTraceCmd
+usage	v3AlgCmd.cpp	/^V3SimNtkCmd::usage(const bool& verbose) const {$/;"	f	class:V3SimNtkCmd
+~V3AlgAigGeneralize	v3AlgGeneralize.cpp	/^V3AlgAigGeneralize::~V3AlgAigGeneralize() {$/;"	f	class:V3AlgAigGeneralize
+~V3AlgAigSimulate	v3AlgSimulate.cpp	/^V3AlgAigSimulate::~V3AlgAigSimulate() {$/;"	f	class:V3AlgAigSimulate
+~V3AlgBvGeneralize	v3AlgGeneralize.cpp	/^V3AlgBvGeneralize::~V3AlgBvGeneralize() {$/;"	f	class:V3AlgBvGeneralize
+~V3AlgBvSimulate	v3AlgSimulate.cpp	/^V3AlgBvSimulate::~V3AlgBvSimulate() {$/;"	f	class:V3AlgBvSimulate
+~V3AlgGeneralize	v3AlgGeneralize.cpp	/^V3AlgGeneralize::~V3AlgGeneralize() {$/;"	f	class:V3AlgGeneralize
+~V3AlgSimulate	v3AlgSimulate.cpp	/^V3AlgSimulate::~V3AlgSimulate() {$/;"	f	class:V3AlgSimulate
+~V3GenBucket	v3AlgGeneralize.cpp	/^V3GenBucket::~V3GenBucket() {$/;"	f	class:V3GenBucket
+~V3GenStruct	v3AlgGeneralize.cpp	/^V3GenStruct::~V3GenStruct() {$/;"	f	class:V3GenStruct

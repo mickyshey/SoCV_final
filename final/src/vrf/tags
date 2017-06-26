@@ -1,0 +1,647 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+V3CITPCube	v3VrfCITP.h	/^      V3CITPCube(const V3CITPCube& c) : _nextCube(0) { _stateId = c._stateId; _signature = c._signature; }$/;"	f	class:V3CITPCube
+V3CITPCube	v3VrfCITP.h	/^      V3CITPCube(const V3CITPCube* const c) : _nextCube(c) { _stateId.clear(); _signature = 0; }$/;"	f	class:V3CITPCube
+V3CITPCube	v3VrfCITP.h	/^class V3CITPCube$/;"	c
+V3CITPCubeCompare	v3VrfCITP.h	/^struct V3CITPCubeCompare {$/;"	s
+V3CITPCubeList	v3VrfCITP.h	/^typedef V3Set<V3CITPCube*, V3CITPCubeCompare>::Set   V3CITPCubeList;$/;"	t
+V3CITPFrame	v3VrfCITP.cpp	/^V3CITPFrame::V3CITPFrame() {$/;"	f	class:V3CITPFrame
+V3CITPFrame	v3VrfCITP.h	/^class V3CITPFrame$/;"	c
+V3CITPFrameVec	v3VrfCITP.h	/^typedef V3Vec<V3CITPFrame*>::Vec          V3CITPFrameVec;$/;"	t
+V3FITPCube	v3VrfFITP.h	/^      V3FITPCube(const V3FITPCube& c) : _nextCube(0) { _stateId = c._stateId; _signature = c._signature; }$/;"	f	class:V3FITPCube
+V3FITPCube	v3VrfFITP.h	/^      V3FITPCube(const V3FITPCube* const c) : _nextCube(c) { _stateId.clear(); _signature = 0; }$/;"	f	class:V3FITPCube
+V3FITPCube	v3VrfFITP.h	/^class V3FITPCube$/;"	c
+V3FITPCubeCompare	v3VrfFITP.h	/^struct V3FITPCubeCompare {$/;"	s
+V3FITPCubeList	v3VrfFITP.h	/^typedef V3Set<V3FITPCube*, V3FITPCubeCompare>::Set   V3FITPCubeList;$/;"	t
+V3FITPFrame	v3VrfFITP.cpp	/^V3FITPFrame::V3FITPFrame() {$/;"	f	class:V3FITPFrame
+V3FITPFrame	v3VrfFITP.h	/^class V3FITPFrame$/;"	c
+V3FITPFrameVec	v3VrfFITP.h	/^typedef V3Vec<V3FITPFrame*>::Vec          V3FITPFrameVec;$/;"	t
+V3FITPSvrData	v3VrfFITP.h	/^typedef V3Vec<size_t>::Vec                V3FITPSvrData;$/;"	t
+V3IPDRCube	v3VrfIPDR.h	/^      V3IPDRCube(const V3IPDRCube* const c) : _nextCube(c) { _stateId.clear(); _signature = 0; }$/;"	f	class:V3IPDRCube
+V3IPDRCube	v3VrfIPDR.h	/^class V3IPDRCube$/;"	c
+V3IPDRCubeCompare	v3VrfIPDR.h	/^struct V3IPDRCubeCompare {$/;"	s
+V3IPDRCubeList	v3VrfIPDR.h	/^typedef V3Set<V3IPDRCube*, V3IPDRCubeCompare>::Set   V3IPDRCubeList;$/;"	t
+V3IPDRFrame	v3VrfIPDR.cpp	/^V3IPDRFrame::V3IPDRFrame() {$/;"	f	class:V3IPDRFrame
+V3IPDRFrame	v3VrfIPDR.h	/^class V3IPDRFrame$/;"	c
+V3IPDRFrameVec	v3VrfIPDR.h	/^typedef V3Vec<V3IPDRFrame*>::Vec             V3IPDRFrameVec;$/;"	t
+V3IPDRSvrList	v3VrfIPDR.h	/^typedef V3Vec<V3SvrBase*>::Vec               V3IPDRSvrList;$/;"	t
+V3IPDRTimedCube	v3VrfIPDR.h	/^typedef pair<uint32_t, V3IPDRCube*>          V3IPDRTimedCube;$/;"	t
+V3MPDRCube	v3VrfMPDR.h	/^      V3MPDRCube(const V3MPDRCube* const c) : _nextCube(c) { _stateId.clear(); _signature = 0; }$/;"	f	class:V3MPDRCube
+V3MPDRCube	v3VrfMPDR.h	/^class V3MPDRCube$/;"	c
+V3MPDRCubeCompare	v3VrfMPDR.h	/^struct V3MPDRCubeCompare {$/;"	s
+V3MPDRCubeList	v3VrfMPDR.h	/^typedef V3Set<V3MPDRCube*, V3MPDRCubeCompare>::Set   V3MPDRCubeList;$/;"	t
+V3MPDRFrame	v3VrfMPDR.cpp	/^V3MPDRFrame::V3MPDRFrame(const V3SvrData& a) : _activator(a) {$/;"	f	class:V3MPDRFrame
+V3MPDRFrame	v3VrfMPDR.h	/^class V3MPDRFrame$/;"	c
+V3MPDRFrameVec	v3VrfMPDR.h	/^typedef V3Vec<V3MPDRFrame*>::Vec          V3MPDRFrameVec;$/;"	t
+V3MPDRTimedCube	v3VrfMPDR.h	/^typedef pair<uint32_t, V3MPDRCube*>       V3MPDRTimedCube;$/;"	t
+V3VrfBMC	v3VrfBMC.cpp	/^V3VrfBMC::V3VrfBMC(const V3NtkHandler* const handler) : V3VrfBase(handler) {$/;"	f	class:V3VrfBMC
+V3VrfBMC	v3VrfBMC.h	/^class V3VrfBMC : public V3VrfBase$/;"	c
+V3VrfBase	v3VrfBase.cpp	/^V3VrfBase::V3VrfBase(const V3NtkHandler* const handler) {$/;"	f	class:V3VrfBase
+V3VrfBase	v3VrfBase.h	/^class V3VrfBase$/;"	c
+V3VrfCITP	v3VrfCITP.cpp	/^V3VrfCITP::V3VrfCITP(const V3NtkHandler* const handler) : V3VrfBase(handler) {$/;"	f	class:V3VrfCITP
+V3VrfCITP	v3VrfCITP.h	/^class V3VrfCITP : public V3VrfBase$/;"	c
+V3VrfFITP	v3VrfFITP.cpp	/^V3VrfFITP::V3VrfFITP(const V3NtkHandler* const handler) : V3VrfBase(handler) {$/;"	f	class:V3VrfFITP
+V3VrfFITP	v3VrfFITP.h	/^class V3VrfFITP : public V3VrfBase$/;"	c
+V3VrfIPDR	v3VrfIPDR.cpp	/^V3VrfIPDR::V3VrfIPDR(const V3NtkHandler* const handler) : V3VrfBase(handler) {$/;"	f	class:V3VrfIPDR
+V3VrfIPDR	v3VrfIPDR.h	/^class V3VrfIPDR : public V3VrfBase$/;"	c
+V3VrfKLive	v3VrfKLive.cpp	/^V3VrfKLive::V3VrfKLive(const V3NtkHandler* const handler) : V3VrfBase(handler) {$/;"	f	class:V3VrfKLive
+V3VrfKLive	v3VrfKLive.h	/^class V3VrfKLive : public V3VrfBase$/;"	c
+V3VrfMPDR	v3VrfMPDR.cpp	/^V3VrfMPDR::V3VrfMPDR(const V3NtkHandler* const handler) : V3VrfBase(handler) {$/;"	f	class:V3VrfMPDR
+V3VrfMPDR	v3VrfMPDR.h	/^class V3VrfMPDR : public V3VrfBase$/;"	c
+V3VrfResultVec	v3VrfShared.h	/^typedef V3Vec<V3VrfResult>::Vec  V3VrfResultVec;$/;"	t
+V3VrfSEC	v3VrfSEC.cpp	/^V3VrfSEC::V3VrfSEC(const V3NtkHandler* const handler) : V3VrfBase(handler) {$/;"	f	class:V3VrfSEC
+V3VrfSEC	v3VrfSEC.h	/^class V3VrfSEC : public V3VrfBase$/;"	c
+V3VrfSIM	v3VrfSIM.cpp	/^V3VrfSIM::V3VrfSIM(const V3NtkHandler* const handler) : V3VrfBase(handler) {$/;"	f	class:V3VrfSIM
+V3VrfSIM	v3VrfSIM.h	/^class V3VrfSIM : public V3VrfBase$/;"	c
+V3VrfShared	v3VrfShared.h	/^      V3VrfShared() { pthread_mutex_init(&_mutex, NULL); }$/;"	f	class:V3VrfShared
+V3VrfShared	v3VrfShared.h	/^class V3VrfShared$/;"	c
+V3VrfSharedBound	v3VrfShared.cpp	/^V3VrfSharedBound::V3VrfSharedBound(const uint32_t& size, const bool& print) : _print(print) {$/;"	f	class:V3VrfSharedBound
+V3VrfSharedBound	v3VrfShared.h	/^class V3VrfSharedBound : public V3VrfShared$/;"	c
+V3VrfSharedInv	v3VrfShared.cpp	/^V3VrfSharedInv::V3VrfSharedInv() {$/;"	f	class:V3VrfSharedInv
+V3VrfSharedInv	v3VrfShared.h	/^class V3VrfSharedInv : public V3VrfShared$/;"	c
+V3VrfSharedMem	v3VrfShared.h	/^      V3VrfSharedMem(const double& m) : V3VrfShared() { _maxMemory = m; }$/;"	f	class:V3VrfSharedMem
+V3VrfSharedMem	v3VrfShared.h	/^class V3VrfSharedMem : public V3VrfShared$/;"	c
+V3VrfSharedNtk	v3VrfShared.cpp	/^V3VrfSharedNtk::V3VrfSharedNtk() {$/;"	f	class:V3VrfSharedNtk
+V3VrfSharedNtk	v3VrfShared.h	/^class V3VrfSharedNtk : public V3VrfShared$/;"	c
+V3VrfSharedNtkData	v3VrfShared.h	/^      struct V3VrfSharedNtkData$/;"	s	class:V3VrfSharedNtk
+V3VrfSimTraceVec	v3VrfSEC.h	/^typedef V3Vec<V3SimTrace>::Vec   V3VrfSimTraceVec;$/;"	t
+V3VrfUMC	v3VrfUMC.cpp	/^V3VrfUMC::V3VrfUMC(const V3NtkHandler* const handler) : V3VrfBase(handler) {$/;"	f	class:V3VrfUMC
+V3VrfUMC	v3VrfUMC.h	/^class V3VrfUMC : public V3VrfBase$/;"	c
+V3_CITP_IMPROVED_RECYCLE	v3VrfCITP.cpp	25;"	d	file:
+V3_FITP_IMPROVED_RECYCLE	v3VrfFITP.cpp	26;"	d	file:
+V3_IPDR_USE_PROPAGATE_LOW_COST	v3VrfIPDR.cpp	19;"	d	file:
+V3_MPDR_USE_PROPAGATE_LOW_COST	v3VrfMPDR.cpp	21;"	d	file:
+V3_VRF_BASE_C	v3VrfBase.cpp	10;"	d	file:
+V3_VRF_BASE_H	v3VrfBase.h	10;"	d
+V3_VRF_BMC_C	v3VrfBMC.cpp	10;"	d	file:
+V3_VRF_BMC_H	v3VrfBMC.h	10;"	d
+V3_VRF_CITP_C	v3VrfCITP.cpp	11;"	d	file:
+V3_VRF_CITP_H	v3VrfCITP.h	11;"	d
+V3_VRF_CMD_C	v3VrfCmd.cpp	10;"	d	file:
+V3_VRF_CMD_H	v3VrfCmd.h	10;"	d
+V3_VRF_FITP_C	v3VrfFITP.cpp	11;"	d	file:
+V3_VRF_FITP_H	v3VrfFITP.h	11;"	d
+V3_VRF_IPDR_C	v3VrfIPDR.cpp	10;"	d	file:
+V3_VRF_IPDR_H	v3VrfIPDR.h	10;"	d
+V3_VRF_KLIVE_C	v3VrfKLive.cpp	10;"	d	file:
+V3_VRF_KLIVE_H	v3VrfKLive.h	10;"	d
+V3_VRF_MPDR_C	v3VrfMPDR.cpp	10;"	d	file:
+V3_VRF_MPDR_H	v3VrfMPDR.h	10;"	d
+V3_VRF_RESULT_C	v3VrfResult.cpp	10;"	d	file:
+V3_VRF_RESULT_H	v3VrfResult.h	10;"	d
+V3_VRF_SEC_C	v3VrfSEC.cpp	10;"	d	file:
+V3_VRF_SEC_H	v3VrfSEC.h	10;"	d
+V3_VRF_SHARED_C	v3VrfShared.cpp	10;"	d	file:
+V3_VRF_SHARED_H	v3VrfShared.h	10;"	d
+V3_VRF_SIM_C	v3VrfSIM.cpp	10;"	d	file:
+V3_VRF_SIM_H	v3VrfSIM.h	10;"	d
+V3_VRF_UMC_C	v3VrfUMC.cpp	10;"	d	file:
+V3_VRF_UMC_H	v3VrfUMC.h	10;"	d
+_activator	v3VrfMPDR.h	/^      V3SvrData      _activator;    \/\/ Activation Variable for Clause Indication$/;"	m	class:V3MPDRFrame
+_bound	v3VrfShared.h	/^      V3UI32Vec         _bound;     \/\/ The Deep Bound of Each Property (V3NtkUD for Verified)$/;"	m	class:V3VrfSharedBound
+_c2pMap	v3VrfSEC.h	/^      V3NetVec          _c2pMap;             \/\/ Mapping from new to old$/;"	m	class:V3VrfSEC
+_checkStat	v3VrfKLive.h	/^      V3Stat*           _checkStat;       \/\/ Formal Checking$/;"	m	class:V3VrfKLive
+_checkStat	v3VrfSEC.h	/^      V3Stat*           _checkStat;          \/\/ Formal Checking$/;"	m	class:V3VrfSEC
+_constr	v3VrfBase.h	/^      V3NetTable                 _constr;$/;"	m	class:V3VrfBase
+_constr	v3VrfShared.h	/^         V3NetTable        _constr;       \/\/ Constraints$/;"	m	struct:V3VrfSharedNtk::V3VrfSharedNtkData
+_cubeList	v3VrfCITP.h	/^      V3CITPCubeList _cubeList;     \/\/ List of Cubes Blocked in this Frame$/;"	m	class:V3CITPFrame
+_cubeList	v3VrfFITP.h	/^      V3FITPCubeList _cubeList;     \/\/ List of Cubes Blocked in this Frame$/;"	m	class:V3FITPFrame
+_cubeList	v3VrfIPDR.h	/^      V3IPDRCubeList _cubeList;     \/\/ List of Cubes Blocked in this Frame$/;"	m	class:V3IPDRFrame
+_cubeList	v3VrfMPDR.h	/^      V3MPDRCubeList _cubeList;     \/\/ List of Cubes Blocked in this Frame$/;"	m	class:V3MPDRFrame
+_data	v3VrfShared.h	/^      V3Vec<V3VrfSharedNtkData>::Vec   _data;   \/\/ Verification Data for Optimized Networks$/;"	m	class:V3VrfSharedNtk
+_extSolverType	v3VrfBase.cpp	/^V3SolverType    V3VrfBase::_extSolverType       = V3_SVR_TOTAL;$/;"	m	class:V3VrfBase	file:
+_extSolverType	v3VrfBase.h	/^      static V3SolverType        _extSolverType;$/;"	m	class:V3VrfBase
+_extVerbosity	v3VrfBase.cpp	/^unsigned char   V3VrfBase::_extVerbosity        = 0;$/;"	m	class:V3VrfBase	file:
+_extVerbosity	v3VrfBase.h	/^      static unsigned char       _extVerbosity;$/;"	m	class:V3VrfBase
+_generalStat	v3VrfCITP.h	/^      V3Stat*           _generalStat;     \/\/ UNSAT Generalization$/;"	m	class:V3VrfCITP
+_generalStat	v3VrfFITP.h	/^      V3Stat*           _generalStat;     \/\/ UNSAT Generalization$/;"	m	class:V3VrfFITP
+_generalStat	v3VrfIPDR.h	/^      V3Stat*           _generalStat;     \/\/ UNSAT Generalization$/;"	m	class:V3VrfIPDR
+_generalStat	v3VrfMPDR.h	/^      V3Stat*           _generalStat;     \/\/ UNSAT Generalization$/;"	m	class:V3VrfMPDR
+_handler	v3VrfBase.h	/^      V3NtkHandler*              _handler;$/;"	m	class:V3VrfBase
+_handler	v3VrfShared.h	/^         V3NtkHandler*     _handler;      \/\/ Network Handler$/;"	m	struct:V3VrfSharedNtk::V3VrfSharedNtkData
+_incDepth	v3VrfBMC.h	/^      uint32_t       _incDepth;     \/\/ Increment Depth (default = 1)$/;"	m	class:V3VrfBMC
+_incDepth	v3VrfKLive.h	/^      uint32_t          _incDepth;        \/\/ Increment Depth$/;"	m	class:V3VrfKLive
+_incDepth	v3VrfUMC.h	/^      uint32_t       _incDepth;     \/\/ Increment Depth (default = 1)$/;"	m	class:V3VrfUMC
+_initSvrStat	v3VrfCITP.h	/^      V3Stat*           _initSvrStat;     \/\/ CNF Computation$/;"	m	class:V3VrfCITP
+_initSvrStat	v3VrfFITP.h	/^      V3Stat*           _initSvrStat;     \/\/ CNF Computation$/;"	m	class:V3VrfFITP
+_initSvrStat	v3VrfIPDR.h	/^      V3Stat*           _initSvrStat;     \/\/ CNF Computation$/;"	m	class:V3VrfIPDR
+_initSvrStat	v3VrfMPDR.h	/^      V3Stat*           _initSvrStat;     \/\/ CNF Computation$/;"	m	class:V3VrfMPDR
+_inputData	v3VrfIPDR.h	/^      V3BitVecX               _inputData;    \/\/ Primary Input \/ Inout Values$/;"	m	class:V3IPDRCube
+_inputData	v3VrfMPDR.h	/^      V3BitVecX               _inputData;    \/\/ Primary Input \/ Inout Values$/;"	m	class:V3MPDRCube
+_inv	v3VrfShared.h	/^      V3NetTable        _inv;       \/\/ Cube Invariants (in terms of latch indices)$/;"	m	class:V3VrfSharedInv
+_itpAttr	v3VrfCITP.h	/^      unsigned char     _itpAttr;         \/\/ Specific Attributes for CITP$/;"	m	class:V3VrfCITP
+_itpAttr	v3VrfFITP.h	/^      unsigned char     _itpAttr;         \/\/ Specific Attributes for FITP$/;"	m	class:V3VrfFITP
+_itpBMCDepth	v3VrfCITP.h	/^      uint32_t          _itpBMCDepth;     \/\/ The Number of Unrolled Frames in BMC Solver$/;"	m	class:V3VrfCITP
+_itpBMCDepth	v3VrfFITP.h	/^      uint32_t          _itpBMCDepth;     \/\/ The Number of Unrolled Frames in BMC Solver$/;"	m	class:V3VrfFITP
+_itpBMCSvr	v3VrfCITP.h	/^      V3SvrBase*        _itpBMCSvr;       \/\/ The BMC SAT Solver (Counterexample Confirm)$/;"	m	class:V3VrfCITP
+_itpBMCSvr	v3VrfFITP.h	/^      V3SvrBase*        _itpBMCSvr;       \/\/ The BMC SAT Solver (Counterexample Confirm)$/;"	m	class:V3VrfFITP
+_itpBad	v3VrfCITP.h	/^      V3CITPCube*       _itpBad;          \/\/ Cube for the Bad State (!p)$/;"	m	class:V3VrfCITP
+_itpBad	v3VrfFITP.h	/^      V3FITPCube*       _itpBad;          \/\/ Cube for the Bad State (I0)$/;"	m	class:V3VrfFITP
+_itpBadCount	v3VrfCITP.h	/^      uint32_t          _itpBadCount;     \/\/ Max Bad Cubes to be Blocked for a Given Cube$/;"	m	class:V3VrfCITP
+_itpBadCount	v3VrfFITP.h	/^      uint32_t          _itpBadCount;     \/\/ Max Bad Cubes to be Blocked for a Given Cube$/;"	m	class:V3VrfFITP
+_itpBadCubeStr	v3VrfCITP.h	/^      V3StrSet          _itpBadCubeStr;   \/\/ Expressions for Pending Bad Cubes$/;"	m	class:V3VrfCITP
+_itpBadCubeStr	v3VrfFITP.h	/^      V3StrSet          _itpBadCubeStr;   \/\/ Expressions for Pending Bad Cubes$/;"	m	class:V3VrfFITP
+_itpBlockCubes	v3VrfCITP.h	/^      V3NetTable        _itpBlockCubes;   \/\/ Blocking Cubes for Interpolants$/;"	m	class:V3VrfCITP
+_itpBlockCubes	v3VrfFITP.h	/^      V3NetTable        _itpBlockCubes;   \/\/ Blocking Cubes for Interpolants$/;"	m	class:V3VrfFITP
+_itpForceUAct	v3VrfCITP.h	/^      V3SvrData         _itpForceUAct;    \/\/ Activation Variable to Force Unreachability$/;"	m	class:V3VrfCITP
+_itpForceUAct	v3VrfFITP.h	/^      V3SvrData         _itpForceUAct;    \/\/ Activation Variable to Force Unreachability$/;"	m	class:V3VrfFITP
+_itpFrame	v3VrfCITP.h	/^      V3CITPFrameVec    _itpFrame;        \/\/ List of Frames (Ri') in CITP$/;"	m	class:V3VrfCITP
+_itpFrame	v3VrfFITP.h	/^      V3FITPFrameVec    _itpFrame;        \/\/ List of Frames (Ri') in FITP$/;"	m	class:V3VrfFITP
+_itpGSt	v3VrfCITP.h	/^      V3GenStruct*      _itpGSt;          \/\/ Generalization Struct$/;"	m	class:V3VrfCITP
+_itpGSt	v3VrfFITP.h	/^      V3GenStruct*      _itpGSt;          \/\/ Generalization Struct$/;"	m	class:V3VrfFITP
+_itpGen	v3VrfCITP.h	/^      V3AlgGeneralize*  _itpGen;          \/\/ Generalization Handler$/;"	m	class:V3VrfCITP
+_itpGen	v3VrfFITP.h	/^      V3AlgGeneralize*  _itpGen;          \/\/ Generalization Handler$/;"	m	class:V3VrfFITP
+_itpITPSvr	v3VrfCITP.h	/^      V3SvrBase*        _itpITPSvr;       \/\/ The ITP SAT Solver (Reachability Containment)$/;"	m	class:V3VrfCITP
+_itpITPSvr	v3VrfFITP.h	/^      V3SvrBase*        _itpITPSvr;       \/\/ The ITP SAT Solver (Reachability Containment)$/;"	m	class:V3VrfFITP
+_itpPriority	v3VrfCITP.h	/^      V3UI32Vec         _itpPriority;     \/\/ Priority List for State Variables$/;"	m	class:V3VrfCITP
+_itpPriority	v3VrfFITP.h	/^      V3UI32Vec         _itpPriority;     \/\/ Priority List for Cut Signals$/;"	m	class:V3VrfFITP
+_itpReuse	v3VrfCITP.h	/^      V3CITPFrameVec    _itpReuse;        \/\/ List of Frames Computed Before$/;"	m	class:V3VrfCITP
+_itpReuse	v3VrfFITP.h	/^      V3FITPFrameVec    _itpReuse;        \/\/ List of Frames Computed Before$/;"	m	class:V3VrfFITP
+_itpSim	v3VrfCITP.h	/^      V3AlgSimulate*    _itpSim;          \/\/ Simulation Handler$/;"	m	class:V3VrfCITP
+_itpSim	v3VrfFITP.h	/^      V3AlgSimulate*    _itpSim;          \/\/ Simulation Handler$/;"	m	class:V3VrfFITP
+_klChecker	v3VrfKLive.h	/^      V3VrfBase*        _klChecker;       \/\/ Formal Engine for KLiveness$/;"	m	class:V3VrfKLive
+_klHandler	v3VrfKLive.h	/^      V3NtkHandler*     _klHandler;       \/\/ KLiveness Network Handler$/;"	m	class:V3VrfKLive
+_klNetList	v3VrfKLive.h	/^      V3NetVec          _klNetList;       \/\/ List of V3NetId for K-Liveness Signals$/;"	m	class:V3VrfKLive
+_klNtk	v3VrfKLive.h	/^      V3Ntk*            _klNtk;           \/\/ KLiveness Network$/;"	m	class:V3VrfKLive
+_maxDepth	v3VrfBase.h	/^      uint32_t                   _maxDepth;$/;"	m	class:V3VrfBase
+_maxMemory	v3VrfShared.h	/^      double               _maxMemory;    \/\/ Memory Bound$/;"	m	class:V3VrfSharedMem
+_maxTime	v3VrfBase.h	/^      double                     _maxTime;$/;"	m	class:V3VrfBase
+_mutex	v3VrfShared.h	/^      pthread_mutex_t         _mutex;        \/\/ Mutex for a Specific Type of Shared Data$/;"	m	class:V3VrfShared
+_nextCube	v3VrfCITP.h	/^      const V3CITPCube* const _nextCube;     \/\/ Successor State in the Successor Interpolant$/;"	m	class:V3CITPCube
+_nextCube	v3VrfFITP.h	/^      const V3FITPCube* const _nextCube;     \/\/ Successor State in the Successor Interpolant$/;"	m	class:V3FITPCube
+_nextCube	v3VrfIPDR.h	/^      const V3IPDRCube* const _nextCube;     \/\/ Successor Proof Obligation$/;"	m	class:V3IPDRCube
+_nextCube	v3VrfMPDR.h	/^      const V3MPDRCube* const _nextCube;     \/\/ Successor Proof Obligation$/;"	m	class:V3MPDRCube
+_ntkGenStat	v3VrfKLive.h	/^      V3Stat*           _ntkGenStat;      \/\/ Network Generation$/;"	m	class:V3VrfKLive
+_p2cMap	v3VrfSEC.h	/^      V3NetVec          _p2cMap;             \/\/ Mapping from old to new$/;"	m	class:V3VrfSEC
+_pdrActBackup	v3VrfIPDR.h	/^      V3UI32Vec         _pdrActBackup;    \/\/ Incremental Backup of _pdrActCount$/;"	m	class:V3VrfIPDR
+_pdrActCount	v3VrfIPDR.h	/^      V3UI32Vec         _pdrActCount;     \/\/ List of Activation Variable Counts$/;"	m	class:V3VrfIPDR
+_pdrActCount	v3VrfMPDR.h	/^      uint32_t          _pdrActCount;     \/\/ Activation Variable Count$/;"	m	class:V3VrfMPDR
+_pdrAttr	v3VrfIPDR.h	/^      unsigned char     _pdrAttr;         \/\/ Specific Attributes for MPDR$/;"	m	class:V3VrfIPDR
+_pdrAttr	v3VrfMPDR.h	/^      unsigned char     _pdrAttr;         \/\/ Specific Attributes for MPDR$/;"	m	class:V3VrfMPDR
+_pdrBackup	v3VrfIPDR.h	/^      V3IPDRFrameVec    _pdrBackup;       \/\/ Incremental Backup of _pdrFrame$/;"	m	class:V3VrfIPDR
+_pdrBackup	v3VrfMPDR.h	/^      V3MPDRFrameVec    _pdrBackup;       \/\/ Backup Frames for Reachability Reuse$/;"	m	class:V3VrfMPDR
+_pdrBad	v3VrfIPDR.h	/^      V3IPDRCube*       _pdrBad;          \/\/ Cube for the Bad State (!p)$/;"	m	class:V3VrfIPDR
+_pdrBad	v3VrfMPDR.h	/^      V3MPDRCube*       _pdrBad;          \/\/ Cube for the Bad State (!p)$/;"	m	class:V3VrfMPDR
+_pdrFrame	v3VrfIPDR.h	/^      V3IPDRFrameVec    _pdrFrame;        \/\/ List of Frames (Ri) in Incremental PDR$/;"	m	class:V3VrfIPDR
+_pdrFrame	v3VrfMPDR.h	/^      V3MPDRFrameVec    _pdrFrame;        \/\/ List of Frames (Ri) in Monolithic PDR$/;"	m	class:V3VrfMPDR
+_pdrGen	v3VrfIPDR.h	/^      V3AlgGeneralize*  _pdrGen;          \/\/ Generalization Handler$/;"	m	class:V3VrfIPDR
+_pdrGen	v3VrfMPDR.h	/^      V3AlgGeneralize*  _pdrGen;          \/\/ Generalization Handler$/;"	m	class:V3VrfMPDR
+_pdrInitConst	v3VrfIPDR.h	/^      V3BoolVec         _pdrInitConst;    \/\/ Initial State of a State Variable (whether it is a const)$/;"	m	class:V3VrfIPDR
+_pdrInitConst	v3VrfMPDR.h	/^      V3BoolVec         _pdrInitConst;    \/\/ Initial State of a State Variable (whether it is a const)$/;"	m	class:V3VrfMPDR
+_pdrInitValue	v3VrfIPDR.h	/^      V3BoolVec         _pdrInitValue;    \/\/ Initial State of a State Variable (value of the const)$/;"	m	class:V3VrfIPDR
+_pdrInitValue	v3VrfMPDR.h	/^      V3BoolVec         _pdrInitValue;    \/\/ Initial State of a State Variable (value of the const)$/;"	m	class:V3VrfMPDR
+_pdrPriority	v3VrfIPDR.h	/^      V3UI32Vec         _pdrPriority;     \/\/ Priority List for State Variables$/;"	m	class:V3VrfIPDR
+_pdrPriority	v3VrfMPDR.h	/^      V3UI32Vec         _pdrPriority;     \/\/ Priority List for State Variables$/;"	m	class:V3VrfMPDR
+_pdrRecycle	v3VrfIPDR.h	/^      uint32_t          _pdrRecycle;      \/\/ Upper Bound to Recycle$/;"	m	class:V3VrfIPDR
+_pdrRecycle	v3VrfMPDR.h	/^      uint32_t          _pdrRecycle;      \/\/ Upper Bound to Recycle$/;"	m	class:V3VrfMPDR
+_pdrSim	v3VrfIPDR.h	/^      V3AlgSimulate*    _pdrSim;          \/\/ Simulation Handler$/;"	m	class:V3VrfIPDR
+_pdrSim	v3VrfMPDR.h	/^      V3AlgSimulate*    _pdrSim;          \/\/ Simulation Handler$/;"	m	class:V3VrfMPDR
+_pdrSize	v3VrfIPDR.h	/^      uint32_t          _pdrSize;         \/\/ Input Size for the Instance$/;"	m	class:V3VrfIPDR
+_pdrSize	v3VrfMPDR.h	/^      uint32_t          _pdrSize;         \/\/ Input Size for the Instance$/;"	m	class:V3VrfMPDR
+_pdrSvr	v3VrfIPDR.h	/^      V3IPDRSvrList     _pdrSvr;          \/\/ List of Incremental SAT Solvers$/;"	m	class:V3VrfIPDR
+_pdrSvr	v3VrfMPDR.h	/^      V3SvrBase*        _pdrSvr;          \/\/ The Monolithic SAT Solver$/;"	m	class:V3VrfMPDR
+_pdrSvrBackup	v3VrfIPDR.h	/^      V3IPDRSvrList     _pdrSvrBackup;    \/\/ Incremental Backup of _pdrSvr$/;"	m	class:V3VrfIPDR
+_pdrSvrData	v3VrfIPDR.h	/^      V3SvrData         _pdrSvrData;      \/\/ Solver Data of the Latest Activation Variable$/;"	m	class:V3VrfIPDR
+_pdrSvrData	v3VrfMPDR.h	/^      V3SvrData         _pdrSvrData;      \/\/ Solver Data of the Latest Activation Variable$/;"	m	class:V3VrfMPDR
+_preDepth	v3VrfBMC.h	/^      uint32_t       _preDepth;     \/\/ Pre-Run Depth (default = 0)$/;"	m	class:V3VrfBMC
+_preDepth	v3VrfUMC.h	/^      uint32_t       _preDepth;     \/\/ Pre-Run Depth (default = 0)$/;"	m	class:V3VrfUMC
+_print	v3VrfShared.h	/^      const bool        _print;     \/\/ Enable Deep Bound Printing (Only Valid for Single Property)$/;"	m	class:V3VrfSharedBound
+_printMutex	v3VrfShared.cpp	/^pthread_mutex_t V3VrfShared::_printMutex  = PTHREAD_MUTEX_INITIALIZER;$/;"	m	class:V3VrfShared	file:
+_printMutex	v3VrfShared.h	/^      static pthread_mutex_t  _printMutex;   \/\/ Mutex for Output Messages$/;"	m	class:V3VrfShared
+_propagateStat	v3VrfIPDR.h	/^      V3Stat*           _propagateStat;   \/\/ Propagation$/;"	m	class:V3VrfIPDR
+_propagateStat	v3VrfMPDR.h	/^      V3Stat*           _propagateStat;   \/\/ Propagation$/;"	m	class:V3VrfMPDR
+_refCount	v3VrfShared.h	/^         uint32_t          _refCount;     \/\/ Reference Count$/;"	m	struct:V3VrfSharedNtk::V3VrfSharedNtkData
+_result	v3VrfBase.h	/^      V3VrfResultVec             _result;$/;"	m	class:V3VrfBase
+_secCandidate	v3VrfSEC.h	/^      V3NetTable        _secCandidate;       \/\/ List of SEC Candidates$/;"	m	class:V3VrfSEC
+_secCheckFail	v3VrfSEC.h	/^      V3BoolVec         _secCheckFail;       \/\/ List of Undecided Candidates$/;"	m	class:V3VrfSEC
+_secChecker	v3VrfSEC.h	/^      V3VrfBase*        _secChecker;         \/\/ Formal Engine for SEC$/;"	m	class:V3VrfSEC
+_secEQSize	v3VrfSEC.h	/^      uint32_t          _secEQSize;          \/\/ Number of Proven EQ Sets$/;"	m	class:V3VrfSEC
+_secHandler	v3VrfSEC.h	/^      V3NtkHandler*     _secHandler;         \/\/ SEC Network Handler$/;"	m	class:V3VrfSEC
+_secNtk	v3VrfSEC.h	/^      V3Ntk*            _secNtk;             \/\/ SEC Network$/;"	m	class:V3VrfSEC
+_secSim	v3VrfSEC.h	/^      V3AlgSimulate*    _secSim;             \/\/ Simulator for SEC$/;"	m	class:V3VrfSEC
+_sharedBound	v3VrfBase.h	/^      V3VrfSharedBound*          _sharedBound;$/;"	m	class:V3VrfBase
+_sharedInv	v3VrfBase.h	/^      V3VrfSharedInv*            _sharedInv;$/;"	m	class:V3VrfBase
+_sharedMem	v3VrfBase.h	/^      V3VrfSharedMem*            _sharedMem;$/;"	m	class:V3VrfBase
+_sharedNtk	v3VrfBase.h	/^      V3VrfSharedNtk*            _sharedNtk;$/;"	m	class:V3VrfBase
+_signature	v3VrfCITP.h	/^      uint64_t                _signature;    \/\/ Subsumption Marker$/;"	m	class:V3CITPCube
+_signature	v3VrfFITP.h	/^      uint64_t                _signature;    \/\/ Subsumption Marker$/;"	m	class:V3FITPCube
+_signature	v3VrfIPDR.h	/^      uint64_t                _signature;    \/\/ Subsumption Marker$/;"	m	class:V3IPDRCube
+_signature	v3VrfMPDR.h	/^      uint64_t                _signature;    \/\/ Subsumption Marker$/;"	m	class:V3MPDRCube
+_simStat	v3VrfSEC.h	/^      V3Stat*           _simStat;            \/\/ Simulation$/;"	m	class:V3VrfSEC
+_simpStat	v3VrfSEC.h	/^      V3Stat*           _simpStat;           \/\/ Simplification$/;"	m	class:V3VrfSEC
+_solveStat	v3VrfCITP.h	/^      V3Stat*           _solveStat;       \/\/ SAT Solving$/;"	m	class:V3VrfCITP
+_solveStat	v3VrfFITP.h	/^      V3Stat*           _solveStat;       \/\/ SAT Solving$/;"	m	class:V3VrfFITP
+_solveStat	v3VrfIPDR.h	/^      V3Stat*           _solveStat;       \/\/ SAT Solving$/;"	m	class:V3VrfIPDR
+_solveStat	v3VrfMPDR.h	/^      V3Stat*           _solveStat;       \/\/ SAT Solving$/;"	m	class:V3VrfMPDR
+_solver	v3VrfUMC.h	/^      V3SvrBase*     _solver;       \/\/ Single Instance SAT Solver$/;"	m	class:V3VrfUMC
+_solverType	v3VrfBase.h	/^      V3SolverType               _solverType;$/;"	m	class:V3VrfBase
+_specuStat	v3VrfSEC.h	/^      V3Stat*           _specuStat;          \/\/ Speculative Reduction$/;"	m	class:V3VrfSEC
+_stateId	v3VrfCITP.h	/^      V3NetVec                _stateId;      \/\/ Cut Signal Index (id) with Value (cp)$/;"	m	class:V3CITPCube
+_stateId	v3VrfFITP.h	/^      V3NetVec                _stateId;      \/\/ Cut Signal Index (id) with Value (cp)$/;"	m	class:V3FITPCube
+_stateId	v3VrfIPDR.h	/^      V3NetVec                _stateId;      \/\/ State Variable Index (id) with Value (cp)$/;"	m	class:V3IPDRCube
+_stateId	v3VrfMPDR.h	/^      V3NetVec                _stateId;      \/\/ State Variable Index (id) with Value (cp)$/;"	m	class:V3MPDRCube
+_ternaryStat	v3VrfCITP.h	/^      V3Stat*           _ternaryStat;     \/\/ SAT Generalization$/;"	m	class:V3VrfCITP
+_ternaryStat	v3VrfFITP.h	/^      V3Stat*           _ternaryStat;     \/\/ SAT Generalization$/;"	m	class:V3VrfFITP
+_ternaryStat	v3VrfIPDR.h	/^      V3Stat*           _ternaryStat;     \/\/ SAT Generalization$/;"	m	class:V3VrfIPDR
+_ternaryStat	v3VrfMPDR.h	/^      V3Stat*           _ternaryStat;     \/\/ SAT Generalization$/;"	m	class:V3VrfMPDR
+_totalStat	v3VrfCITP.h	/^      V3Stat*           _totalStat;       \/\/ Total Statistic (Should be Called Only Once)$/;"	m	class:V3VrfCITP
+_totalStat	v3VrfFITP.h	/^      V3Stat*           _totalStat;       \/\/ Total Statistic (Should be Called Only Once)$/;"	m	class:V3VrfFITP
+_totalStat	v3VrfIPDR.h	/^      V3Stat*           _totalStat;       \/\/ Total Statistic (Should be Called Only Once)$/;"	m	class:V3VrfIPDR
+_totalStat	v3VrfKLive.h	/^      V3Stat*           _totalStat;       \/\/ Total Statistic$/;"	m	class:V3VrfKLive
+_totalStat	v3VrfMPDR.h	/^      V3Stat*           _totalStat;       \/\/ Total Statistic (Should be Called Only Once)$/;"	m	class:V3VrfMPDR
+_totalStat	v3VrfSEC.h	/^      V3Stat*           _totalStat;          \/\/ Total Statistic$/;"	m	class:V3VrfSEC
+_umcAttr	v3VrfUMC.h	/^      unsigned char  _umcAttr;      \/\/ Special Settings for UMC$/;"	m	class:V3VrfUMC
+_uniAssump	v3VrfUMC.h	/^      V3SvrDataTable _uniAssump;    \/\/ Assumptions to Enable Uniqueness for Every Pair [depth][uniIndex]$/;"	m	class:V3VrfUMC
+_uniLatch	v3VrfUMC.h	/^      V3UI32Vec      _uniLatch;     \/\/ Upper Bound of Depth for the Existence of Latch in the Solver$/;"	m	class:V3VrfUMC
+_uniList	v3VrfUMC.h	/^      V3UI32Vec      _uniList;      \/\/ List of Uniqueness Bounds  (Indexed by uniIndex)$/;"	m	class:V3VrfUMC
+_unsvd	v3VrfShared.h	/^      uint32_t          _unsvd;     \/\/ Number of Unsolved Properties$/;"	m	class:V3VrfSharedBound
+_vrfNtk	v3VrfBase.h	/^      V3Ntk*                     _vrfNtk;$/;"	m	class:V3VrfBase
+addBlockedCube	v3VrfCITP.cpp	/^V3VrfCITP::addBlockedCube(V3CITPCube* const cube) {$/;"	f	class:V3VrfCITP
+addBlockedCube	v3VrfFITP.cpp	/^V3VrfFITP::addBlockedCube(V3FITPCube* const cube) {$/;"	f	class:V3VrfFITP
+addBlockedCube	v3VrfIPDR.cpp	/^V3VrfIPDR::addBlockedCube(const V3IPDRTimedCube& cube) {$/;"	f	class:V3VrfIPDR
+addBlockedCube	v3VrfMPDR.cpp	/^V3VrfMPDR::addBlockedCube(const V3MPDRTimedCube& cube) {$/;"	f	class:V3VrfMPDR
+addCubeToSolver	v3VrfIPDR.cpp	/^V3VrfIPDR::addCubeToSolver(const uint32_t& frame, const V3NetVec& state, const uint32_t& d) {$/;"	f	class:V3VrfIPDR
+addCubeToSolver	v3VrfMPDR.cpp	/^V3VrfMPDR::addCubeToSolver(const V3NetVec& state, const uint32_t& depth) {$/;"	f	class:V3VrfMPDR
+addFrameInfoToSolver	v3VrfMPDR.cpp	/^V3VrfMPDR::addFrameInfoToSolver(const uint32_t& f) {$/;"	f	class:V3VrfMPDR
+addLastFrameInfoToSolvers	v3VrfIPDR.cpp	/^V3VrfIPDR::addLastFrameInfoToSolvers() {$/;"	f	class:V3VrfIPDR
+addSimulationTrace	v3VrfSEC.cpp	/^V3VrfSEC::addSimulationTrace(const V3CexTrace& cex, const bool& checkValid) {$/;"	f	class:V3VrfSEC
+addSimulationTrace	v3VrfSEC.cpp	/^V3VrfSEC::addSimulationTrace(const V3SimTrace& initData, const V3VrfSimTraceVec& traceData, const bool& checkValid) {$/;"	f	class:V3VrfSEC
+addUniqueness	v3VrfUMC.cpp	/^V3VrfUMC::addUniqueness(const uint32_t& depth, const uint32_t& uIndex, const bool& force) {$/;"	f	class:V3VrfUMC
+assumeReachability	v3VrfMPDR.cpp	/^V3VrfMPDR::assumeReachability(const unsigned& k) {$/;"	f	class:V3VrfMPDR
+attachNetwork	v3VrfKLive.cpp	/^V3VrfKLive::attachNetwork(const uint32_t& p) {$/;"	f	class:V3VrfKLive
+blockBadCubes	v3VrfCITP.cpp	/^V3VrfCITP::blockBadCubes(const uint32_t& index) {$/;"	f	class:V3VrfCITP
+blockBadCubes	v3VrfFITP.cpp	/^V3VrfFITP::blockBadCubes(const uint32_t& index) {$/;"	f	class:V3VrfFITP
+blockNewCube	v3VrfCITP.cpp	/^V3VrfCITP::blockNewCube() {$/;"	f	class:V3VrfCITP
+blockNewCube	v3VrfFITP.cpp	/^V3VrfFITP::blockNewCube() {$/;"	f	class:V3VrfFITP
+checkBMCReachability	v3VrfCITP.cpp	/^V3VrfCITP::checkBMCReachability(const V3NetVec& state) {$/;"	f	class:V3VrfCITP
+checkBMCReachability	v3VrfFITP.cpp	/^V3VrfFITP::checkBMCReachability(const V3NetVec& state) {$/;"	f	class:V3VrfFITP
+checkCommonCounterexample	v3VrfBase.cpp	/^V3VrfBase::checkCommonCounterexample(const uint32_t& p, const V3CexTrace& cex) {$/;"	f	class:V3VrfBase
+checkCommonProof	v3VrfBase.cpp	/^V3VrfBase::checkCommonProof(const uint32_t& p, const V3NetTable& invList, const bool& checkInitial) {$/;"	f	class:V3VrfBase
+checkCounterExample	v3VrfCITP.cpp	/^V3VrfCITP::checkCounterExample() {$/;"	f	class:V3VrfCITP
+checkCounterExample	v3VrfFITP.cpp	/^V3VrfFITP::checkCounterExample() {$/;"	f	class:V3VrfFITP
+checkReachability	v3VrfCITP.cpp	/^V3VrfCITP::checkReachability(V3CITPCube* const nextCube) {$/;"	f	class:V3VrfCITP
+checkReachability	v3VrfFITP.cpp	/^V3VrfFITP::checkReachability(const V3NetVec& state) {$/;"	f	class:V3VrfFITP
+checkReachability	v3VrfIPDR.cpp	/^V3VrfIPDR::checkReachability(const uint32_t& frame, const V3NetVec& cubeState, const bool& extend) {$/;"	f	class:V3VrfIPDR
+checkReachability	v3VrfMPDR.cpp	/^V3VrfMPDR::checkReachability(const uint32_t& frame, const V3NetVec& cubeState, const bool& extend) {$/;"	f	class:V3VrfMPDR
+clearCubeList	v3VrfCITP.h	/^      inline void clearCubeList() { _cubeList.clear(); }$/;"	f	class:V3CITPFrame
+clearCubeList	v3VrfIPDR.h	/^      inline void clearCubeList() { _cubeList.clear(); }$/;"	f	class:V3IPDRFrame
+clearCubeList	v3VrfMPDR.h	/^      inline void clearCubeList() { _cubeList.clear(); }$/;"	f	class:V3MPDRFrame
+clearResult	v3VrfBase.h	/^      inline void clearResult(const uint32_t& i) { assert (i < _result.size()); _result[i].clear(); }$/;"	f	class:V3VrfBase
+clearState	v3VrfCITP.h	/^      inline void clearState() { _signature = 0; }$/;"	f	class:V3CITPCube
+clearState	v3VrfFITP.h	/^      inline void clearState() { _signature = 0; }$/;"	f	class:V3FITPCube
+computeLatchBoundsForUniqueness	v3VrfUMC.cpp	/^V3VrfUMC::computeLatchBoundsForUniqueness(const uint32_t& depth) {$/;"	f	class:V3VrfUMC
+computeTrace	v3VrfSEC.cpp	/^V3VrfSEC::computeTrace(const V3CexTrace& cex, V3SimTrace& initData, V3VrfSimTraceVec& traceData) {$/;"	f	class:V3VrfSEC
+computeTrace	v3VrfSEC.cpp	/^V3VrfSEC::computeTrace(const V3SimTrace& initData, const V3VrfSimTraceVec& traceData, const uint32_t& idx) {$/;"	f	class:V3VrfSEC
+consistencyCheck	v3VrfBase.cpp	/^V3VrfBase::consistencyCheck() const {$/;"	f	class:V3VrfBase
+cycleSimulateResult	v3VrfResult.cpp	/^const int cycleSimulateResult(const V3CexTrace& cex, const V3NetVec& constrList, const V3NetVec& fairList, const bool& safe, const V3NtkHandler* const handler, const uint32_t& index) {$/;"	f
+endLineON	v3VrfBase.h	/^      static inline const bool endLineON() { return intactON() &&  (4ul  & _extVerbosity); }$/;"	f	class:V3VrfBase
+exec	v3VrfCmd.cpp	/^V3BMCVrfCmd::exec(const string& option) {$/;"	f	class:V3BMCVrfCmd
+exec	v3VrfCmd.cpp	/^V3CheckResultCmd::exec(const string& option) {$/;"	f	class:V3CheckResultCmd
+exec	v3VrfCmd.cpp	/^V3ElaboratePrptyCmd::exec(const string& option) {$/;"	f	class:V3ElaboratePrptyCmd
+exec	v3VrfCmd.cpp	/^V3ITPVrfCmd::exec(const string& option) {$/;"	f	class:V3ITPVrfCmd
+exec	v3VrfCmd.cpp	/^V3KLiveVrfCmd::exec(const string& option) {$/;"	f	class:V3KLiveVrfCmd
+exec	v3VrfCmd.cpp	/^V3PDRVrfCmd::exec(const string& option) {$/;"	f	class:V3PDRVrfCmd
+exec	v3VrfCmd.cpp	/^V3PlotResultCmd::exec(const string& option) {$/;"	f	class:V3PlotResultCmd
+exec	v3VrfCmd.cpp	/^V3PrintReportCmd::exec(const string& option) {$/;"	f	class:V3PrintReportCmd
+exec	v3VrfCmd.cpp	/^V3PrintSolverCmd::exec(const string& option) {$/;"	f	class:V3PrintSolverCmd
+exec	v3VrfCmd.cpp	/^V3SECVrfCmd::exec(const string& option) {$/;"	f	class:V3SECVrfCmd
+exec	v3VrfCmd.cpp	/^V3SIMVrfCmd::exec(const string& option) {$/;"	f	class:V3SIMVrfCmd
+exec	v3VrfCmd.cpp	/^V3SetLivenessCmd::exec(const string& option) {$/;"	f	class:V3SetLivenessCmd
+exec	v3VrfCmd.cpp	/^V3SetReportCmd::exec(const string& option) {$/;"	f	class:V3SetReportCmd
+exec	v3VrfCmd.cpp	/^V3SetSafetyCmd::exec(const string& option) {$/;"	f	class:V3SetSafetyCmd
+exec	v3VrfCmd.cpp	/^V3SetSolverCmd::exec(const string& option) {$/;"	f	class:V3SetSolverCmd
+exec	v3VrfCmd.cpp	/^V3UMCVrfCmd::exec(const string& option) {$/;"	f	class:V3UMCVrfCmd
+exec	v3VrfCmd.cpp	/^V3WriteResultCmd::exec(const string& option) {$/;"	f	class:V3WriteResultCmd
+existInitial	v3VrfIPDR.cpp	/^V3VrfIPDR::existInitial(const V3NetVec& state) {$/;"	f	class:V3VrfIPDR
+existInitial	v3VrfMPDR.cpp	/^V3VrfMPDR::existInitial(const V3NetVec& state) {$/;"	f	class:V3VrfMPDR
+expandSimulateResult	v3VrfResult.cpp	/^const int expandSimulateResult(const V3CexTrace& cex, const V3NetVec& constrList, const V3NetVec& fairList, const bool& safe, const V3NtkHandler* const handler) {$/;"	f
+extractModel	v3VrfIPDR.cpp	/^V3VrfIPDR::extractModel(const uint32_t& d, const V3IPDRCube* const nextCube) {$/;"	f	class:V3VrfIPDR
+extractModel	v3VrfMPDR.cpp	/^V3VrfMPDR::extractModel(const V3MPDRCube* const nextCube, const uint32_t& depth) {$/;"	f	class:V3VrfMPDR
+extractNewCube	v3VrfCITP.cpp	/^V3VrfCITP::extractNewCube(V3CITPCube* const nextCube) {$/;"	f	class:V3VrfCITP
+extractNewCube	v3VrfFITP.cpp	/^V3VrfFITP::extractNewCube(V3FITPCube* const curCube) {$/;"	f	class:V3VrfFITP
+formalCheckFiredResult	v3VrfResult.cpp	/^const int formalCheckFiredResult(const V3CexTrace& cex, const V3NetVec& constrList, const V3NetVec& fairList, const bool& safe, const V3NtkHandler* const handler, const uint32_t& index) {$/;"	f
+formalCheckProvenResult	v3VrfResult.cpp	/^const int formalCheckProvenResult(const V3Ntk* const inv, const V3NtkHandler* const handler) {$/;"	f
+forwardModel	v3VrfIPDR.cpp	/^V3VrfIPDR::forwardModel(const V3IPDRCube* const curCube) {$/;"	f	class:V3VrfIPDR
+forwardModel	v3VrfMPDR.cpp	/^V3VrfMPDR::forwardModel(const V3MPDRCube* const curCube) {$/;"	f	class:V3VrfMPDR
+forwardProof	v3VrfIPDR.cpp	/^V3VrfIPDR::forwardProof(V3IPDRTimedCube& timedCube) {$/;"	f	class:V3VrfIPDR
+forwardProof	v3VrfMPDR.cpp	/^V3VrfMPDR::forwardProof(V3MPDRTimedCube& timedCube) {$/;"	f	class:V3VrfMPDR
+generalization	v3VrfIPDR.cpp	/^V3VrfIPDR::generalization(V3IPDRTimedCube& generalizedCube) {$/;"	f	class:V3VrfIPDR
+generalization	v3VrfMPDR.cpp	/^V3VrfMPDR::generalization(V3MPDRTimedCube& generalizedCube) {$/;"	f	class:V3VrfMPDR
+generalizeCex	v3VrfIPDR.cpp	/^V3VrfIPDR::generalizeCex(V3IPDRTimedCube& timedCube) {$/;"	f	class:V3VrfIPDR
+generalizeCex	v3VrfMPDR.cpp	/^V3VrfMPDR::generalizeCex(V3MPDRTimedCube& timedCube) {$/;"	f	class:V3VrfMPDR
+generalizeProof	v3VrfCITP.cpp	/^V3VrfCITP::generalizeProof(V3CITPCube* const cube) {$/;"	f	class:V3VrfCITP
+generalizeProof	v3VrfFITP.cpp	/^V3VrfFITP::generalizeProof(V3FITPCube* const cube) {$/;"	f	class:V3VrfFITP
+generalizeProof	v3VrfIPDR.cpp	/^V3VrfIPDR::generalizeProof(V3IPDRTimedCube& timedCube) {$/;"	f	class:V3VrfIPDR
+generalizeProof	v3VrfMPDR.cpp	/^V3VrfMPDR::generalizeProof(V3MPDRTimedCube& timedCube) {$/;"	f	class:V3VrfMPDR
+generalizeSimulation	v3VrfCITP.cpp	/^V3VrfCITP::generalizeSimulation(V3CITPCube* const cube, const V3CITPCube* const nextCube) {$/;"	f	class:V3VrfCITP
+generalizeSimulation	v3VrfFITP.cpp	/^V3VrfFITP::generalizeSimulation(const V3NetVec& nextCube) {$/;"	f	class:V3VrfFITP
+generalizeSimulation	v3VrfIPDR.cpp	/^V3VrfIPDR::generalizeSimulation(const uint32_t& d, V3IPDRCube* const cube, const V3IPDRCube* const nextCube) {$/;"	f	class:V3VrfIPDR
+generalizeSimulation	v3VrfMPDR.cpp	/^V3VrfMPDR::generalizeSimulation(V3MPDRCube* const cube, const V3MPDRCube* const nextCube, const uint32_t& depth) {$/;"	f	class:V3VrfMPDR
+generateAndAddUniquenessBound	v3VrfUMC.cpp	/^V3VrfUMC::generateAndAddUniquenessBound(const uint32_t& depth) {$/;"	f	class:V3VrfUMC
+getActivator	v3VrfMPDR.h	/^      inline const V3SvrData& getActivator() const { return _activator; }$/;"	f	class:V3MPDRFrame
+getBound	v3VrfShared.cpp	/^V3VrfSharedBound::getBound(const uint32_t& p) {$/;"	f	class:V3VrfSharedBound
+getBound	v3VrfShared.h	/^      inline void getBound(V3UI32Vec& bound) { lock(); bound = _bound; unlock(); }$/;"	f	class:V3VrfSharedBound
+getCOISize	v3VrfSEC.cpp	/^V3VrfSEC::getCOISize() {$/;"	f	class:V3VrfSEC
+getCubeList	v3VrfCITP.h	/^      inline V3CITPCubeList& getCubeList() { return _cubeList; }$/;"	f	class:V3CITPFrame
+getCubeList	v3VrfFITP.h	/^      inline V3FITPCubeList& getCubeList() { return _cubeList; }$/;"	f	class:V3FITPFrame
+getCubeList	v3VrfIPDR.h	/^      inline const V3IPDRCubeList& getCubeList() const { return _cubeList; }$/;"	f	class:V3IPDRFrame
+getCubeList	v3VrfMPDR.h	/^      inline const V3MPDRCubeList& getCubeList() const { return _cubeList; }$/;"	f	class:V3MPDRFrame
+getDefaultSolver	v3VrfBase.h	/^      static inline const V3SolverType getDefaultSolver() { return _extSolverType; }$/;"	f	class:V3VrfBase
+getIncLastDepthToKeepGoing	v3VrfBase.h	/^      inline const uint32_t getIncLastDepthToKeepGoing() const { return _incLastDepthToKeepGoing; }$/;"	f	class:V3VrfBase
+getInitialObligation	v3VrfIPDR.cpp	/^V3VrfIPDR::getInitialObligation() {  \/\/ If SAT(R ^ T ^ !p)$/;"	f	class:V3VrfIPDR
+getInitialObligation	v3VrfMPDR.cpp	/^V3VrfMPDR::getInitialObligation() {  \/\/ If SAT(R ^ T ^ !p)$/;"	f	class:V3VrfMPDR
+getInputData	v3VrfIPDR.h	/^      inline const V3BitVecX& getInputData() const { return _inputData; }$/;"	f	class:V3IPDRCube
+getInputData	v3VrfMPDR.h	/^      inline const V3BitVecX& getInputData() const { return _inputData; }$/;"	f	class:V3MPDRCube
+getInv	v3VrfShared.h	/^      inline void getInv(V3NetTable& inv) { lock(); inv = _inv; unlock(); }$/;"	f	class:V3VrfSharedInv
+getKLHandler	v3VrfKLive.h	/^      inline V3NtkHandler* const getKLHandler() const { return _klHandler; }$/;"	f	class:V3VrfKLive
+getMaxMemory	v3VrfShared.h	/^      inline const double getMaxMemory() { lock(); const double m = _maxMemory; unlock(); return m; }$/;"	f	class:V3VrfSharedMem
+getMemory	v3VrfShared.h	/^      inline const double getMemory() { lock(); const double m = v3Usage.getMemUsage(); unlock(); return m; }$/;"	f	class:V3VrfSharedMem
+getNetSize	v3VrfShared.cpp	/^V3VrfSharedNtk::getNetSize() {$/;"	f	class:V3VrfSharedNtk
+getNextCube	v3VrfCITP.h	/^      inline const V3CITPCube* const getNextCube() const { return _nextCube; }$/;"	f	class:V3CITPCube
+getNextCube	v3VrfFITP.h	/^      inline const V3FITPCube* const getNextCube() const { return _nextCube; }$/;"	f	class:V3FITPCube
+getNextCube	v3VrfIPDR.h	/^      inline const V3IPDRCube* const getNextCube() const { return _nextCube; }$/;"	f	class:V3IPDRCube
+getNextCube	v3VrfMPDR.h	/^      inline const V3MPDRCube* const getNextCube() const { return _nextCube; }$/;"	f	class:V3MPDRCube
+getNtk	v3VrfShared.cpp	/^V3VrfSharedNtk::getNtk(V3NtkHandler* const handler) {$/;"	f	class:V3VrfSharedNtk
+getNtk	v3VrfShared.cpp	/^V3VrfSharedNtk::getNtk(V3NtkHandler* const handler, V3NetTable& constr) {$/;"	f	class:V3VrfSharedNtk
+getNtkHandler	v3VrfBase.h	/^      inline const V3NtkHandler* const getNtkHandler() const { return _handler; }$/;"	f	class:V3VrfBase
+getPDRDepth	v3VrfIPDR.h	/^      inline const uint32_t getPDRDepth() const { return _pdrFrame.size() - 1; }$/;"	f	class:V3VrfIPDR
+getPDRDepth	v3VrfMPDR.h	/^      inline const uint32_t getPDRDepth() const { return _pdrFrame.size() - 2; }$/;"	f	class:V3VrfMPDR
+getPDRFrame	v3VrfIPDR.h	/^      inline const uint32_t getPDRFrame() const { return _pdrFrame.size(); }$/;"	f	class:V3VrfIPDR
+getPDRFrame	v3VrfMPDR.h	/^      inline const uint32_t getPDRFrame() const { return _pdrFrame.size() - 1; }$/;"	f	class:V3VrfMPDR
+getResult	v3VrfBase.h	/^      inline const V3VrfResult& getResult(const uint32_t& i) const { assert (i < _result.size()); return _result[i]; }$/;"	f	class:V3VrfBase
+getSECHandler	v3VrfSEC.h	/^      inline V3NtkHandler* const getSECHandler() const { return _secHandler; }$/;"	f	class:V3VrfSEC
+getSignature	v3VrfCITP.h	/^      inline const uint64_t getSignature() const { return _signature; }$/;"	f	class:V3CITPCube
+getSignature	v3VrfFITP.h	/^      inline const uint64_t getSignature() const { return _signature; }$/;"	f	class:V3FITPCube
+getSignature	v3VrfIPDR.h	/^      inline const uint64_t getSignature() const { return _signature; }$/;"	f	class:V3IPDRCube
+getSignature	v3VrfMPDR.h	/^      inline const uint64_t getSignature() const { return _signature; }$/;"	f	class:V3MPDRCube
+getSolver	v3VrfBase.h	/^      inline const V3SolverType getSolver() const { return (V3_SVR_TOTAL == _solverType) ? _extSolverType : _solverType; }$/;"	f	class:V3VrfBase
+getSolverCexTrace	v3VrfSEC.cpp	/^V3VrfSEC::getSolverCexTrace(V3SvrBase* const solver, const uint32_t& cycle) {$/;"	f	class:V3VrfSEC
+getState	v3VrfCITP.h	/^      inline const V3NetVec& getState() const { return _stateId; }$/;"	f	class:V3CITPCube
+getState	v3VrfFITP.h	/^      inline const V3NetVec& getState() const { return _stateId; }$/;"	f	class:V3FITPCube
+getState	v3VrfIPDR.h	/^      inline const V3NetVec& getState() const { return _stateId; }$/;"	f	class:V3IPDRCube
+getState	v3VrfMPDR.h	/^      inline const V3NetVec& getState() const { return _stateId; }$/;"	f	class:V3MPDRCube
+getStateStr	v3VrfCITP.cpp	/^V3VrfCITP::getStateStr(const V3NetVec& state) const {$/;"	f	class:V3VrfCITP
+getTargetCandidate	v3VrfSEC.cpp	/^V3VrfSEC::getTargetCandidate() {$/;"	f	class:V3VrfSEC
+getTimeUsed	v3VrfShared.h	21;"	d
+getUnsolvedSize	v3VrfShared.h	/^      inline uint32_t getUnsolvedSize() const { return _unsvd; }$/;"	f	class:V3VrfSharedBound
+help	v3VrfCmd.cpp	/^V3BMCVrfCmd::help() const {$/;"	f	class:V3BMCVrfCmd
+help	v3VrfCmd.cpp	/^V3CheckResultCmd::help() const {$/;"	f	class:V3CheckResultCmd
+help	v3VrfCmd.cpp	/^V3ElaboratePrptyCmd::help() const {$/;"	f	class:V3ElaboratePrptyCmd
+help	v3VrfCmd.cpp	/^V3ITPVrfCmd::help() const {$/;"	f	class:V3ITPVrfCmd
+help	v3VrfCmd.cpp	/^V3KLiveVrfCmd::help() const {$/;"	f	class:V3KLiveVrfCmd
+help	v3VrfCmd.cpp	/^V3PDRVrfCmd::help() const {$/;"	f	class:V3PDRVrfCmd
+help	v3VrfCmd.cpp	/^V3PlotResultCmd::help() const {$/;"	f	class:V3PlotResultCmd
+help	v3VrfCmd.cpp	/^V3PrintReportCmd::help() const {$/;"	f	class:V3PrintReportCmd
+help	v3VrfCmd.cpp	/^V3PrintSolverCmd::help() const {$/;"	f	class:V3PrintSolverCmd
+help	v3VrfCmd.cpp	/^V3SECVrfCmd::help() const {$/;"	f	class:V3SECVrfCmd
+help	v3VrfCmd.cpp	/^V3SIMVrfCmd::help() const {$/;"	f	class:V3SIMVrfCmd
+help	v3VrfCmd.cpp	/^V3SetLivenessCmd::help() const {$/;"	f	class:V3SetLivenessCmd
+help	v3VrfCmd.cpp	/^V3SetReportCmd::help() const {$/;"	f	class:V3SetReportCmd
+help	v3VrfCmd.cpp	/^V3SetSafetyCmd::help() const {$/;"	f	class:V3SetSafetyCmd
+help	v3VrfCmd.cpp	/^V3SetSolverCmd::help() const {$/;"	f	class:V3SetSolverCmd
+help	v3VrfCmd.cpp	/^V3UMCVrfCmd::help() const {$/;"	f	class:V3UMCVrfCmd
+help	v3VrfCmd.cpp	/^V3WriteResultCmd::help() const {$/;"	f	class:V3WriteResultCmd
+initVrfCmd	v3VrfCmd.cpp	/^bool initVrfCmd() {$/;"	f
+initializeBMCSolver	v3VrfCITP.cpp	/^V3VrfCITP::initializeBMCSolver(const uint32_t& start, const uint32_t& frames) {$/;"	f	class:V3VrfCITP
+initializeBMCSolver	v3VrfFITP.cpp	/^V3VrfFITP::initializeBMCSolver(const uint32_t& start, const uint32_t& frames) {$/;"	f	class:V3VrfFITP
+initializeECPair	v3VrfSEC.cpp	/^V3VrfSEC::initializeECPair() {$/;"	f	class:V3VrfSEC
+initializeITPSolver	v3VrfCITP.cpp	/^V3VrfCITP::initializeITPSolver() {$/;"	f	class:V3VrfCITP
+initializeITPSolver	v3VrfFITP.cpp	/^V3VrfFITP::initializeITPSolver() {$/;"	f	class:V3VrfFITP
+initializeNetwork	v3VrfKLive.cpp	/^V3VrfKLive::initializeNetwork(const uint32_t& p) {$/;"	f	class:V3VrfKLive
+initializeSolver	v3VrfIPDR.cpp	/^V3VrfIPDR::initializeSolver(const uint32_t& d, const bool& isReuse) {$/;"	f	class:V3VrfIPDR
+initializeSolver	v3VrfMPDR.cpp	/^V3VrfMPDR::initializeSolver() {$/;"	f	class:V3VrfMPDR
+intactON	v3VrfBase.h	/^      static inline const bool intactON()  { return reportON() && !(2ul  & _extVerbosity); }$/;"	f	class:V3VrfBase
+isAssumeCECMiter	v3VrfSEC.h	/^      inline const bool isAssumeCECMiter() const { return _secCECAssumed; }$/;"	f	class:V3VrfSEC
+isAssumeSECMiter	v3VrfSEC.h	/^      inline const bool isAssumeSECMiter() const { return _secSECAssumed; }$/;"	f	class:V3VrfSEC
+isBlockBadCountIndep	v3VrfCITP.h	/^      inline const bool isBlockBadCountIndep()  const { return _itpAttr & 4ul;  }$/;"	f	class:V3VrfCITP
+isBlockBadCountIndep	v3VrfFITP.h	/^      inline const bool isBlockBadCountIndep()  const { return _itpAttr & 4ul;  }$/;"	f	class:V3VrfFITP
+isBlocked	v3VrfIPDR.cpp	/^V3VrfIPDR::isBlocked(const V3IPDRTimedCube& timedCube) {$/;"	f	class:V3VrfIPDR
+isBlocked	v3VrfMPDR.cpp	/^V3VrfMPDR::isBlocked(const V3MPDRTimedCube& timedCube) {$/;"	f	class:V3VrfMPDR
+isDynamicInc	v3VrfUMC.h	/^      inline const bool isDynamicInc() { return _umcAttr & 8ul; }$/;"	f	class:V3VrfUMC
+isEmpty	v3VrfCITP.h	/^      inline const bool isEmpty() const { return !_signature; }$/;"	f	class:V3CITPCube
+isEmpty	v3VrfFITP.h	/^      inline const bool isEmpty() const { return !_signature; }$/;"	f	class:V3FITPCube
+isFireOnly	v3VrfUMC.h	/^      inline const bool isFireOnly  () { return _umcAttr & 1ul; }$/;"	f	class:V3VrfUMC
+isForceUnreachable	v3VrfCITP.h	/^      inline const bool isForceUnreachable()    const { return _itpAttr & 2ul;  }$/;"	f	class:V3VrfCITP
+isForceUnreachable	v3VrfFITP.h	/^      inline const bool isForceUnreachable()    const { return _itpAttr & 2ul;  }$/;"	f	class:V3VrfFITP
+isForwardSATGen	v3VrfIPDR.h	/^      inline const bool isForwardSATGen()   const { return _pdrAttr & 1ul; }$/;"	f	class:V3VrfIPDR
+isForwardSATGen	v3VrfMPDR.h	/^      inline const bool isForwardSATGen()   const { return _pdrAttr & 1ul; }$/;"	f	class:V3VrfMPDR
+isForwardUNSATGen	v3VrfIPDR.h	/^      inline const bool isForwardUNSATGen() const { return _pdrAttr & 2ul; }$/;"	f	class:V3VrfIPDR
+isForwardUNSATGen	v3VrfMPDR.h	/^      inline const bool isForwardUNSATGen() const { return _pdrAttr & 2ul; }$/;"	f	class:V3VrfMPDR
+isIncContinueOnLastSolver	v3VrfBase.h	/^      inline const bool isIncContinueOnLastSolver() const { return _incContinueOnLastSolver; }$/;"	f	class:V3VrfBase
+isIncKeepLastReachability	v3VrfBase.h	/^      inline const bool isIncKeepLastReachability() const { return _incKeepLastReachability; }$/;"	f	class:V3VrfBase
+isIncKeepSilent	v3VrfBase.h	/^      inline const bool isIncKeepSilent          () const { return _incKeepSilent;           }$/;"	f	class:V3VrfBase
+isIncVerifyUsingCurResult	v3VrfBase.h	/^      inline const bool isIncVerifyUsingCurResult() const { return _incVerifyUsingCurResult; }$/;"	f	class:V3VrfBase
+isIncrementDepth	v3VrfCITP.h	/^      inline const bool isIncrementDepth()      const { return _itpAttr & 1ul;  }$/;"	f	class:V3VrfCITP
+isIncrementDepth	v3VrfFITP.h	/^      inline const bool isIncrementDepth()      const { return _itpAttr & 1ul;  }$/;"	f	class:V3VrfFITP
+isInternalCEC	v3VrfSEC.h	/^      inline const bool isInternalCEC() const { return _secCECAssumed && !_secIsCECorSEC; }$/;"	f	class:V3VrfSEC
+isInternalSEC	v3VrfSEC.h	/^      inline const bool isInternalSEC() const { return _secSECAssumed &&  _secIsCECorSEC; }$/;"	f	class:V3VrfSEC
+isMemValid	v3VrfShared.h	/^      inline const bool isMemValid() { lock(); const double m = v3Usage.getMemUsage(); unlock(); return _maxMemory > m; }$/;"	f	class:V3VrfSharedMem
+isNoIncBySharedBound	v3VrfCITP.h	/^      inline const bool isNoIncBySharedBound()  const { return _itpAttr & 8ul;  }$/;"	f	class:V3VrfCITP
+isNoIncBySharedBound	v3VrfFITP.h	/^      inline const bool isNoIncBySharedBound()  const { return _itpAttr & 8ul;  }$/;"	f	class:V3VrfFITP
+isProveOnly	v3VrfUMC.h	/^      inline const bool isProveOnly () { return _umcAttr & 2ul; }$/;"	f	class:V3VrfUMC
+isRecycleInterpolants	v3VrfCITP.h	/^      inline const bool isRecycleInterpolants() const { return _itpAttr & 16ul; }$/;"	f	class:V3VrfCITP
+isRecycleInterpolants	v3VrfFITP.h	/^      inline const bool isRecycleInterpolants() const { return _itpAttr & 16ul; }$/;"	f	class:V3VrfFITP
+isSynthesisMode	v3VrfSEC.h	/^      inline const bool isSynthesisMode() const { return _secSynthesis; }$/;"	f	class:V3VrfSEC
+isUniqueness	v3VrfUMC.h	/^      inline const bool isUniqueness() { return _umcAttr & 4ul; }$/;"	f	class:V3VrfUMC
+isValidCandidates	v3VrfSEC.cpp	/^V3VrfSEC::isValidCandidates(const uint32_t& cycle) const {$/;"	f	class:V3VrfSEC
+isValidChecker	v3VrfKLive.cpp	/^V3VrfKLive::isValidChecker() const {$/;"	f	class:V3VrfKLive
+isValidChecker	v3VrfSEC.cpp	/^V3VrfSEC::isValidChecker() const {$/;"	f	class:V3VrfSEC
+isValidInvariant	v3VrfSEC.cpp	/^V3VrfSEC::isValidInvariant(const uint32_t& x) {$/;"	f	class:V3VrfSEC
+isValidNet	v3VrfSEC.cpp	/^V3VrfSEC::isValidNet(const V3NetId& id) const {$/;"	f	class:V3VrfSEC
+lock	v3VrfShared.h	/^      inline void lock() { pthread_mutex_lock(&_mutex); }$/;"	f	class:V3VrfShared
+operator ()	v3VrfCITP.h	/^   const bool operator() (const V3CITPCube* const c1, const V3CITPCube* const c2) const {$/;"	f	struct:V3CITPCubeCompare
+operator ()	v3VrfFITP.h	/^   const bool operator() (const V3FITPCube* const c1, const V3FITPCube* const c2) const {$/;"	f	struct:V3FITPCubeCompare
+operator ()	v3VrfIPDR.h	/^   const bool operator() (const V3IPDRCube* const c1, const V3IPDRCube* const c2) const {$/;"	f	struct:V3IPDRCubeCompare
+operator ()	v3VrfMPDR.h	/^   const bool operator() (const V3MPDRCube* const c1, const V3MPDRCube* const c2) const {$/;"	f	struct:V3MPDRCubeCompare
+printCandidate	v3VrfSEC.cpp	/^V3VrfSEC::printCandidate(const uint32_t& x) const {$/;"	f	class:V3VrfSEC
+printLock	v3VrfShared.h	/^      static inline void printLock() { pthread_mutex_lock(&_printMutex); }$/;"	f	class:V3VrfShared
+printReportSettings	v3VrfBase.cpp	/^V3VrfBase::printReportSettings() {$/;"	f	class:V3VrfBase
+printSolverSettings	v3VrfBase.cpp	/^V3VrfBase::printSolverSettings() {$/;"	f	class:V3VrfBase
+printState	v3VrfCITP.cpp	/^V3VrfCITP::printState(const V3NetVec& state) const {$/;"	f	class:V3VrfCITP
+printState	v3VrfFITP.cpp	/^V3VrfFITP::printState(const V3NetVec& state) const {$/;"	f	class:V3VrfFITP
+printState	v3VrfIPDR.cpp	/^V3VrfIPDR::printState(const V3NetVec& state) const {$/;"	f	class:V3VrfIPDR
+printState	v3VrfMPDR.cpp	/^V3VrfMPDR::printState(const V3NetVec& state) const {$/;"	f	class:V3VrfMPDR
+printUnlock	v3VrfShared.h	/^      static inline void printUnlock() { pthread_mutex_unlock(&_printMutex); }$/;"	f	class:V3VrfShared
+profileON	v3VrfBase.h	/^      static inline const bool profileON() { return reportON() &&  (32ul & _extVerbosity); }$/;"	f	class:V3VrfBase
+propagateCubes	v3VrfIPDR.cpp	/^V3VrfIPDR::propagateCubes() {$/;"	f	class:V3VrfIPDR
+propagateCubes	v3VrfMPDR.cpp	/^V3VrfMPDR::propagateCubes() {$/;"	f	class:V3VrfMPDR
+pushCube	v3VrfCITP.cpp	/^V3CITPFrame::pushCube(V3CITPCube* const c) {$/;"	f	class:V3CITPFrame
+pushCube	v3VrfFITP.cpp	/^V3FITPFrame::pushCube(V3FITPCube* const c) {$/;"	f	class:V3FITPFrame
+pushCube	v3VrfIPDR.cpp	/^V3IPDRFrame::pushCube(V3IPDRCube* const c) {$/;"	f	class:V3IPDRFrame
+pushCube	v3VrfMPDR.cpp	/^V3MPDRFrame::pushCube(V3MPDRCube* const c) {$/;"	f	class:V3MPDRFrame
+pushInv	v3VrfShared.cpp	/^V3VrfSharedInv::pushInv(V3SvrBase* const solver, V3Ntk* const ntk, const uint32_t& depth) {$/;"	f	class:V3VrfSharedInv
+randomSimulate	v3VrfSEC.cpp	/^V3VrfSEC::randomSimulate(const uint32_t& p, const uint32_t& cycle, const bool& initValid) {$/;"	f	class:V3VrfSEC
+recordCubeInputForTraceLog	v3VrfIPDR.cpp	/^V3VrfIPDR::recordCubeInputForTraceLog(V3IPDRCube* const& cube) {$/;"	f	class:V3VrfIPDR
+recordCubeInputForTraceLog	v3VrfMPDR.cpp	/^V3VrfMPDR::recordCubeInputForTraceLog(V3MPDRCube* const& cube) {$/;"	f	class:V3VrfMPDR
+recursiveBlockCube	v3VrfIPDR.cpp	/^V3VrfIPDR::recursiveBlockCube(V3IPDRCube* const badCube) {$/;"	f	class:V3VrfIPDR
+recursiveBlockCube	v3VrfMPDR.cpp	/^V3VrfMPDR::recursiveBlockCube(V3MPDRCube* const badCube) {$/;"	f	class:V3VrfMPDR
+recycleSolver	v3VrfIPDR.cpp	/^V3VrfIPDR::recycleSolver(const uint32_t& d) {$/;"	f	class:V3VrfIPDR
+recycleSolver	v3VrfMPDR.cpp	/^V3VrfMPDR::recycleSolver() {$/;"	f	class:V3VrfMPDR
+releaseNtk	v3VrfShared.cpp	/^V3VrfSharedNtk::releaseNtk(V3NtkHandler* const handler) {$/;"	f	class:V3VrfSharedNtk
+removeECPairOutOfCOI	v3VrfSEC.cpp	/^V3VrfSEC::removeECPairOutOfCOI() {$/;"	f	class:V3VrfSEC
+removeFromProof	v3VrfCITP.cpp	/^V3VrfCITP::removeFromProof(V3CITPCube* const cube) {$/;"	f	class:V3VrfCITP
+removeFromProof	v3VrfFITP.cpp	/^V3VrfFITP::removeFromProof(V3FITPCube* const cube) {$/;"	f	class:V3VrfFITP
+removeFromProof	v3VrfIPDR.cpp	/^V3VrfIPDR::removeFromProof(V3IPDRTimedCube& timedCube) {$/;"	f	class:V3VrfIPDR
+removeFromProof	v3VrfMPDR.cpp	/^V3VrfMPDR::removeFromProof(V3MPDRTimedCube& timedCube, const bool& pushForward) {$/;"	f	class:V3VrfMPDR
+removeSelfSubsumed	v3VrfCITP.cpp	/^V3CITPFrame::removeSelfSubsumed() {$/;"	f	class:V3CITPFrame
+removeSelfSubsumed	v3VrfFITP.cpp	/^V3FITPFrame::removeSelfSubsumed() {$/;"	f	class:V3FITPFrame
+removeSelfSubsumed	v3VrfIPDR.cpp	/^V3IPDRFrame::removeSelfSubsumed() {$/;"	f	class:V3IPDRFrame
+removeSelfSubsumed	v3VrfMPDR.cpp	/^V3MPDRFrame::removeSelfSubsumed() {$/;"	f	class:V3MPDRFrame
+removeSubsumed	v3VrfCITP.cpp	/^V3CITPFrame::removeSubsumed(const V3CITPCube* const cube, const V3CITPCubeList::const_iterator& ix) {$/;"	f	class:V3CITPFrame
+removeSubsumed	v3VrfFITP.cpp	/^V3FITPFrame::removeSubsumed(const V3FITPCube* const cube, const V3FITPCubeList::const_iterator& ix) {$/;"	f	class:V3FITPFrame
+removeSubsumed	v3VrfIPDR.cpp	/^V3IPDRFrame::removeSubsumed(const V3IPDRCube* const cube) {$/;"	f	class:V3IPDRFrame
+removeSubsumed	v3VrfIPDR.cpp	/^V3IPDRFrame::removeSubsumed(const V3IPDRCube* const cube, const V3IPDRCubeList::const_iterator& ix) {$/;"	f	class:V3IPDRFrame
+removeSubsumed	v3VrfMPDR.cpp	/^V3MPDRFrame::removeSubsumed(const V3MPDRCube* const cube) {$/;"	f	class:V3MPDRFrame
+removeSubsumed	v3VrfMPDR.cpp	/^V3MPDRFrame::removeSubsumed(const V3MPDRCube* const cube, const V3MPDRCubeList::const_iterator& ix) {$/;"	f	class:V3MPDRFrame
+replaceSECNetwork	v3VrfSEC.cpp	/^V3VrfSEC::replaceSECNetwork(V3RepIdHash& repIdHash) {$/;"	f	class:V3VrfSEC
+replaceSECOutput	v3VrfSEC.cpp	/^V3VrfSEC::replaceSECOutput(const uint32_t& x) {$/;"	f	class:V3VrfSEC
+reportON	v3VrfBase.h	/^      static inline const bool reportON()  { return (1ul & _extVerbosity); }$/;"	f	class:V3VrfBase
+reportShorterTrace	v3VrfResult.cpp	/^void reportShorterTrace(const uint32_t& cycle, const char& value) {$/;"	f
+reportUnexpectedState	v3VrfResult.cpp	/^void reportUnexpectedState(const uint32_t& cycle, const uint32_t& index, const V3BitVecX& v1, const V3BitVecX& v2) {$/;"	f
+reportUnsatisfiedConstraint	v3VrfResult.cpp	/^void reportUnsatisfiedConstraint(const uint32_t& cycle, const uint32_t& index, const V3BitVecX& v) {$/;"	f
+reportUnsupportedInitialState	v3VrfIPDR.cpp	/^V3VrfIPDR::reportUnsupportedInitialState() {$/;"	f	class:V3VrfIPDR
+reportUnsupportedInitialState	v3VrfMPDR.cpp	/^V3VrfMPDR::reportUnsupportedInitialState() {$/;"	f	class:V3VrfMPDR
+resetReportSettings	v3VrfBase.h	/^      static inline void resetReportSettings() { setReport(1); setUsage(1); }$/;"	f	class:V3VrfBase
+resetSolverSettings	v3VrfBase.h	/^      static inline void resetSolverSettings() { _extSolverType = V3_SVR_MINISAT; }$/;"	f	class:V3VrfBase
+resolveInitial	v3VrfCITP.cpp	/^V3VrfCITP::resolveInitial(V3CITPCube* const cube, const V3SvrDataSet& coreProofVars) {$/;"	f	class:V3VrfCITP
+resolveInitial	v3VrfFITP.cpp	/^V3VrfFITP::resolveInitial(V3FITPCube* const cube, const V3SvrDataSet& coreProofVars) {$/;"	f	class:V3VrfFITP
+resolveInitial	v3VrfIPDR.cpp	/^V3VrfIPDR::resolveInitial(const uint32_t& d, V3IPDRCube* const cube, const V3SvrDataSet& coreProofVars) {$/;"	f	class:V3VrfIPDR
+resolveInitial	v3VrfMPDR.cpp	/^V3VrfMPDR::resolveInitial(V3MPDRCube* const cube, const V3SvrDataSet& coreProofVars) {$/;"	f	class:V3VrfMPDR
+setActivator	v3VrfMPDR.h	/^      inline void setActivator(const V3SvrData& act) { _activator = act; }$/;"	f	class:V3MPDRFrame
+setAssumeCECMiter	v3VrfSEC.h	/^      inline void setAssumeCECMiter() { _secCECAssumed = 1; }$/;"	f	class:V3VrfSEC
+setAssumeSECMiter	v3VrfSEC.h	/^      inline void setAssumeSECMiter() { _secSECAssumed = 1; }$/;"	f	class:V3VrfSEC
+setBlockBadCount	v3VrfCITP.h	/^      inline void setBlockBadCount(const uint32_t& m = V3NtkUD) { _itpBadCount = m; }$/;"	f	class:V3VrfCITP
+setBlockBadCount	v3VrfFITP.h	/^      inline void setBlockBadCount(const uint32_t& m = V3NtkUD) { _itpBadCount = m; }$/;"	f	class:V3VrfFITP
+setBlockBadCountIndep	v3VrfCITP.h	/^      inline void setBlockBadCountIndep (const bool& f) { if (f) _itpAttr |= 4ul;  else _itpAttr &= ~4ul;  }$/;"	f	class:V3VrfCITP
+setBlockBadCountIndep	v3VrfFITP.h	/^      inline void setBlockBadCountIndep (const bool& f) { if (f) _itpAttr |= 4ul;  else _itpAttr &= ~4ul;  }$/;"	f	class:V3VrfFITP
+setBlockingStruct	v3VrfCITP.cpp	/^V3VrfCITP::setBlockingStruct(const V3NetVec& baseCube) {$/;"	f	class:V3VrfCITP
+setBlockingStruct	v3VrfCITP.cpp	/^V3VrfCITP::setBlockingStruct(const V3NetVec& baseCube, const V3UI32Vec& blockIndex) {$/;"	f	class:V3VrfCITP
+setBlockingStruct	v3VrfFITP.cpp	/^V3VrfFITP::setBlockingStruct(const V3NetVec& baseCube) {$/;"	f	class:V3VrfFITP
+setBlockingStruct	v3VrfFITP.cpp	/^V3VrfFITP::setBlockingStruct(const V3NetVec& baseCube, const V3UI32Vec& blockIndex) {$/;"	f	class:V3VrfFITP
+setChecker	v3VrfKLive.h	/^      inline void setChecker(V3VrfBase* const c) { _klChecker = c; }$/;"	f	class:V3VrfKLive
+setChecker	v3VrfSEC.h	/^      inline void setChecker(V3VrfBase* const c) { _secChecker = c; }$/;"	f	class:V3VrfSEC
+setConstraint	v3VrfBase.cpp	/^V3VrfBase::setConstraint(const V3NetVec& constrList, const uint32_t& p) {$/;"	f	class:V3VrfBase
+setDefaultSolver	v3VrfBase.h	/^      static inline void setDefaultSolver(const V3SolverType& type) { _extSolverType = type; }$/;"	f	class:V3VrfBase
+setDynamicInc	v3VrfUMC.h	/^      inline void setDynamicInc(const bool& d) { if (d) _umcAttr |= 8ul; else _umcAttr &= ~8ul; }$/;"	f	class:V3VrfUMC
+setEndline	v3VrfBase.h	/^      static inline void setEndline(const bool& t) { if (t) _extVerbosity |= 4ul;  else _extVerbosity &= ~4ul;  }$/;"	f	class:V3VrfBase
+setFireOnly	v3VrfUMC.h	/^      inline void setFireOnly  (const bool& f) { if (f) _umcAttr |= 1ul; else _umcAttr &= ~1ul; }$/;"	f	class:V3VrfUMC
+setForceUnreachable	v3VrfCITP.h	/^      inline void setForceUnreachable   (const bool& f) { if (f) _itpAttr |= 2ul;  else _itpAttr &= ~2ul;  }$/;"	f	class:V3VrfCITP
+setForceUnreachable	v3VrfFITP.h	/^      inline void setForceUnreachable   (const bool& f) { if (f) _itpAttr |= 2ul;  else _itpAttr &= ~2ul;  }$/;"	f	class:V3VrfFITP
+setForwardSATGen	v3VrfIPDR.h	/^      inline void setForwardSATGen  (const bool& s) { if (s) _pdrAttr |= 1ul; else _pdrAttr &= ~1ul; }$/;"	f	class:V3VrfIPDR
+setForwardSATGen	v3VrfMPDR.h	/^      inline void setForwardSATGen  (const bool& s) { if (s) _pdrAttr |= 1ul; else _pdrAttr &= ~1ul; }$/;"	f	class:V3VrfMPDR
+setForwardUNSATGen	v3VrfIPDR.h	/^      inline void setForwardUNSATGen(const bool& u) { if (u) _pdrAttr |= 2ul; else _pdrAttr &= ~2ul; }$/;"	f	class:V3VrfIPDR
+setForwardUNSATGen	v3VrfMPDR.h	/^      inline void setForwardUNSATGen(const bool& u) { if (u) _pdrAttr |= 2ul; else _pdrAttr &= ~2ul; }$/;"	f	class:V3VrfMPDR
+setIncContinueOnLastSolver	v3VrfBase.h	/^      inline void setIncContinueOnLastSolver(const bool& c) { _incContinueOnLastSolver = c; }$/;"	f	class:V3VrfBase
+setIncDepth	v3VrfBMC.h	/^      inline void setIncDepth(const uint32_t& d) { _incDepth = d; }$/;"	f	class:V3VrfBMC
+setIncDepth	v3VrfKLive.h	/^      inline void setIncDepth(const uint32_t& i) { _incDepth = i; }$/;"	f	class:V3VrfKLive
+setIncDepth	v3VrfUMC.h	/^      inline void setIncDepth(const uint32_t& d) { _incDepth = d; }$/;"	f	class:V3VrfUMC
+setIncKeepLastReachability	v3VrfBase.h	/^      inline void setIncKeepLastReachability(const bool& k) { _incKeepLastReachability = k; }$/;"	f	class:V3VrfBase
+setIncKeepSilent	v3VrfBase.h	/^      inline void setIncKeepSilent          (const bool& s) { _incKeepSilent           = s; }$/;"	f	class:V3VrfBase
+setIncLastDepthToKeepGoing	v3VrfBase.h	/^      inline void setIncLastDepthToKeepGoing(const uint32_t& d) { _incLastDepthToKeepGoing = d; }$/;"	f	class:V3VrfBase
+setIncVerifyUsingCurResult	v3VrfBase.h	/^      inline void setIncVerifyUsingCurResult(const bool& v) { _incVerifyUsingCurResult = v; }$/;"	f	class:V3VrfBase
+setIncrementDepth	v3VrfCITP.h	/^      inline void setIncrementDepth     (const bool& f) { if (f) _itpAttr |= 1ul;  else _itpAttr &= ~1ul;  }$/;"	f	class:V3VrfCITP
+setIncrementDepth	v3VrfFITP.h	/^      inline void setIncrementDepth     (const bool& f) { if (f) _itpAttr |= 1ul;  else _itpAttr &= ~1ul;  }$/;"	f	class:V3VrfFITP
+setInputData	v3VrfIPDR.h	/^      inline void setInputData(const V3BitVecX& v) { _inputData = v; }$/;"	f	class:V3IPDRCube
+setInputData	v3VrfMPDR.h	/^      inline void setInputData(const V3BitVecX& v) { _inputData = v; }$/;"	f	class:V3MPDRCube
+setInternalCEC	v3VrfSEC.h	/^      inline void setInternalCEC() { assert (isAssumeCECMiter()); _secIsCECorSEC = 0; }$/;"	f	class:V3VrfSEC
+setInternalSEC	v3VrfSEC.h	/^      inline void setInternalSEC() { assert (isAssumeSECMiter()); _secIsCECorSEC = 1; }$/;"	f	class:V3VrfSEC
+setMaxDepth	v3VrfBase.h	/^      inline void setMaxDepth(const uint32_t& d) { assert (d); _maxDepth = d; }$/;"	f	class:V3VrfBase
+setMaxTime	v3VrfBase.h	/^      inline void setMaxTime(const double& t) { assert (t); _maxTime = t; }$/;"	f	class:V3VrfBase
+setNoIncBySharedBound	v3VrfCITP.h	/^      inline void setNoIncBySharedBound (const bool& d) { if (d) _itpAttr |= 8ul;  else _itpAttr &= ~8ul;  }$/;"	f	class:V3VrfCITP
+setNoIncBySharedBound	v3VrfFITP.h	/^      inline void setNoIncBySharedBound (const bool& d) { if (d) _itpAttr |= 8ul;  else _itpAttr &= ~8ul;  }$/;"	f	class:V3VrfFITP
+setPreDepth	v3VrfBMC.h	/^      inline void setPreDepth(const uint32_t& d) { _preDepth = d; }$/;"	f	class:V3VrfBMC
+setPreDepth	v3VrfUMC.h	/^      inline void setPreDepth(const uint32_t& d) { _preDepth = d; }$/;"	f	class:V3VrfUMC
+setProfile	v3VrfBase.h	/^      static inline void setProfile(const bool& t) { if (t) _extVerbosity |= 32ul; else _extVerbosity &= ~32ul; }$/;"	f	class:V3VrfBase
+setProveOnly	v3VrfUMC.h	/^      inline void setProveOnly (const bool& p) { if (p) _umcAttr |= 2ul; else _umcAttr &= ~2ul; }$/;"	f	class:V3VrfUMC
+setRecycle	v3VrfIPDR.h	/^      inline void setRecycle(const uint32_t& r) { _pdrRecycle = r; }$/;"	f	class:V3VrfIPDR
+setRecycle	v3VrfMPDR.h	/^      inline void setRecycle(const uint32_t& r) { _pdrRecycle = r; }$/;"	f	class:V3VrfMPDR
+setRecycleInterpolants	v3VrfCITP.h	/^      inline void setRecycleInterpolants(const bool& f) { if (f) _itpAttr |= 16ul; else _itpAttr &= ~16ul; }$/;"	f	class:V3VrfCITP
+setRecycleInterpolants	v3VrfFITP.h	/^      inline void setRecycleInterpolants(const bool& f) { if (f) _itpAttr |= 16ul; else _itpAttr &= ~16ul; }$/;"	f	class:V3VrfFITP
+setReport	v3VrfBase.h	/^      static inline void setReport (const bool& t) { if (t) _extVerbosity |= 1ul;  else _extVerbosity &= ~1ul;  }$/;"	f	class:V3VrfBase
+setRstOnly	v3VrfBase.h	/^      static inline void setRstOnly(const bool& t) { if (t) _extVerbosity |= 2ul;  else _extVerbosity &= ~2ul;  }$/;"	f	class:V3VrfBase
+setSharedBound	v3VrfBase.h	/^      inline void setSharedBound(V3VrfSharedBound* const s) { _sharedBound = s; }$/;"	f	class:V3VrfBase
+setSharedInv	v3VrfBase.h	/^      inline void setSharedInv(V3VrfSharedInv* const i) { _sharedInv = i; }$/;"	f	class:V3VrfBase
+setSharedMem	v3VrfBase.h	/^      inline void setSharedMem(V3VrfSharedMem* const m) { _sharedMem = m; }$/;"	f	class:V3VrfBase
+setSharedNtk	v3VrfBase.h	/^      inline void setSharedNtk(V3VrfSharedNtk* const n) { _sharedNtk = n; }$/;"	f	class:V3VrfBase
+setSolver	v3VrfBase.h	/^      inline void setSolver(const V3SolverType& s) { assert (V3_SVR_TOTAL > s); _solverType = s; }$/;"	f	class:V3VrfBase
+setSolver	v3VrfBase.h	/^      static inline void setSolver (const bool& t) { if (t) _extVerbosity |= 8ul;  else _extVerbosity &= ~8ul;  }$/;"	f	class:V3VrfBase
+setState	v3VrfCITP.h	/^inline void V3CITPCube::setState(const V3NetVec& v) {$/;"	f	class:V3CITPCube
+setState	v3VrfFITP.h	/^inline void V3FITPCube::setState(const V3NetVec& v) {$/;"	f	class:V3FITPCube
+setState	v3VrfIPDR.h	/^inline void V3IPDRCube::setState(const V3NetVec& v) {$/;"	f	class:V3IPDRCube
+setState	v3VrfMPDR.h	/^inline void V3MPDRCube::setState(const V3NetVec& v) {$/;"	f	class:V3MPDRCube
+setSynthesisMode	v3VrfSEC.h	/^      inline void setSynthesisMode(const bool& s) { _secSynthesis = s; }$/;"	f	class:V3VrfSEC
+setUniqueness	v3VrfUMC.h	/^      inline void setUniqueness(const bool& u) { if (u) _umcAttr |= 4ul; else _umcAttr &= ~4ul; }$/;"	f	class:V3VrfUMC
+setUsage	v3VrfBase.h	/^      static inline void setUsage  (const bool& t) { if (t) _extVerbosity |= 16ul; else _extVerbosity &= ~16ul; }$/;"	f	class:V3VrfBase
+simplifyNetwork	v3VrfKLive.cpp	/^V3VrfKLive::simplifyNetwork(const uint32_t& p) {$/;"	f	class:V3VrfKLive
+simplifySECNetwork	v3VrfSEC.cpp	/^V3VrfSEC::simplifySECNetwork(V3NetVec& p2cMap, V3NetVec& c2pMap, const V3NetVec& eqNets) {$/;"	f	class:V3VrfSEC
+simulationCheckFiredResult	v3VrfResult.cpp	/^const int simulationCheckFiredResult(const V3CexTrace& cex, const V3NetVec& constrList, const V3NetVec& fairList, const bool& safe, const V3NtkHandler* const handler, const uint32_t& index) {$/;"	f
+speculativeReduction	v3VrfSEC.cpp	/^V3VrfSEC::speculativeReduction(const uint32_t& cycle) {$/;"	f	class:V3VrfSEC
+startVerify	v3VrfBMC.cpp	/^V3VrfBMC::startVerify(const uint32_t& p) {$/;"	f	class:V3VrfBMC
+startVerify	v3VrfBase.cpp	/^V3VrfBase::startVerify(const uint32_t& p) {$/;"	f	class:V3VrfBase
+startVerify	v3VrfCITP.cpp	/^V3VrfCITP::startVerify(const uint32_t& p) {$/;"	f	class:V3VrfCITP
+startVerify	v3VrfFITP.cpp	/^V3VrfFITP::startVerify(const uint32_t& p) {$/;"	f	class:V3VrfFITP
+startVerify	v3VrfIPDR.cpp	/^V3VrfIPDR::startVerify(const uint32_t& p) {$/;"	f	class:V3VrfIPDR
+startVerify	v3VrfKLive.cpp	/^V3VrfKLive::startVerify(const uint32_t& p) {$/;"	f	class:V3VrfKLive
+startVerify	v3VrfMPDR.cpp	/^V3VrfMPDR::startVerify(const uint32_t& p) {$/;"	f	class:V3VrfMPDR
+startVerify	v3VrfSEC.cpp	/^V3VrfSEC::startVerify(const uint32_t& p) {$/;"	f	class:V3VrfSEC
+startVerify	v3VrfSIM.cpp	/^V3VrfSIM::startVerify(const uint32_t& p) {$/;"	f	class:V3VrfSIM
+startVerify	v3VrfUMC.cpp	/^V3VrfUMC::startVerify(const uint32_t& p) {$/;"	f	class:V3VrfUMC
+subsumes	v3VrfIPDR.cpp	/^V3IPDRFrame::subsumes(const V3IPDRCube* const cube) const {$/;"	f	class:V3IPDRFrame
+subsumes	v3VrfMPDR.cpp	/^V3MPDRFrame::subsumes(const V3MPDRCube* const cube) const {$/;"	f	class:V3MPDRFrame
+svrInfoON	v3VrfBase.h	/^      static inline const bool svrInfoON() { return reportON() &&  (8ul  & _extVerbosity); }$/;"	f	class:V3VrfBase
+unlock	v3VrfShared.h	/^      inline void unlock() { pthread_mutex_unlock(&_mutex); }$/;"	f	class:V3VrfShared
+updateBound	v3VrfShared.cpp	/^V3VrfSharedBound::updateBound(const uint32_t& p, const uint32_t& bound) {$/;"	f	class:V3VrfSharedBound
+updateECPair	v3VrfSEC.cpp	/^V3VrfSEC::updateECPair(const bool& initValid, const bool& update) {$/;"	f	class:V3VrfSEC
+updateEQList	v3VrfSEC.cpp	/^V3VrfSEC::updateEQList(const uint32_t& x, V3RepIdHash& repIdHash) {$/;"	f	class:V3VrfSEC
+updateInv	v3VrfShared.h	/^      inline void updateInv(const V3NetTable& i) { lock(); _inv = i; unlock(); }$/;"	f	class:V3VrfSharedInv
+updateInv	v3VrfShared.h	/^      inline void updateInv(const V3NetVec& i) { lock(); _inv.push_back(i); unlock(); }$/;"	f	class:V3VrfSharedInv
+updateMaxMemory	v3VrfShared.h	/^      inline void updateMaxMemory(const double& m) { lock(); _maxMemory = m; unlock(); }$/;"	f	class:V3VrfSharedMem
+updateNtk	v3VrfShared.cpp	/^V3VrfSharedNtk::updateNtk(V3Ntk* const ntk, const V3NetTable& constr) {$/;"	f	class:V3VrfSharedNtk
+updateOutput	v3VrfKLive.cpp	/^V3VrfKLive::updateOutput(const uint32_t& p) {$/;"	f	class:V3VrfKLive
+usage	v3VrfCmd.cpp	/^V3BMCVrfCmd::usage(const bool& verbose) const {$/;"	f	class:V3BMCVrfCmd
+usage	v3VrfCmd.cpp	/^V3CheckResultCmd::usage(const bool& verbose) const {$/;"	f	class:V3CheckResultCmd
+usage	v3VrfCmd.cpp	/^V3ElaboratePrptyCmd::usage(const bool& verbose) const {$/;"	f	class:V3ElaboratePrptyCmd
+usage	v3VrfCmd.cpp	/^V3ITPVrfCmd::usage(const bool& verbose) const {$/;"	f	class:V3ITPVrfCmd
+usage	v3VrfCmd.cpp	/^V3KLiveVrfCmd::usage(const bool& verbose) const {$/;"	f	class:V3KLiveVrfCmd
+usage	v3VrfCmd.cpp	/^V3PDRVrfCmd::usage(const bool& verbose) const {$/;"	f	class:V3PDRVrfCmd
+usage	v3VrfCmd.cpp	/^V3PlotResultCmd::usage(const bool& verbose) const {$/;"	f	class:V3PlotResultCmd
+usage	v3VrfCmd.cpp	/^V3PrintReportCmd::usage(const bool& verbose) const {$/;"	f	class:V3PrintReportCmd
+usage	v3VrfCmd.cpp	/^V3PrintSolverCmd::usage(const bool& verbose) const {$/;"	f	class:V3PrintSolverCmd
+usage	v3VrfCmd.cpp	/^V3SECVrfCmd::usage(const bool& verbose) const {$/;"	f	class:V3SECVrfCmd
+usage	v3VrfCmd.cpp	/^V3SIMVrfCmd::usage(const bool& verbose) const {$/;"	f	class:V3SIMVrfCmd
+usage	v3VrfCmd.cpp	/^V3SetLivenessCmd::usage(const bool& verbose) const {$/;"	f	class:V3SetLivenessCmd
+usage	v3VrfCmd.cpp	/^V3SetReportCmd::usage(const bool& verbose) const {$/;"	f	class:V3SetReportCmd
+usage	v3VrfCmd.cpp	/^V3SetSafetyCmd::usage(const bool& verbose) const {$/;"	f	class:V3SetSafetyCmd
+usage	v3VrfCmd.cpp	/^V3SetSolverCmd::usage(const bool& verbose) const {$/;"	f	class:V3SetSolverCmd
+usage	v3VrfCmd.cpp	/^V3UMCVrfCmd::usage(const bool& verbose) const {$/;"	f	class:V3UMCVrfCmd
+usage	v3VrfCmd.cpp	/^V3WriteResultCmd::usage(const bool& verbose) const {$/;"	f	class:V3WriteResultCmd
+usageON	v3VrfBase.h	/^      static inline const bool usageON()   { return reportON() &&  (16ul & _extVerbosity); }$/;"	f	class:V3VrfBase
+verifyInOrder	v3VrfBase.cpp	/^V3VrfBase::verifyInOrder() {$/;"	f	class:V3VrfBase
+verifyProperty	v3VrfBase.cpp	/^V3VrfBase::verifyProperty(const uint32_t& p) {$/;"	f	class:V3VrfBase
+~V3CITPCube	v3VrfCITP.h	/^      ~V3CITPCube() { _stateId.clear(); }$/;"	f	class:V3CITPCube
+~V3CITPFrame	v3VrfCITP.cpp	/^V3CITPFrame::~V3CITPFrame() {$/;"	f	class:V3CITPFrame
+~V3FITPCube	v3VrfFITP.h	/^      ~V3FITPCube() { _stateId.clear(); }$/;"	f	class:V3FITPCube
+~V3FITPFrame	v3VrfFITP.cpp	/^V3FITPFrame::~V3FITPFrame() {$/;"	f	class:V3FITPFrame
+~V3IPDRCube	v3VrfIPDR.h	/^      ~V3IPDRCube() { _stateId.clear(); }$/;"	f	class:V3IPDRCube
+~V3IPDRFrame	v3VrfIPDR.cpp	/^V3IPDRFrame::~V3IPDRFrame() {$/;"	f	class:V3IPDRFrame
+~V3MPDRCube	v3VrfMPDR.h	/^      ~V3MPDRCube() { _stateId.clear(); }$/;"	f	class:V3MPDRCube
+~V3MPDRFrame	v3VrfMPDR.cpp	/^V3MPDRFrame::~V3MPDRFrame() {$/;"	f	class:V3MPDRFrame
+~V3VrfBMC	v3VrfBMC.cpp	/^V3VrfBMC::~V3VrfBMC() {$/;"	f	class:V3VrfBMC
+~V3VrfBase	v3VrfBase.cpp	/^V3VrfBase::~V3VrfBase() {$/;"	f	class:V3VrfBase
+~V3VrfCITP	v3VrfCITP.cpp	/^V3VrfCITP::~V3VrfCITP() {$/;"	f	class:V3VrfCITP
+~V3VrfFITP	v3VrfFITP.cpp	/^V3VrfFITP::~V3VrfFITP() {$/;"	f	class:V3VrfFITP
+~V3VrfIPDR	v3VrfIPDR.cpp	/^V3VrfIPDR::~V3VrfIPDR() {$/;"	f	class:V3VrfIPDR
+~V3VrfKLive	v3VrfKLive.cpp	/^V3VrfKLive::~V3VrfKLive() {$/;"	f	class:V3VrfKLive
+~V3VrfMPDR	v3VrfMPDR.cpp	/^V3VrfMPDR::~V3VrfMPDR() {$/;"	f	class:V3VrfMPDR
+~V3VrfSEC	v3VrfSEC.cpp	/^V3VrfSEC::~V3VrfSEC() {$/;"	f	class:V3VrfSEC
+~V3VrfSIM	v3VrfSIM.cpp	/^V3VrfSIM::~V3VrfSIM() {$/;"	f	class:V3VrfSIM
+~V3VrfShared	v3VrfShared.h	/^      virtual ~V3VrfShared() {}$/;"	f	class:V3VrfShared
+~V3VrfSharedBound	v3VrfShared.cpp	/^V3VrfSharedBound::~V3VrfSharedBound() {$/;"	f	class:V3VrfSharedBound
+~V3VrfSharedInv	v3VrfShared.cpp	/^V3VrfSharedInv::~V3VrfSharedInv() {$/;"	f	class:V3VrfSharedInv
+~V3VrfSharedMem	v3VrfShared.h	/^      ~V3VrfSharedMem() {}$/;"	f	class:V3VrfSharedMem
+~V3VrfSharedNtk	v3VrfShared.cpp	/^V3VrfSharedNtk::~V3VrfSharedNtk() {$/;"	f	class:V3VrfSharedNtk
+~V3VrfUMC	v3VrfUMC.cpp	/^V3VrfUMC::~V3VrfUMC() {$/;"	f	class:V3VrfUMC
