@@ -30,55 +30,59 @@ class Value3 {
     _dontCare = a._dontCare;
   }
   Value3 operator & (Value3 a) const {
-/*
+
     if ((_bit == 0 && _dontCare == 0) || a == Value3(0, 0)) return Value3(0, 0);
     else if (a._dontCare || _dontCare) return Value3(0, 1);
     else return Value3(1, 0);
-*/
+/*
 		if( a._dontCare || _dontCare ) return Value3(0, 1);
 		else return Value3(a._bit & _bit, 0);
+*/
   }
   Value3 operator & (bool a) const {
-/*
+
     if (a == 0) return Value3(0, 0);
     else if (_dontCare) return Value3(0, 1);
     else return Value3(1, 0);
-*/
+/*
 		if( _dontCare ) return Value3(0, 1);
 		else return Value3(a & _bit, 0);
+*/
   }
   Value3 operator | (Value3 a) const {
-/*
+
     if ((_bit == 1 && _dontCare == 0) || a == Value3(1,0)) return Value3(1, 0);
     else if (a._dontCare || _dontCare) return Value3(0, 1);
     else return Value3(0, 0);
-*/
+/*
 		if( a._dontCare || _dontCare ) return Value3(0, 1);
 		else return Value3(a._bit | _bit, 0);
+*/
   }
   Value3 operator | (bool a) const {
-/*
+
     if (a) return Value3(1, 0);
     else if (_dontCare) return Value3(0, 1);
     else return Value3(0, 0);
-*/
+/*
 		if( _dontCare ) return Value3(0, 1);
 		else return Value3(a | _bit, 0);
+*/
   }
   Value3 operator ~ () const {
     if (_dontCare) return Value3(0, 1);
-    else return Value3(~_bit, 0);
-    //else return Value3(!_bit, 0);
+    else return Value3(!_bit, 0);
   }
   bool operator == (const Value3& a) const {
-/*
+
     if (_dontCare ^ a._dontCare) return false;
     else if (_dontCare && a._dontCare) return true;
     else if (_bit == a._bit) return true;
     else return false;
-*/
+/*
 		if( a._dontCare ^ _dontCare ) return false;
 		else return ((a._dontCare & _dontCare) || (a._bit && _bit));
+*/
   }
   bool operator != (const Value3& a) const {
     return !((*this) == a);
@@ -157,6 +161,7 @@ class Cube {
 	//s -> showStates();
 	//std::cout << "sig: " << std::bitset<64>(s -> getSignature()) << std::endl;
 
+
 	vector<V3NetId> cubeStates = s -> getStates();
 	unsigned cubeSignature = s -> getSignature();
 	if( _states.size() > cubeStates.size() ) { return false; }//std::cout << "subsume false 1" << std::endl; return false; }
@@ -172,7 +177,6 @@ class Cube {
 			else { return false; }//std::cout << "subsume false 4" << std::endl; return false; }
 		}
 	}
-	
 	return i == _states.size();
 	//if( i == _states.size() ) { std::cout << "subsume true" << std::endl; return true; }
 	//else { std::cout << "subsume false 5 " << std::endl; return false; }
@@ -200,7 +204,7 @@ class Cube {
 
 	// modified by r04943179
 	const vector<V3NetId>& getStates() const { return _states; }
-	const size_t getSignature() const { return _signature; }
+	const size_t& getSignature() const { return _signature; }
 	void setStates(const vector<V3NetId>& v);
 	void showStates() const;
 	vector<V3NetId>		_states;
@@ -211,19 +215,24 @@ class Cube {
 };
 
 inline void Cube::showStates() const {
+
 	for( unsigned i = 0; i < _states.size(); ++i ) {
 		std::cout << _states[i].id << "[" << _states[i].cp << "] ";
 	}
 	std::cout << std::endl;
+
 }
 
 inline void Cube::setStates(const vector<V3NetId>& v) {
+
 	_states = v; _signature = 0;
 	// change the signature according to states
 	// TODO
+
 	for( unsigned i = 0; i < _states.size(); ++i ) {
 		_signature |= (1ul << (_states[i].id % 64));
 	}
+
 }
 
 class TCube

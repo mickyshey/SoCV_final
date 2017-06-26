@@ -290,6 +290,7 @@ TCube PDRMgr::generalize(TCube s) {
 	// no need to traverse all _L, but only states
 	// TODO
 
+
 	vector<V3NetId> states = s._cube -> getStates();
 	for( unsigned i = 0; i < states.size(); ++i ) {
 		vector<V3NetId> currStates = s._cube -> getStates();
@@ -352,9 +353,9 @@ TCube PDRMgr::generalize(TCube s) {
 	s._cube -> setStates(states);
 
 /*
-	std::cout << "before generalize: " << std::endl;
-	s._cube -> show();
-	s._cube -> showStates();
+	//std::cout << "before generalize: " << std::endl;
+	//s._cube -> show();
+	//s._cube -> showStates();
 
   for (unsigned i = 0; i < L; ++i) {
     Cube* tc = new Cube(s._cube);
@@ -363,6 +364,9 @@ TCube PDRMgr::generalize(TCube s) {
 
     if (!(Z->isInitial(tc))) {
 		// the order of states is not important here
+*/
+// modified by r04943179
+/*
 		vector<V3NetId> states = tc -> getStates();
 		for( unsigned j = 0; j < states.size(); ++j ) {
 			if( states[j].id == _ntk -> getLatch(0).id + i ) {
@@ -374,17 +378,20 @@ TCube PDRMgr::generalize(TCube s) {
 		std::cout << "now: " << std::endl;
 		tc -> show();
 		tc -> showStates();
+*/
+// end of modification
+/*
       TCube t = Z->solveRelative(TCube(tc, s._frame), 1);
-		std::cout << "after solverRelative: " << std::endl;
-		t._cube -> show();
-		t._cube -> showStates();
+		//std::cout << "after solverRelative: " << std::endl;
+		//t._cube -> show();
+		//t._cube -> showStates();
       if (t._frame != -1) {
-			std::cout << "good result, keep the X ..." << std::endl;
+			//std::cout << "good result, keep the X ..." << std::endl;
 			delete s._cube;
 			s = t;
 		}
 		else { 
-			std::cout << "bad result, recover ..." << std::endl;
+			//std::cout << "bad result, recover ..." << std::endl;
 			//s._cube -> show();
 			//s._cube -> showStates();
 			delete tc; delete t._cube;
@@ -392,8 +399,10 @@ TCube PDRMgr::generalize(TCube s) {
     }
 	 else delete tc;
   }
+*/
 	// you should update states before return 
 	// TODO
+/*
 	vector<V3NetId> tmpStates; tmpStates.clear();
 	for( unsigned i = 0; i < L; ++i ) {
 		if( s._cube -> _latchValues[i]._dontCare ) continue;
