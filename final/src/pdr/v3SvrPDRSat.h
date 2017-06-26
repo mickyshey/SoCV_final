@@ -122,6 +122,9 @@ class V3SvrPDRSat
 		bool Value3Changed(bool b, Cube* s);
 		bool Value3ChangedDuringSim(bool b, Cube* s, const vector<V3NetId>& orderedNets);
 		void dfs(V3NetVec& orderedNets, bool b, Cube* s);
+		
+		// This is a debug function
+		bool statesEQ(Cube* c);
 		// end of modification
 
    // making them public is unhealthy

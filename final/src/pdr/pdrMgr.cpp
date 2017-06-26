@@ -191,11 +191,13 @@ bool PDRMgr::recursiveBlockCube(TCube s0){
     if (!isBlocked(s)) {
 		//std::cout << "before assert !isInitial: " << std::endl;
 		//s._cube -> show();
+		//assert(Z -> statesEQ(s._cube));
       assert(!(Z->isInitial(s._cube)));
 		//std::cout << "in recursiveBlockCube, before solveRelative 183: " << std::endl;
 		//s._cube -> show();
 		//s._cube -> showStates();
       TCube z = Z->solveRelative(s, 1);
+		//if( Z -> statesEQ(s._cube) ) assert(Z -> statesEQ(z._cube));
 		//std::cout << "in recursiveBlockCube, after solveRelative 183: " << std::endl;
 		//z._cube -> show();
 		//z._cube -> showStates();
@@ -207,6 +209,7 @@ bool PDRMgr::recursiveBlockCube(TCube s0){
 			//z._cube -> show();
 			//z._cube -> showStates();
         z = generalize(z);  // UNSAT generalization
+		//assert(Z -> statesEQ(z._cube));
 			//std::cout << "in recursiveBlockCube, after generalize: " << std::endl;
 			//z._cube -> show();
 			//z._cube -> showStates();
@@ -219,6 +222,7 @@ bool PDRMgr::recursiveBlockCube(TCube s0){
         while (z._frame < (int)(depth - 1)) {
           // condAssign
           TCube t = Z->solveRelative(next(z), 1);
+			//assert(Z -> statesEQ(t._cube));
 			//std::cout << "in recursiveBlockCube, after solveRelative 202: " << std::endl;
 			//t._cube -> show();
 			//t._cube -> showStates();
@@ -265,6 +269,7 @@ bool PDRMgr::isBlocked(TCube s) {
   // check if a cube is already blocked in solver
   // first check if it is subsumes by that frame
   // then check by solver (more time-consuming)
+	//assert(Z -> statesEQ(s._cube));
   for (unsigned d = s._frame; d < F->size(); ++d) {
     for (unsigned i = 0; i < (*F)[d]->size(); ++i) {
 		// better way to check subsume, check V3 Qsignature
@@ -289,7 +294,7 @@ TCube PDRMgr::generalize(TCube s) {
   if (debug) cerr << "UNSAT generalization" << endl;
 	// no need to traverse all _L, but only states
 	// TODO
-
+	//assert(Z -> statesEQ(s._cube));
 
 	//vector<V3NetId> states = s._cube -> getStates();
 	//for( unsigned i = 0; i < states.size(); ++i ) {
@@ -298,15 +303,19 @@ TCube PDRMgr::generalize(TCube s) {
 		//s._cube -> show();
 		//s._cube -> showStates();
 		//unsigned idx = states[i].id - _ntk -> getLatch(0).id;
+		//if( 'X' == s._cube -> _latchValues[i].ternaryValue() ) continue;
 		if( s._cube -> _latchValues[i]._dontCare ) continue;
 		//if( s._cube -> _latchValues[idx]._dontCare ) continue;
 		
 		//std::cout << "checking idx: " << idx << std::endl;
 
+		//Value3 record = s._cube -> _latchValues[i];
+		//s._cube -> _latchValues[i].setX();
 		s._cube -> _latchValues[i]._dontCare = 1;
 		//s._cube -> _latchValues[idx]._dontCare = 1;
 		//std::cout << "after assign X at idx: ";
 		//s._cube -> show();
+		//if( (Z -> isInitial(s._cube)) ) { s._cube -> _latchValues[i] = record; continue; }
 		if( (Z -> isInitial(s._cube)) ) { s._cube -> _latchValues[i]._dontCare = 0; continue; }
 		//if( (Z -> isInitial(s._cube)) ) { s._cube -> _latchValues[idx]._dontCare = 0; continue; }
 /*
@@ -319,7 +328,9 @@ TCube PDRMgr::generalize(TCube s) {
 */
 		//s._cube -> setStates(currStates);
 		//std::cout << "going into solveRelative, idx: " << idx << std::endl;
+		s._cube -> setUpStates(_ntk);
 		TCube t = Z -> solveRelative(TCube(s._cube, s._frame), 1);
+		//assert(Z -> statesEQ(s._cube)); assert(Z -> statesEQ(t._cube));
 		//std::cout << "frame of t: " << t._frame << std::endl;
 		if( t._frame != -1 ) {
 			//std::cout << "good result, keep the X ..." << std::endl;
@@ -334,8 +345,11 @@ TCube PDRMgr::generalize(TCube s) {
 		// recover 
 		else {
 			//std::cout << "bad result, recover ..." << std::endl;
+			//s._cube -> _latchValues[i] = record;
 			s._cube -> _latchValues[i]._dontCare = 0;
 			//s._cube -> _latchValues[idx]._dontCare = 0;
+			s._cube -> pushBackStates(V3NetId::makeNetId(_ntk -> getLatch(i).id, s._cube -> _latchValues[i]._bit == 1));
+			//assert(Z -> statesEQ(s._cube));
 			//currStates.push_back(V3NetId::makeNetId(states[i].id, s._cube -> _latchValues[idx]._bit == 1));
 			//s._cube -> setStates(currStates);
 			//s._cube -> setStates(oriStates);
@@ -432,6 +446,7 @@ void PDRMgr::newFrame(bool force) {
 
 void PDRMgr::addBlockedCube(TCube s) {
   assert(s._frame != -1);
+	//assert(Z -> statesEQ(s._cube));
   //addBlockedCube (To Frame Structure)
   if (debug) {
     cerr << "addBlockCube in frame : " << s._frame << ", cube is : ";
