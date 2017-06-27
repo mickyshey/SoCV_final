@@ -333,6 +333,7 @@ TCube PDRMgr::generalize(TCube s) {
 		//assert(Z -> statesEQ(s._cube)); assert(Z -> statesEQ(t._cube));
 		//std::cout << "frame of t: " << t._frame << std::endl;
 		if( t._frame != -1 ) {
+			// if UNSAT, 'X' would be performed on s._cube, no problem !!!
 			//std::cout << "good result, keep the X ..." << std::endl;
 			//std::cout << "changing from: " << std::endl;
 			//s._cube -> show();

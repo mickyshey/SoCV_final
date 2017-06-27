@@ -186,12 +186,13 @@ class Cube {
 	//s -> showStates();
 	//std::cout << "sig: " << std::bitset<64>(s -> getSignature()) << std::endl;
 
-/*
+
 	vector<V3NetId> cubeStates = s -> getStates();
 	unsigned cubeSignature = s -> getSignature();
 	if( _states.size() > cubeStates.size() ) { return false; }//std::cout << "subsume false 1" << std::endl; return false; }
 	if( _signature & ~cubeSignature ) { return false; }//std::cout << "subsume false 2" << std::endl; return false; }
 	// check all
+/*
 	unsigned i = 0, j = 0;
 	while( i < _states.size() && j < _states.size() ) {
 		assert(!i || _states[i].id > _states[i - 1].id); assert(!j || cubeStates[j].id > cubeStates[j - 1].id);
@@ -242,7 +243,8 @@ class Cube {
 	const uint64_t& getSignature() const { return _signature; }
 	void setStates(const vector<V3NetId>& v);
 	void setUpStates(V3Ntk* ntk);
-	void pushBackStates(const V3NetId& id) { _states.push_back(id); }
+	void setUpSignature();
+	void pushBackStates(const V3NetId& id);
 	void showStates() const;
 	vector<V3NetId>		_states;
 	uint64_t					_signature;
@@ -265,7 +267,6 @@ inline void Cube::setStates(const vector<V3NetId>& v) {
 	_states = v; _signature = 0;
 	// change the signature according to states
 	// TODO
-
 	for( unsigned i = 0; i < _states.size(); ++i ) {
 		_signature |= (1ul << (_states[i].id % 64));
 	}
@@ -273,11 +274,19 @@ inline void Cube::setStates(const vector<V3NetId>& v) {
 }
 
 inline void Cube::setUpStates(V3Ntk* ntk) {
-	_states.clear();
+	_states.clear(); _signature = 0;
 	for( unsigned i = 0; i < _L; ++i ) {
 		if( _latchValues[i]._dontCare ) continue;
-		_states.push_back(V3NetId::makeNetId(ntk -> getLatch(i).id, _latchValues[i]._bit == 1));
+		const V3NetId& nId = ntk -> getLatch(i);
+		_states.push_back(V3NetId::makeNetId(nId.id, _latchValues[i]._bit == 1));
+		// update signature
+		_signature |= (1ul << (nId.id % 64));
 	}
+}
+
+inline void Cube::pushBackStates(const V3NetId& id) {
+	_states.push_back(id);
+	_signature |= (1ul << (id.id % 64));
 }
 
 class TCube
