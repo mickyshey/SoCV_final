@@ -179,14 +179,6 @@ class Cube {
 	// better approach using sigature-based algorithm
 	// TODO
   bool subsumes(Cube* s) const {
-	//std::cout << "checking subsumes: " << std::endl;
-	//std::cout << "this: " << std::endl;
-	//showStates();
-	//std::cout << "sig: " << std::bitset<64>(_signature) << std::endl;
-	//std::cout << "cube: " << std::endl;
-	//s -> showStates();
-	//std::cout << "sig: " << std::bitset<64>(s -> getSignature()) << std::endl;
-
 
 	vector<V3NetId> cubeStates = s -> getStates();
 	unsigned cubeSignature = s -> getSignature();
@@ -229,11 +221,9 @@ class Cube {
   void show() {
     // debug fuction
     for (unsigned i = _L - 1; i != 0; --i) {
-		//std::cout << _latchValues[i].ternaryValue();
       if (_latchValues[i]._dontCare) cout << "X";
       else cout << ((_latchValues[i]._bit) ? "1" : "0");
     }
-	//std::cout << _latchValues[0].ternaryValue();
     if (_latchValues[0]._dontCare) cout << "X";
     else cout << ((_latchValues[0]._bit) ? "1" : "0");
     cout << endl;

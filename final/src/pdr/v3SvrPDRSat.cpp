@@ -506,14 +506,12 @@ void V3SvrPDRSat::dfs(V3NetVec& orderedNets, bool b, Cube* s) {
 	if( b ) {
 		// no need to traverse all _latchValues, but only _states
 		// TODO
-
 		//assert(statesEQ(s));
 		const vector<V3NetId>& states = s -> getStates();
 		for( unsigned i = 0; i < states.size(); ++i ) {
     		const V3NetId& nId = _ntk -> getInputNetId(states[i], 0);
 			_ntk -> dfsOrder(nId, orderedNets);
 		}
-
 /*
   		for (unsigned i = 0, n = _L; i < n; ++i) {
 			//if( 'X' == s -> _latchValues[i].ternaryValue() ) continue;
@@ -532,22 +530,16 @@ void V3SvrPDRSat::dfs(V3NetVec& orderedNets, bool b, Cube* s) {
 void V3SvrPDRSat::v3SimOneGate(V3NetId id) {
   const V3GateType type = _ntk->getGateType(id);
   if (type == AIG_NODE) {
-	//const V3NetId& in1 = _ntk -> getInputNetId(id, 0);
-	//const V3NetId& in2 = _ntk -> getInputNetId(id, 1);
-	//_Value3List[id.id].ternaryAnd(_Value3List[in1.id], in1.cp, _Value3List[in2.id], in2.cp);
+/*
+	const V3NetId& in1 = _ntk -> getInputNetId(id, 0);
+	const V3NetId& in2 = _ntk -> getInputNetId(id, 1);
+	_Value3List[id.id].ternaryAnd(_Value3List[in1.id], in1.cp, _Value3List[in2.id], in2.cp);
+*/
     Value3 in1 = _Value3List[(_ntk->getInputNetId(id, 0)).id];
     Value3 in2 = _Value3List[(_ntk->getInputNetId(id, 1)).id];
     if ((_ntk->getInputNetId(id, 0)).cp) in1 = ~in1;
     if ((_ntk->getInputNetId(id, 1)).cp) in2 = ~in2;
     _Value3List[id.id] = in1 & in2;
-
-	/* modified by r04943179 */
-	/*cout << "input inv: " << (_ntk -> getInputNetId(id, 0)).cp << " " << (_ntk -> getInputNetId(id, 1)).cp << endl;
-	cout << "input value: " << endl;
-	cout << in1._bit << " & " << in2._bit << endl;
-	cout << "output value: " << endl;
-	cout << _Value3List[id.id]._bit << endl;*/
-	/* end of modification */
   }
 }
 
@@ -560,7 +552,6 @@ Cube* V3SvrPDRSat::ternarySimulation(Cube* c, bool b, bool* input, Cube* s) {
 		for( unsigned i = 0; i < _L; ++i ) {
 			nId = _ntk -> getLatch(i);
 			assert(!nId.cp);
-			//assert('X' != c -> _latchValues[i].ternaryValue());
 			//_Value3List[nId.id] = c -> _latchValues[i];
 			_Value3List[nId.id]._bit = c -> _latchValues[i]._bit;
 			_Value3List[nId.id]._dontCare = 0;
@@ -584,9 +575,6 @@ Cube* V3SvrPDRSat::ternarySimulation(Cube* c, bool b, bool* input, Cube* s) {
 		V3NetVec orderedNets;
 		dfs(orderedNets, b, s);
 	
-		//std::cout << "in ternary Simulation, before generalization: " << std::endl;
-		//c -> show();
-		//c -> showStates();
 		vector<V3NetId> tmpStates;
 		tmpStates.clear();
 		// generalization
@@ -600,12 +588,10 @@ Cube* V3SvrPDRSat::ternarySimulation(Cube* c, bool b, bool* input, Cube* s) {
 			
 			// maybe you can try to get fanout cone first !?
 			for( unsigned j = 0; j < orderedNets.size(); ++j ) 			// many sim values remain unchanged
-				v3SimOneGate(orderedNets[j]);				// the new sim value is stored in _Value3List
+				v3SimOneGate(orderedNets[j]);				
 
 			if( Value3Changed(b, s) ) {
-
 				// undo the 'X' assignment
-				//cout << "something changed, undo the assignment ..." << endl;
 				//_Value3List[nId.id] = c -> _latchValues[i];
 				_Value3List[nId.id]._dontCare = 0;
 
@@ -615,17 +601,8 @@ Cube* V3SvrPDRSat::ternarySimulation(Cube* c, bool b, bool* input, Cube* s) {
 			}
 			//else c -> _latchValues[i].setX();
 			else c -> _latchValues[i]._dontCare = 1;
-			//else cout << "nothing changed, keep the assignment ..." << endl;
-			//cout << "now becomes: " << endl;
-			//c -> show();
 		}
 		c -> setStates(tmpStates);
-
-		//assert(statesEQ(c));
-		//std::cout << "in ternary Simulation, after generalization: " << std::endl;
-		//c -> show();
-		//c -> showStates();
-
 
     return c;
 }
@@ -670,16 +647,12 @@ bool V3SvrPDRSat::Value3Changed(bool b, Cube* s)
 	if(b) {
 		// no need to traverse all _L, but only for states
 		// TODO
-
-		//assert(statesEQ(s));
 		V3NetId nId;
 		const vector<V3NetId>& states = s -> getStates();
 		for( unsigned i = 0; i < states.size(); ++i ) {
 			nId = _ntk -> getInputNetId(states[i], 0);
 			if( _Value3List[nId.id]._dontCare == 1 ) return true;
-			//assert(!values[i]._dontCare);
 		}
-
 /*
 		for( unsigned i = 0; i < _L; ++i ) {
 			//if( 'X' == s -> _latchValues[i].ternaryValue() ) continue;
@@ -709,7 +682,6 @@ void V3SvrPDRSat::getSATAssignmentToCube(Cube* cube) {
 			else cube -> _latchValues[i].set0();
 		}
 */
-
     if (tv)
       cube->_latchValues[i]._bit = getValue(tv);
     cube->_latchValues[i]._dontCare = 0;
@@ -760,9 +732,6 @@ Cube* V3SvrPDRSat::getBadCube(unsigned depth) {
     }
     //TODO: uncomment the following line to evoke SAT generalization
     c = ternarySimulation(c, 0, ii, NULL);
-	//std::cout << "after ternary sim 0: " << std::endl;
-	//c -> show();
-	//c -> showStates();
     if (debug) {
       cerr << "cube after 3-sim : " << endl;
       c->show();
@@ -832,11 +801,8 @@ void V3SvrPDRSat::blockCubeInSolver(TCube s) {
 	// no need to traverse all _L
 	// TODO
 
-	// This does not increase performance as I think, saaaaaaaaaad ...
-	//assert(statesEQ(s._cube));
 	const vector<V3NetId>& states = s._cube -> getStates();
 	for( unsigned i = 0; i < states.size(); ++i ) {
-		//std::cout << states[i].id << ", cp: " << states[i].cp << std::endl;
 		l = states[i].cp ? mkLit(getVerifyData(states[i], 0), true) : mkLit(getVerifyData(states[i], 0), false);
 		lits.push(l);
 	}
@@ -874,17 +840,11 @@ Var V3SvrPDRSat::addNotSToSolver(Cube* c) {
 	// no need to traverse all _L
 	// TODO
 
-	//std::cout << "_states: " << std::endl;
-
-	//assert(statesEQ(c));
 	vector<V3NetId> states = c -> getStates();
 	for( unsigned i = 0; i < states.size(); ++i ) {
-		//std::cout << states[i].id << "[" << states[i].cp << "] " << std::endl;
-		//std::cout << "var: " << getVerifyData(states[i], 0) << std::endl;
 		l = states[i].cp ? mkLit(getVerifyData(states[i], 0), true) : mkLit(getVerifyData(states[i], 0), false);
 		lits.push(l);
 	}
-
 /*
 	//std::cout << "_latchValues: " << std::endl;
   for (unsigned i = 0; i < _L; ++i) {
@@ -922,14 +882,12 @@ void V3SvrPDRSat::addNextStateSToSolver(Cube* c, vector<Lit>& Lit_vec_origin) {
 	cerr << endl;
 */
   if (debug) cerr << "Var of s'" << endl;
-	//cerr << "cp: " << endl;
   for (unsigned i = 0; i < _L; ++i) { // s'
     V3NetId id = _ntk->getInputNetId(_ntk->getLatch(i), 0); // get input of Latch(i)
     Var tmp = getVerifyData(id, 0); // get Var of it
     assert(tmp); // make sure it's valid
     //if ( 'X' != c->_latchValues[i].ternaryValue() ) {
     if (c->_latchValues[i]._dontCare == 0) {
-		//cerr << "[" << i << "]" << id.cp << " ";
 		//bool p = (c -> _latchValues[i]._data0 ? id.cp : !id.cp);		// if value is 0, then p = id.cp, else p = ~id.cp
       bool p = (c->_latchValues[i]._bit ^ id.cp );
       _assump.push(p ? mkLit(tmp, false) : mkLit(tmp, true));
@@ -937,8 +895,6 @@ void V3SvrPDRSat::addNextStateSToSolver(Cube* c, vector<Lit>& Lit_vec_origin) {
     }
     else Lit_vec_origin.push_back(Lit(0)); // use Lit(0) to represent NULL
   }
-
-	//cerr << endl;
 
   if (debug) {
     cout << "Lit_vec_origin : ";
@@ -964,8 +920,9 @@ Cube* V3SvrPDRSat::UNSATGeneralizationWithUNSATCore(Cube* c, vector<Lit>& Lit_ve
   }
   // find which lit is in unsat core and generalize the cube
   for (unsigned i = 0; i < Lit_vec_origin.size(); ++i) {
-    for (int j = 0; j < _Solver -> conflict.size(); ++j) {
+		// change from inner loop to outer loop
       if (Lit_vec_origin[i] != Lit(0)) {
+    for (int j = 0; j < _Solver -> conflict.size(); ++j) {
         if (~(Lit_vec_origin[i]) == _Solver -> conflict[j]) {
           Lit_vec_new[i] = Lit_vec_origin[i];
           break;
@@ -979,7 +936,6 @@ Cube* V3SvrPDRSat::UNSATGeneralizationWithUNSATCore(Cube* c, vector<Lit>& Lit_ve
 
 	unsigned idx = 0;
   Cube* tmpCube = new Cube(c);
-	//assert(tmpCube -> getStates().size() == c -> getStates().size());
   for (unsigned i = 0; i < _L; ++i) {
 		assert(tmpCube -> _latchValues[i] == c -> _latchValues[i]);
     	if (Lit_vec_new[i] == Lit(0)) {
@@ -998,7 +954,6 @@ Cube* V3SvrPDRSat::UNSATGeneralizationWithUNSATCore(Cube* c, vector<Lit>& Lit_ve
 	// change the last "1"'s _dontCare back to 0
   if (isInitial(tmpCube)) {
     assert(c->_latchValues);
-	//assert('1' == c -> _latchValues[idx].ternaryValue());
 	//tmpCube -> _latchValues[idx] = c -> _latchValues[idx];
 	tmpCube -> _latchValues[idx]._dontCare = 0;
   }
@@ -1058,16 +1013,10 @@ TCube V3SvrPDRSat::solveRelative(TCube s, size_t param) {
 
   assumeRelease();
   vector<Lit> Lit_vec_origin;
-	//std::cout << "before addNextStateSToSolver: " << std::endl;
-	//s._cube -> show();
-	//s._cube -> showStates();
   addNextStateSToSolver(s._cube, Lit_vec_origin);  // s' , s._cube can be useful in ternarySimulation !!
 
   Var tmpActVar = 0;
   if (param == 1) {
-		//std::cout << "before addNotStoSolver: " << std::endl;
-		//s._cube -> show();
-		//s._cube -> showStates();
     tmpActVar = addNotSToSolver(s._cube);  // !s
 	}
 
@@ -1103,13 +1052,8 @@ TCube V3SvrPDRSat::solveRelative(TCube s, size_t param) {
         cerr << "cube before 3-sim:" << endl;
         tmpCube->show();
       }
-		//std::cout << "in solveRelative, before 3-sim: " << std::endl;
-		//tmpCube -> show();
       //TODO: uncomment the following line to evoke SAT generalization
       tmpCube = ternarySimulation(tmpCube,1,ii, s._cube);
-		//std::cout << "in solveRelative, after ternary sim 1: " << std::endl;
-		//tmpCube -> show();
-		//tmpCube -> showStates();
       if (debug) {
         cerr << "returned cube after 3-sim:";
         tmpCube->show();
@@ -1120,12 +1064,7 @@ TCube V3SvrPDRSat::solveRelative(TCube s, size_t param) {
     }
   } else { //UNSAT
     if (param == 1) _Solver->addUnit(mkLit(tmpActVar, true)); // make this tmp actVar invalid forever
-    // Cube* tmpCube = s._cube;
     Cube* tmpCube = UNSATGeneralizationWithUNSATCore(s._cube,Lit_vec_origin);
-	//if( statesEQ(s._cube) ) assert(statesEQ(tmpCube));
-	//std::cout << "in solveRelative, after UNSATGen: " << std::endl;
-	//tmpCube -> show();
-	//tmpCube -> showStates();
     // find the lowest act used
     for (unsigned i = k; i < _actVars.size(); ++i) {
       for (int j = 0; j < _Solver -> conflict.size(); ++j) {

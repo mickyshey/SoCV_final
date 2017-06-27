@@ -117,11 +117,6 @@ bool PDRMgr::PDR(const V3NetId& monitor, SatProofRes& pRes) {
   while (true) {
     // find bad cube, check SAT? (!P & R_k)
     Cube* cube = Z->getBadCube(depth);
-	if( cube -> _latchValues != NULL ) {
-	//std::cout << "after getBadCube: " << std::endl;
-	//cube -> show();
-	//cube -> showStates();
-	}
     if (debug) {
       if (cube->_latchValues) { 
         cerr<<"bad cube in frame:" << depth << endl;
@@ -168,9 +163,6 @@ bool PDRMgr::PDR(const V3NetId& monitor, SatProofRes& pRes) {
 }
 
 bool PDRMgr::recursiveBlockCube(TCube s0){
-	//std::cout << "in recursiveBlockCube: " << std::endl;
-	//s0._cube -> show();
-	//s0._cube -> showStates();
   if (debug) cerr << "recursiveBlockCube" << endl;
   priority_queue<TCube, vector<TCube>, TCubeCmp> Q;
   Q.push(s0);
@@ -181,9 +173,6 @@ bool PDRMgr::recursiveBlockCube(TCube s0){
   while (!Q.empty()) {
     TCube s = Q.top();
     Q.pop();
-	//std::cout << "pop from queue: " << std::endl;
-	//s._cube -> show();
-	//s._cube -> showStates();
     if (debug) {
       cerr << "poped : " << s._cube << ", ";
       s._cube->show();
@@ -192,30 +181,12 @@ bool PDRMgr::recursiveBlockCube(TCube s0){
     if (s._frame == 0) return false;
     // block s
     if (!isBlocked(s)) {
-		//std::cout << "before assert !isInitial: " << std::endl;
-		//s._cube -> show();
-		//assert(Z -> statesEQ(s._cube));
       assert(!(Z->isInitial(s._cube)));
-		//std::cout << "in recursiveBlockCube, before solveRelative 183: " << std::endl;
-		//s._cube -> show();
-		//s._cube -> showStates();
       TCube z = Z->solveRelative(s, 1);
-		//if( Z -> statesEQ(s._cube) ) assert(Z -> statesEQ(z._cube));
-		//std::cout << "in recursiveBlockCube, after solveRelative 183: " << std::endl;
-		//z._cube -> show();
-		//z._cube -> showStates();
-		//std::cout << "frame: " << z._frame << std::endl;
 
       if (z._frame != -1) {
         // UNSAT, s is blocked
-			//std::cout << "before going into generalize: " << std::endl;
-			//z._cube -> show();
-			//z._cube -> showStates();
         z = generalize(z);  // UNSAT generalization
-		//assert(Z -> statesEQ(z._cube));
-			//std::cout << "in recursiveBlockCube, after generalize: " << std::endl;
-			//z._cube -> show();
-			//z._cube -> showStates();
         if (debug) {
           cerr << "cube after generalized :";
           z._cube->show();
@@ -225,10 +196,6 @@ bool PDRMgr::recursiveBlockCube(TCube s0){
         while (z._frame < (int)(depth - 1)) {
           // condAssign
           TCube t = Z->solveRelative(next(z), 1);
-			//assert(Z -> statesEQ(t._cube));
-			//std::cout << "in recursiveBlockCube, after solveRelative 202: " << std::endl;
-			//t._cube -> show();
-			//t._cube -> showStates();
           if (t._frame != -1) z = t;
           else break;
         }
@@ -245,12 +212,6 @@ bool PDRMgr::recursiveBlockCube(TCube s0){
         // SAT, s is not blocked
         // TODO: to generate counterexample trace for unsafe property,
         //       you need to record the SAT pattern here
-			//std::cout << "push z to queue: " << std::endl;
-			//z._cube -> show();
-			//z._cube -> showStates();
-			//std::cout << "push s to queue: " << std::endl;
-			//s._cube -> show();
-			//s._cube -> showStates();
         z._frame = s._frame - 1;
         Q.push(z);
         if (debug) {
@@ -278,7 +239,6 @@ bool PDRMgr::isBlocked(TCube s) {
   // check if a cube is already blocked in solver
   // first check if it is subsumes by that frame
   // then check by solver (more time-consuming)
-	//assert(Z -> statesEQ(s._cube));
   for (unsigned d = s._frame; d < F->size(); ++d) {
     for (unsigned i = 0; i < (*F)[d]->size(); ++i) {
 		// better way to check subsume, check V3 Qsignature
@@ -296,86 +256,45 @@ bool PDRMgr::isBlocked(TCube s) {
 }
 
 TCube PDRMgr::generalize(TCube s) {
-	//std::cout << "in generalize: " << std::endl;
-	//s._cube -> show();
-	//s._cube -> showStates();
   // UNSAT generalization
   if (debug) cerr << "UNSAT generalization" << endl;
 	// no need to traverse all _L, but only states
 	// TODO
-	//assert(Z -> statesEQ(s._cube));
 
 	//vector<V3NetId> states = s._cube -> getStates();
 	//for( unsigned i = 0; i < states.size(); ++i ) {
 	for( unsigned i = 0; i < L; ++i ) {
 		//vector<V3NetId> currStates = s._cube -> getStates();
-		//s._cube -> show();
-		//s._cube -> showStates();
-		//unsigned idx = states[i].id - _ntk -> getLatch(0).id;
 		//if( 'X' == s._cube -> _latchValues[i].ternaryValue() ) continue;
 		if( s._cube -> _latchValues[i]._dontCare == 1 ) continue;
 		//if( s._cube -> _latchValues[idx]._dontCare ) continue;
 		
-		//std::cout << "checking idx: " << idx << std::endl;
-
 		//Value3 record = s._cube -> _latchValues[i];
 		//s._cube -> _latchValues[i].setX();
 		s._cube -> _latchValues[i]._dontCare = 1;
 		//s._cube -> _latchValues[idx]._dontCare = 1;
-		//std::cout << "after assign X at idx: ";
-		//s._cube -> show();
 		//if( (Z -> isInitial(s._cube)) ) { s._cube -> _latchValues[i] = record; continue; }
 		if( (Z -> isInitial(s._cube)) ) { s._cube -> _latchValues[i]._dontCare = 0; continue; }
 		//if( (Z -> isInitial(s._cube)) ) { s._cube -> _latchValues[idx]._dontCare = 0; continue; }
-/*
-		for( unsigned j = 0; j < currStates.size(); ++j ) {
-			if( currStates[j].id == states[i].id ) {
-				currStates[j] = currStates.back(); currStates.pop_back();
-				break;
-			}
-		}
-*/
-		//s._cube -> setStates(currStates);
-		//std::cout << "going into solveRelative, idx: " << idx << std::endl;
+
 		s._cube -> setUpStates(_ntk);
 		TCube t = Z -> solveRelative(TCube(s._cube, s._frame), 1);
-		//assert(Z -> statesEQ(s._cube)); assert(Z -> statesEQ(t._cube));
-		//std::cout << "frame of t: " << t._frame << std::endl;
 		if( t._frame != -1 ) {
 			// if UNSAT, 'X' would be performed on s._cube, no problem !!!
-			//std::cout << "good result, keep the X ..." << std::endl;
-			//std::cout << "changing from: " << std::endl;
-			//s._cube -> show();
-			//s._cube -> showStates();
 			s = t;
-			//std::cout << "to : " << std::endl;
-			//s._cube -> show();
-			//s._cube -> showStates();
 		}
 		// recover 
 		else {
-			//std::cout << "bad result, recover ..." << std::endl;
 			//s._cube -> _latchValues[i] = record;
 			s._cube -> _latchValues[i]._dontCare = 0;
 			//s._cube -> _latchValues[idx]._dontCare = 0;
 			s._cube -> pushBackStates(V3NetId::makeNetId(_ntk -> getLatch(i).id, s._cube -> _latchValues[i]._bit == 1));
-			//assert(Z -> statesEQ(s._cube));
-			//currStates.push_back(V3NetId::makeNetId(states[i].id, s._cube -> _latchValues[idx]._bit == 1));
-			//s._cube -> setStates(currStates);
-			//s._cube -> setStates(oriStates);
-			//std::cout << "after recover: " << std::endl;
-			//s._cube -> show();
-			//s._cube -> showStates();
 		}
 	}
 	//states = s._cube -> getStates();
 	//std::sort(states.begin(), states.end(), NetIdCmp());
 	//s._cube -> setStates(states);
 
-
-	//std::cout << "before generalize: " << std::endl;
-	//s._cube -> show();
-	//s._cube -> showStates();
 /*
   for (unsigned i = 0; i < L; ++i) {
     Cube* tc = new Cube(s._cube);
