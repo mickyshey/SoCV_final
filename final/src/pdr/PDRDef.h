@@ -24,12 +24,16 @@ class Value3 {
   // Otherwise it's decided by _bit
  public:
   //Value3() : _data0(0), _data1(0) {}
-  Value3() : _bit(0), _dontCare(1) {}
+  //Value3() : _bit(0), _dontCare(1) {}
+  Value3() : _bit(0), _dontCare(1), _data0(0), _data1(0) {}
   //Value3(bool d0, bool d1): _data0(d0), _data1(d1) {}
-  Value3(bool b, bool d): _bit(b), _dontCare(d) {}
+  //Value3(bool b, bool d): _bit(b), _dontCare(d) {}
+  Value3(bool b, bool d): _bit(b), _dontCare(d) { if( d ) setX();
+																	else if( b ) set1();
+																	else set0(); }
   Value3(const Value3& a) {
-	//_data0 = a._data0;
-	//_data1 = a._data1;
+	_data0 = a._data0;
+	_data1 = a._data1;
     _bit = a._bit;
     _dontCare = a._dontCare;
   }
@@ -37,9 +41,9 @@ class Value3 {
 	//std::cout << "&" << std::endl;
 	//return Value3(0 ,0);
 
-    if ((_bit == 0 && _dontCare == 0) || a == Value3(0, 0)) return Value3(0, 0);
-    else if (a._dontCare || _dontCare) return Value3(0, 1);
-    else return Value3(1, 0);
+    if ((_bit == 0 && _dontCare == 0) || a == Value3(0, 0)) return Value3(0, 0);//{ std::cout << '0' << std::endl; return Value3(0, 0); }
+    else if (a._dontCare || _dontCare) return Value3(0, 1);//{ std::cout << 'X' << std::endl; return Value3(0, 1); }
+    else return Value3(1, 0);//{ std::cout << '1' << std::endl; return Value3(1, 0); }
 
   }
   Value3 operator & (bool a) const {
@@ -75,6 +79,14 @@ class Value3 {
     if (_dontCare) return Value3(0, 1);
     else return Value3(!_bit, 0);
   }
+	// modified by r04943179
+	Value3 operator = (const Value3& a) {
+		_bit = a._bit;
+		_dontCare = a._dontCare;
+		_data0 = a._data0;
+		_data1 = a._data1;
+	}
+	// end of modification
   bool operator == (const Value3& a) const {
 	//return ternaryValue() == a.ternaryValue();
 
@@ -88,10 +100,11 @@ class Value3 {
     return !((*this) == a);
   }
 	// modified by r04943179
-/*
+
 	void set0() { _data0 = 1; _data1 = 0; }
 	void set1() { _data0 = 0; _data1 = 1; }
 	void setX() { _data0 = 0; _data1 = 0; }
+	bool isX() const { return (!_data0 && !_data1); }
 	void ternaryAnd(const Value3& v1, const bool& inv1, const Value3& v2, const bool& inv2) {
 		if( inv1 ) {
 			if( inv2 ) { _data0 = v1._data1 | v2._data1; _data1 = v1._data0 & v2._data0; }
@@ -101,14 +114,17 @@ class Value3 {
 			if( inv2 ) { _data0 = v1._data0 | v2._data1; _data1 = v1._data1 & v2._data0; }
 			else { _data0 = v1._data0 | v2._data0; _data1 = v1._data1 & v2._data1; }
 		}
+		// update _bit and _dontCare
+		if( isX() ) { _dontCare = 1; _bit = 0; }
+		else { _dontCare = 0; _bit = _data1; }
 	}
 	const char ternaryValue() const {
 		return (_data0 ? '0' : _data1 ? '1' : 'X');
 	}
-*/
+
 	// end of modification
-  //bool _data0;
-  //bool _data1;
+  bool _data0;
+  bool _data1;
   bool _bit;
   bool _dontCare;
 };
@@ -121,7 +137,7 @@ class Cube {
     for (unsigned i = 0; i < _L; ++i) {
       _latchValues[i]._bit = 0;
       _latchValues[i]._dontCare = 0;
-		//_latchValues[i].set0();
+		_latchValues[i].set0();
     }
 	// modified by r04943179
 	_states.clear();
@@ -238,6 +254,14 @@ class Cube {
     cout << endl;
   }
 
+	void showTernary() {
+		for( unsigned i = _L - 1; i != 0; --i ) {
+			std::cout << _latchValues[i].ternaryValue();
+		}
+		std::cout << _latchValues[0].ternaryValue();
+		std::cout << std::endl;
+	}
+
 	// modified by r04943179
 	const vector<V3NetId>& getStates() const { return _states; }
 	const uint64_t& getSignature() const { return _signature; }
@@ -276,7 +300,7 @@ inline void Cube::setStates(const vector<V3NetId>& v) {
 inline void Cube::setUpStates(V3Ntk* ntk) {
 	_states.clear(); _signature = 0;
 	for( unsigned i = 0; i < _L; ++i ) {
-		if( _latchValues[i]._dontCare ) continue;
+		if( _latchValues[i]._dontCare == 1 ) continue;
 		const V3NetId& nId = ntk -> getLatch(i);
 		_states.push_back(V3NetId::makeNetId(nId.id, _latchValues[i]._bit == 1));
 		// update signature

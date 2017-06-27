@@ -129,6 +129,8 @@ class V3SvrPDRSat
 		
 		// This is a debug function
 		bool statesEQ(Cube* c);
+		bool valueEQ(Cube* c);
+		bool valueEQ(const Value3& a);
 		// end of modification
 
    // making them public is unhealthy
