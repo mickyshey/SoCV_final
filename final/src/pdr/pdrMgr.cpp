@@ -313,7 +313,7 @@ TCube PDRMgr::generalize(TCube s) {
 		//s._cube -> showStates();
 		//unsigned idx = states[i].id - _ntk -> getLatch(0).id;
 		//if( 'X' == s._cube -> _latchValues[i].ternaryValue() ) continue;
-		if( s._cube -> _latchValues[i]._dontCare ) continue;
+		if( s._cube -> _latchValues[i]._dontCare == 1 ) continue;
 		//if( s._cube -> _latchValues[idx]._dontCare ) continue;
 		
 		//std::cout << "checking idx: " << idx << std::endl;

@@ -676,7 +676,7 @@ bool V3SvrPDRSat::Value3Changed(bool b, Cube* s)
 		const vector<V3NetId>& states = s -> getStates();
 		for( unsigned i = 0; i < states.size(); ++i ) {
 			nId = _ntk -> getInputNetId(states[i], 0);
-			if( _Value3List[nId.id]._dontCare ) return true;
+			if( _Value3List[nId.id]._dontCare == 1 ) return true;
 			//assert(!values[i]._dontCare);
 		}
 
@@ -694,7 +694,7 @@ bool V3SvrPDRSat::Value3Changed(bool b, Cube* s)
 	else {
 		// we should get a specific value to compare with the SAT assignment
 		//if( 'X' == _Value3List[_monitor.id].ternaryValue() ) return true;
-		if( _Value3List[_monitor.id]._dontCare ) return true;
+		if( _Value3List[_monitor.id]._dontCare == 1 ) return true;
 	}
 	return false;
 }
@@ -1158,7 +1158,7 @@ TCube V3SvrPDRSat::solveRelative(TCube s, size_t param) {
 bool V3SvrPDRSat::statesEQ(Cube* c) 
 {
 	for( unsigned i = 0; i < _L; ++i ) {
-		if( c -> _latchValues[i]._dontCare ) continue;
+		if( c -> _latchValues[i]._dontCare == 1 ) continue;
 		bool found = false;
 		const vector<V3NetId>& states = c -> getStates();
 		for(unsigned j = 0; j < states.size(); ++j ) {
