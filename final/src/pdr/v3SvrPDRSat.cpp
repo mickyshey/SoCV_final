@@ -1131,9 +1131,11 @@ void V3SvrPDRSat::reportCex() {
 	for( unsigned i = 0; i < size; ++i ) {
 		unsigned idx = size - i - 1;
 		std::cout << "[" << i << "]: ";
-		for( unsigned j = 0; j < _I; ++j ) {
+		for( unsigned j = _I - 1; j != 0; --j ) {
+		//for( unsigned j = 0; j < _I; ++j ) {
 			std::cout << _Cex[idx][j];
 		}
+		std::cout << _Cex[idx][0];
 		std::cout << std::endl;
 	}
 }
