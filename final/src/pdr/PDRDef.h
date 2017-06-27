@@ -92,6 +92,7 @@ class Value3 {
 	void set0() { _data0 = 1; _data1 = 0; }
 	void set1() { _data0 = 0; _data1 = 1; }
 	void setX() { _data0 = 0; _data1 = 0; }
+	bool isX()	{ return (!_data0 && !_data1); }
 	void ternaryAnd(const Value3& v1, const bool& inv1, const Value3& v2, const bool& inv2) {
 		if( inv1 ) {
 			if( inv2 ) { _data0 = v1._data1 | v2._data1; _data1 = v1._data0 & v2._data0; }
