@@ -122,6 +122,10 @@ class V3SvrPDRSat
 		bool Value3Changed(bool b, Cube* s);
 		bool Value3ChangedDuringSim(bool b, Cube* s, const vector<V3NetId>& orderedNets);
 		void dfs(V3NetVec& orderedNets, bool b, Cube* s);
+
+		void getCex();
+		void freeCex();
+		void reportCex();
 		
 		// This is a debug function
 		bool statesEQ(Cube* c);
@@ -147,6 +151,9 @@ class V3SvrPDRSat
       vector<Var>               _actVars;   // Activation Vars
       V3NetId                   _monitor;   // The Bad Output
       V3Vec<Value3>::Vec        _Value3List;// Mapping between V3NetId and Value3, used for simulation
+		// modified by r04943179
+		vector<bool*>				_Cex;
+		// end of modification
 };
 
 #endif

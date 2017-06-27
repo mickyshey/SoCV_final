@@ -767,7 +767,10 @@ Cube* V3SvrPDRSat::getBadCube(unsigned depth) {
       cerr << "cube after 3-sim : " << endl;
       c->show();
     }
-    delete[] ii;
+	// modified by r04943179
+	_Cex.push_back(ii);
+    //delete[] ii;
+	// end of modification
     return c;
   } else {
     if (debug) cerr << "result : UNSAT" << endl;
@@ -1166,4 +1169,33 @@ bool V3SvrPDRSat::statesEQ(Cube* c)
 	return true;
 }
 
+
+void V3SvrPDRSat::getCex() {
+	bool* inputs = new bool[_I];
+	for( unsigned i = 0; i < _I; ++i ) {
+		Var tv = getVerifyData(_ntk->getInput(i), 0);
+		assert(tv);
+      inputs[i] = getValue(tv);
+	}
+	_Cex.push_back(inputs);
+}
+
+void V3SvrPDRSat::freeCex() {
+	for( unsigned i = 0; i < _Cex.size(); ++i ) {
+		delete[] _Cex[i];
+	}
+	_Cex.clear();
+}
+
+void V3SvrPDRSat::reportCex() {
+	unsigned size = _Cex.size();
+	for( unsigned i = 0; i < size; ++i ) {
+		unsigned idx = size - i - 1;
+		std::cout << "[" << i << "]: ";
+		for( unsigned j = 0; j < _I; ++j ) {
+			std::cout << _Cex[idx][j];
+		}
+		std::cout << std::endl;
+	}
+}
 #endif

@@ -143,6 +143,9 @@ bool PDRMgr::PDR(const V3NetId& monitor, SatProofRes& pRes) {
             cerr << "Frame "<< i << " : " << (*F)[i]->size() << endl;
           cerr << "Frame INF :" << (*F)[F->size()-1]->size() << endl;
         }
+			// modified by r04943179
+			Z -> reportCex();
+			// end of modification
         return true;
       }
     } else {
@@ -259,9 +262,15 @@ bool PDRMgr::recursiveBlockCube(TCube s0){
           cerr << "pushed : " << s._cube << ", ";
           s._cube->show();
         }
+			// modified by r04943179
+			Z -> getCex();
+			// end of modification
       }
     }
   }
+	// modified by r04943179
+	Z -> freeCex();
+	// end of modification
   return true;
 }
 
