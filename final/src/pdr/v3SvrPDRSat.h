@@ -122,11 +122,17 @@ class V3SvrPDRSat
       Cube* ternarySimulation(Cube* c, bool b, bool* input, Cube* s);
 		bool Value3Changed(bool b, Cube* s);
 		bool Value3ChangedDuringSim(bool b, Cube* s, const vector<V3NetId>& orderedNets);
-		void dfs(V3NetVec& orderedNets, bool b, Cube* s);
+		void dfs(V3NetVec& orderedNets, Cube* s);
 
 		void getCex(Cube* s, Cube* z);
 		void freeCex();
 		void reportCex(Cube* s);
+
+		void setDFSMonitor() { _dfsMonitor.clear();
+										_dfsMonitor.reserve(_ntk -> getNetSize());
+										_ntk -> newMiscData();
+										_ntk -> dfsOrder(_monitor, _dfsMonitor); }
+		const V3NetVec& getDFSMonitor() { return _dfsMonitor; }
 		
 		// This is a debug function
 		bool statesEQ(Cube* c);
@@ -153,6 +159,7 @@ class V3SvrPDRSat
       V3NetId                   _monitor;   // The Bad Output
       V3Vec<Value3>::Vec        _Value3List;// Mapping between V3NetId and Value3, used for simulation
 		// modified by r04943179
+		V3NetVec							_dfsMonitor;
 		typedef pair<Cube* , bool* > Cube_inputs;
 		map<Cube*, Cube_inputs >				_Cex;
 		//vector<bool*>				_Cex;

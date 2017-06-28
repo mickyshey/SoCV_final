@@ -468,6 +468,9 @@ void V3SvrPDRSat::setFrame(vector<vector<Cube*>*>* f) {
 
 void V3SvrPDRSat::setMonitor(const V3NetId& m) {
   _monitor = m;
+	// modified by r04943179
+	setDFSMonitor();
+	// end of modification
 }
 
 void V3SvrPDRSat::addInitiateState() {
@@ -497,13 +500,13 @@ void V3SvrPDRSat::dfs(V3NetVec& orderedNets) {
   }
 }
 
-void V3SvrPDRSat::dfs(V3NetVec& orderedNets, bool b, Cube* s) {
+void V3SvrPDRSat::dfs(V3NetVec& orderedNets, Cube* s) {
   orderedNets.clear();
 	orderedNets.reserve(_ntk -> getNetSize());
   _ntk->newMiscData();
 	// dfs from all next states
 	// No !!! dfs from all non-DC next states
-	if( b ) {
+	//if( b ) {
 		// no need to traverse all _latchValues, but only _states
 		// TODO
 		//assert(statesEQ(s));
@@ -520,11 +523,13 @@ void V3SvrPDRSat::dfs(V3NetVec& orderedNets, bool b, Cube* s) {
     		_ntk->dfsOrder(_ntk -> getInputNetId(_ntk -> getLatch(i), 0),orderedNets);
   		}
 */
-	}
+	//}
 	// dfs from monitor
+/*
 	else {
 		_ntk -> dfsOrder(_monitor, orderedNets);
   }
+*/
 }
 
 void V3SvrPDRSat::v3SimOneGate(V3NetId id) {
@@ -573,7 +578,9 @@ Cube* V3SvrPDRSat::ternarySimulation(Cube* c, bool b, bool* input, Cube* s) {
 
 		// get the COI
 		V3NetVec orderedNets;
-		dfs(orderedNets, b, s);
+		if( b ) dfs(orderedNets, s);
+		else orderedNets = getDFSMonitor();
+		//dfs(orderedNets, b, s);
 	
 		vector<V3NetId> tmpStates;
 		tmpStates.clear();
@@ -1164,4 +1171,5 @@ void V3SvrPDRSat::reportCex(Cube* s) {
 		idx = ((*it).second).first;
 	}
 }
+
 #endif
