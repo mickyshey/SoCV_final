@@ -1,4 +1,4 @@
-read aig oski3ub2i.aig
+read aig 6s380b129.aig
 satv pdr -o 0
 usage
 q -f

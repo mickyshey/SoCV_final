@@ -278,7 +278,8 @@ TCube PDRMgr::generalize(TCube s) {
 		if( (Z -> isInitial(s._cube)) ) { s._cube -> _latchValues[i]._dontCare = 0; continue; }
 		//if( (Z -> isInitial(s._cube)) ) { s._cube -> _latchValues[idx]._dontCare = 0; continue; }
 
-		s._cube -> setUpStates(_ntk);
+		s._cube -> deleteStates(_ntk -> getLatch(i));
+		//s._cube -> setUpStates(_ntk);
 		TCube t = Z -> solveRelative(TCube(s._cube, s._frame), 1);
 		if( t._frame != -1 ) {
 			// if UNSAT, 'X' would be performed on s._cube, no problem !!!

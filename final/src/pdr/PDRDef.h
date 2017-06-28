@@ -239,6 +239,7 @@ class Cube {
 	void setUpStates(V3Ntk* ntk);
 	void setUpSignature();
 	void pushBackStates(const V3NetId& id);
+	void deleteStates(const V3NetId& id);
 	void showStates() const;
 	vector<V3NetId>		_states;
 	uint64_t					_signature;
@@ -281,6 +282,22 @@ inline void Cube::setUpStates(V3Ntk* ntk) {
 inline void Cube::pushBackStates(const V3NetId& id) {
 	_states.push_back(id);
 	_signature |= (1ul << (id.id % 64));
+}
+
+inline void Cube::deleteStates(const V3NetId& id) {
+	_signature = 0;
+	//_signature &= (0ul << (id.id % 64));
+	for( unsigned i = 0; i < _states.size(); ) {
+		if( _states[i].id == id.id ) {
+			_states[i] = _states.back();
+			_states.pop_back();
+		}
+		else {
+			_signature |= (1ul << (_states[i].id) % 64);
+			++i;
+		}
+	}
+	//assert(0);
 }
 
 class TCube
