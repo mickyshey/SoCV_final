@@ -1135,7 +1135,7 @@ void V3SvrPDRSat::freeCex() {
 	}
 	_Cex.clear();
 */
-	unordered_map<Cube*, Cube_inputs>::iterator it;
+	map<Cube*, Cube_inputs>::iterator it;
 	for( it = _Cex.begin(); it!= _Cex.end(); ++it ) {
 			delete[] ((*it).second).second;
 	}
@@ -1157,7 +1157,7 @@ void V3SvrPDRSat::reportCex(Cube* s) {
 	}
 */
 	unsigned count = 0;
-	unordered_map<Cube*, Cube_inputs>::iterator it;
+	map<Cube*, Cube_inputs>::iterator it;
 	Cube* idx = s;
 	while( 1 ) {
 		it = _Cex.find(idx);

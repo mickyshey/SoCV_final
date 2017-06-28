@@ -12,7 +12,7 @@
 #define V3_SVR_MSAT_H
 
 #include <iostream>
-#include <unordered_map>
+#include <map>
 #include "SolverV.h"
 #include "PDRDef.h"
 #include "reader.h"
@@ -161,7 +161,7 @@ class V3SvrPDRSat
 		// modified by r04943179
 		V3NetVec							_dfsMonitor;
 		typedef pair<Cube* , bool* > Cube_inputs;
-		unordered_map<Cube*, Cube_inputs >				_Cex;
+		map<Cube*, Cube_inputs >				_Cex;
 		//vector<bool*>				_Cex;
 		// end of modification
 };

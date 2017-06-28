@@ -282,6 +282,7 @@ TCube PDRMgr::generalize(TCube s) {
 		TCube t = Z -> solveRelative(TCube(s._cube, s._frame), 1);
 		if( t._frame != -1 ) {
 			// if UNSAT, 'X' would be performed on s._cube, no problem !!!
+			delete s._cube;
 			s = t;
 		}
 		// recover 
