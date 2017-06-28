@@ -1,4 +1,4 @@
-read aig tests/hwmcc/6s215rb0.aig
+read aig tests/hwmcc/6s318r.aig
 satv pdr -o 0
 usage
 q -f

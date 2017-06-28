@@ -138,9 +138,6 @@ bool PDRMgr::PDR(const V3NetId& monitor, SatProofRes& pRes) {
             cerr << "Frame "<< i << " : " << (*F)[i]->size() << endl;
           cerr << "Frame INF :" << (*F)[F->size()-1]->size() << endl;
         }
-			// modified by r04943179
-			Z -> reportCex();
-			// end of modification
         return true;
       }
     } else {
@@ -178,7 +175,12 @@ bool PDRMgr::recursiveBlockCube(TCube s0){
       s._cube->show();
     }
     // reach R0, counter example found
-    if (s._frame == 0) return false;
+    if (s._frame == 0) {
+			// modified by r04943179
+			Z -> reportCex(s._cube);
+			// end of modification
+			return false;
+	}
     // block s
     if (!isBlocked(s)) {
       assert(!(Z->isInitial(s._cube)));
@@ -224,7 +226,7 @@ bool PDRMgr::recursiveBlockCube(TCube s0){
           s._cube->show();
         }
 			// modified by r04943179
-			Z -> getCex();
+			Z -> getCex(s._cube, z._cube);
 			// end of modification
       }
     }
@@ -264,7 +266,6 @@ TCube PDRMgr::generalize(TCube s) {
 	//vector<V3NetId> states = s._cube -> getStates();
 	//for( unsigned i = 0; i < states.size(); ++i ) {
 	for( unsigned i = 0; i < L; ++i ) {
-		//vector<V3NetId> currStates = s._cube -> getStates();
 		//if( 'X' == s._cube -> _latchValues[i].ternaryValue() ) continue;
 		if( s._cube -> _latchValues[i]._dontCare == 1 ) continue;
 		//if( s._cube -> _latchValues[idx]._dontCare ) continue;
@@ -399,9 +400,6 @@ void PDRMgr::addBlockedCube(TCube s) {
     }
   }
   (*F)[k]->push_back(s._cube);
-	//std::cout << "before blockCubeInSolver: " << std::endl;
-	//s._cube -> show();
-	//s._cube -> showStates();
   Z->blockCubeInSolver(s);
 }
 

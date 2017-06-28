@@ -119,11 +119,13 @@ class Cube {
   Cube(){
     // cube is all zeros for default constructor
     _latchValues = new Value3[_L];
+/*
     for (unsigned i = 0; i < _L; ++i) {
       _latchValues[i]._bit = 0;
       _latchValues[i]._dontCare = 0;
 		//_latchValues[i].set0();
     }
+*/
 	// modified by r04943179
 	_states.clear();
 	_signature = 0;
@@ -153,6 +155,7 @@ class Cube {
     } else {
       _latchValues = NULL;
     }
+
 	// modified by r04943179
 	setStates(c -> getStates());
 	// end of modification

@@ -737,7 +737,8 @@ Cube* V3SvrPDRSat::getBadCube(unsigned depth) {
       c->show();
     }
 	// modified by r04943179
-	_Cex.push_back(ii);
+	//_Cex.push_back(ii);
+	_Cex.insert({c, {NULL, ii}});
     //delete[] ii;
 	// end of modification
     return c;
@@ -1109,24 +1110,33 @@ bool V3SvrPDRSat::statesEQ(Cube* c)
 }
 
 
-void V3SvrPDRSat::getCex() {
+void V3SvrPDRSat::getCex(Cube* s, Cube* z) {
 	bool* inputs = new bool[_I];
 	for( unsigned i = 0; i < _I; ++i ) {
 		Var tv = getVerifyData(_ntk->getInput(i), 0);
 		assert(tv);
       inputs[i] = getValue(tv);
 	}
-	_Cex.push_back(inputs);
+	//_Cex.push_back(inputs);
+	_Cex.insert({z, {s, inputs}});
 }
 
 void V3SvrPDRSat::freeCex() {
+/*
 	for( unsigned i = 0; i < _Cex.size(); ++i ) {
 		delete[] _Cex[i];
 	}
 	_Cex.clear();
+*/
+	map<Cube*, Cube_inputs>::iterator it;
+	for( it = _Cex.begin(); it!= _Cex.end(); ++it ) {
+			delete[] ((*it).second).second;
+	}
+	_Cex.clear();
 }
 
-void V3SvrPDRSat::reportCex() {
+void V3SvrPDRSat::reportCex(Cube* s) {
+/*
 	unsigned size = _Cex.size();
 	for( unsigned i = 0; i < size; ++i ) {
 		unsigned idx = size - i - 1;
@@ -1137,6 +1147,21 @@ void V3SvrPDRSat::reportCex() {
 		}
 		std::cout << _Cex[idx][0];
 		std::cout << std::endl;
+	}
+*/
+	unsigned count = 0;
+	map<Cube*, Cube_inputs>::iterator it;
+	Cube* idx = s;
+	while( 1 ) {
+		it = _Cex.find(idx);
+		if( it == _Cex.end() ) break;
+		bool* inputs = ((*it).second).second;
+		std::cout << count << ": ";
+		for( unsigned i = _I - 1; i != 0; --i ) std::cout << inputs[i];
+		std::cout << inputs[0];
+		std::cout << std::endl;
+		++count;
+		idx = ((*it).second).first;
 	}
 }
 #endif

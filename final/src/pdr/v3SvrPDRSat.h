@@ -12,6 +12,7 @@
 #define V3_SVR_MSAT_H
 
 #include <iostream>
+#include <map>
 #include "SolverV.h"
 #include "PDRDef.h"
 #include "reader.h"
@@ -123,9 +124,9 @@ class V3SvrPDRSat
 		bool Value3ChangedDuringSim(bool b, Cube* s, const vector<V3NetId>& orderedNets);
 		void dfs(V3NetVec& orderedNets, bool b, Cube* s);
 
-		void getCex();
+		void getCex(Cube* s, Cube* z);
 		void freeCex();
-		void reportCex();
+		void reportCex(Cube* s);
 		
 		// This is a debug function
 		bool statesEQ(Cube* c);
@@ -152,7 +153,9 @@ class V3SvrPDRSat
       V3NetId                   _monitor;   // The Bad Output
       V3Vec<Value3>::Vec        _Value3List;// Mapping between V3NetId and Value3, used for simulation
 		// modified by r04943179
-		vector<bool*>				_Cex;
+		typedef pair<Cube* , bool* > Cube_inputs;
+		map<Cube*, Cube_inputs >				_Cex;
+		//vector<bool*>				_Cex;
 		// end of modification
 };
 
